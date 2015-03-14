@@ -13,6 +13,7 @@ app.set('views', __dirname + '/views')
 app.get('/', routes.index)
 app.get('/callback', routes.callback)
 app.get('/:id', routes.show)
+app.get('/:id/:filename', routes.showFile)
 
 var server = app.listen(3000, function () {
     var host = server.address().address

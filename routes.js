@@ -1,22 +1,11 @@
 var request = require('request')
 var config = require('./config')
-var gists = function( at, cb ){
-  request({
-    uri: 'https://api.github.com/gists?access_token=' + at,
-    method: 'GET',
-    headers: {
-      'User-Agent': 'gist-pro'
-    }
-  }, function(err, response, body){
-    cb(body)
-  })
-}
-
+var github = require('./github')
 
 module.exports = {
   index: function( req, res ){
     if ( req.session.accessToken ){
-      gists( req.session.accessToken, function( body ){
+      github( req.session.accessToken ).gists( function( body ){
 	res.render('index',{ gists: JSON.parse(body) }) 
       })
     } else {
@@ -38,24 +27,12 @@ module.exports = {
     })
   },
   show: function( req, res ){
-    console.log( req.session.accessToken )
-    var uri = 'https://api.github.com/gists/' + req.params.id + '?access_token=' + req.session.accessToken
-    console.log( uri )
-    request({
-      uri: uri,
-      method: 'GET',
-      headers: {
-	'User-Agent': 'gist-pro'
-      }
-    }, function(err, response, body){
-      console.log( JSON.parse(body)['id'] )
-      console.log("**********")
-      var data = {
-        gist: JSON.parse(body)
-      }
-      if( req.session.accessToken )
-        data.loggedIn = true
-      res.render('show', data)	
+    github( req.session.accessToken ).gist( req.params.id, function( body ){
+      console.log("****")
+      res.render('show', {gist: body} ) 
     })
+  },
+  showFile: function( req, res ){
+    github.gist( req.params.id )
   }
 }

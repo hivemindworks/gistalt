@@ -1,4 +1,3 @@
-{{#if loggedIn }}
   <h1>{{gist.description}}</h1>
   <a href='{{gist.html_url}}'>View on GitHub</a>
   <ul>
@@ -6,6 +5,3 @@
     <li><a href='/{{../gist.id}}/{{this.filename}}'>{{this.filename}}</a></li>
   {{/each}}
   </ul>
-{{else}}
-<a href='/'>Please Log In.</a>
-{{/if}}
