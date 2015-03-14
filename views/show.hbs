@@ -1,2 +1,11 @@
-<h1>{{gist.description}}</h1>
-<a href='{{gist.html_url}}'>View on GitHub</a>
+{{#if loggedIn }}
+  <h1>{{gist.description}}</h1>
+  <a href='{{gist.html_url}}'>View on GitHub</a>
+  <ul>
+  {{#each gist.files}}
+    <li><a href='/{{../gist.id}}/{{this.filename}}'>{{this.filename}}</a></li>
+  {{/each}}
+  </ul>
+{{else}}
+<a href='/'>Please Log In.</a>
+{{/if}}
