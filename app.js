@@ -1,6 +1,12 @@
 var express = require('express')
 var app = express()
+var cookieParser = require('cookie-parser')
+var sesh = require('express-session')
 var routes = require('./routes')
+var config = require('./config')
+
+app.use(cookieParser())
+app.use(sesh({secret: config.session_secret}))
 
 app.set('view engine', 'hbs')
 app.set('views', __dirname + '/views')
