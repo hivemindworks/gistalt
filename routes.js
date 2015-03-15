@@ -39,5 +39,20 @@ module.exports = {
       req.session.accessToken = body.access_token
       res.redirect('/')
     })
+  },
+  show: function( req, res ){
+    request({
+      uri: 'https://api.github.com/gists/' + req.params.id,
+      method: 'GET',
+      headers: {
+	'User-Agent': 'gist-pro'
+      },
+      json: {
+	access_token: req.session.accessToken
+      }
+    }, function(err, response, body){
+      console.log( body )
+      res.render('show', {gist: body})	
+    })
   }
 }
