@@ -36,13 +36,21 @@ module.exports = {
     })
   },
   showFile: function( req, res ){
-    github( req.session.accessToken ).gist( req.params.id, function( gist ){
-	res.render('showFile', { 
-	  content: gist.files[req.params.filename].content,
-	  gist: gist,
-	  filename: req.params.filename
-	}) 
-    })
+    if( req.session.accessToken ){
+      github( req.session.accessToken ).gist( req.params.id, function( gist ){
+	  res.render('showFile', { 
+	    content: gist.files[req.params.filename].content,
+	    gist: gist,
+	    filename: req.params.filename
+	  }) 
+      })
+    } else {
+      res.render('showFile', {
+        clientFetch: true,
+	id: req.params.id,
+	filename: req.params.filename
+      })
+    }
   },
   updateFile: function( req, res ){
     github( req.session.accessToken ).updateGist( req, function( gist ){
