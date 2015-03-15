@@ -4,15 +4,20 @@ First, clone the repo
     $ git clone https://github.com/jshawl/gizt
     $ cd gizt
 
-Then create a new file called config.js, like this one:
+You'll then need to register a new oAuth application: https://github.com/settings/applications/new
+Name: Gizt
+Homepage URL: http://localhost:4000
+Callback URL: http://localhost:4000/callback
+
+Then create a config.js file like the one below with your credentials
 
 ```js
 //config.js
 module.exports = {
-  session_secret: 'your secret',
+  session_secret: 'Make up a phrase. e.g. "jedi mind tricks"',
   client_id: 'your github client id',
   client_secret: 'your github client secret',
-  callback_uri: 'http://localhost:3000/callback'
+  callback_uri: 'http://localhost:4000/callback'
 }
 ```
 
