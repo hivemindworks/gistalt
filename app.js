@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(sesh({secret: config.session_secret}))
 app.use(function(req,res,next){
   res.locals.session = req.session;
+  res.locals.callback_uri = config.callback_uri
   next();
 });
 app.use(express.static(__dirname + '/public'));
