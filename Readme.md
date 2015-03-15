@@ -12,5 +12,6 @@ Create a new file called config.js, like this one:
 module.exports = {
   session_secret: 'your secret',
   client_id: 'your github client id',
-  client_secret: 'your github client secret'
+  client_secret: 'your github client secret',
+  callback_uri: 'http://localhost:3000/callback'
 }
