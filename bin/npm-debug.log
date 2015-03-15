@@ -1,0 +1,18 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.29
+4 verbose node symlink /usr/local/bin/node
+5 error Error: ENOENT, open '/Users/jesse/Sites/gist-pro/bin/package.json'
+6 error If you need help, you may report this *entire* log,
+6 error including the npm and node versions, at:
+6 error     <http://github.com/npm/npm/issues>
+7 error System Darwin 14.1.0
+8 error command "node" "/usr/local/bin/npm" "start"
+9 error cwd /Users/jesse/Sites/gist-pro/bin
+10 error node -v v0.10.29
+11 error npm -v 2.0.0-alpha-5
+12 error path /Users/jesse/Sites/gist-pro/bin/package.json
+13 error code ENOENT
+14 error errno 34
+15 verbose exit [ 34, true ]
