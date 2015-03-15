@@ -33,6 +33,23 @@ module.exports = function( accessToken ){
 	  callback( JSON.parse(data.gist) )
       })
       return this
+    },
+    updateGist: function( req, callback ){
+      var uri = baseUrl + "/" + req.body.id + '?access_token=' + accessToken
+      var data = { files: { } }
+      data.files[ req.body.filename ] = { content: req.body.content }
+      request({
+	uri: uri,
+	method: 'PATCH',
+	headers: {
+	  'User-Agent': 'gist-pro'
+	},
+	json: data
+      }, function(err, response, body){
+	if( callback )
+	  callback( body )
+      })
+      return this
     }
   }
 }

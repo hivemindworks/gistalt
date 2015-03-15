@@ -1,3 +1,13 @@
 body{
-  background:red;
+  max-width:40em;
+  margin:auto;
+  font-family: sans-serif;
+}
+
+.file{
+  display:block;
+  width:100%;
+  font:inherit;
+  padding:1em;
+  min-height:500px;
 }
