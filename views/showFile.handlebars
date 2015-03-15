@@ -1,6 +1,19 @@
+<br><br><a href='/{{gist.id}}'>&larr; Back to gist</a>
+<a href='{{gist.html_url}}'>View on GitHub</a>
 <form method="post" action="/update">
   <input type="hidden" value="{{gist.id}}" name="id">
   <input type="hidden" value="{{filename}}" name="filename">
   <textarea class='file' name="content">{{content}}</textarea>
-  <button type="submit">Update File</button>
+  {{#if clientFetch}}
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script>
+  $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
+    var content = res.files["{{filename}}"].content
+    $('textarea').html( content )
+  })
+  </script>
+  {{else}}
+    <button type="submit">Update File</button>
+  {{/if}}
 </form>
+
