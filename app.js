@@ -33,3 +33,5 @@ var server = app.listen(4000, function () {
     var port = server.address().port
     console.log('Listening at http://%s:%s', host, port)
 })
+
+module.exports = app;
