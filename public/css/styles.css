@@ -11,4 +11,8 @@ body{
   padding:1em;
   margin:2em 0;
   min-height:500px;
+  outline:none;
+  border:none;
+  background:#eee;
+  font-family: Monaco, monospace;
 }
