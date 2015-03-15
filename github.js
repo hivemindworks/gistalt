@@ -51,6 +51,20 @@ module.exports = function( accessToken ){
       })
       return this
     },
+    fork: function( req, callback ){
+      var uri = baseUrl + "/" + req.body.id + '/forks?access_token=' + accessToken
+      request({
+	uri: uri,
+	method: 'POST',
+	headers: {
+	  'User-Agent': 'gist-pro'
+	}
+      }, function(err, response, body){
+	if( callback )
+	  callback( JSON.parse( body ) )
+      })
+      return this
+    },
     userInfo: function( callback ){
       var uri = 'https://api.github.com/user?access_token=' + accessToken
       request({

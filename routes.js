@@ -61,6 +61,11 @@ module.exports = {
       })
     }
   },
+  fork: function( req, res ){
+    github( req.session.accessToken ).fork( req, function( gist ){
+      res.redirect('/' + gist.id + '/' + req.body.filename )
+    });
+  },
   updateFile: function( req, res ){
     github( req.session.accessToken ).updateGist( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )
