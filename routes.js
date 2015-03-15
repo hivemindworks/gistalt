@@ -33,9 +33,7 @@ module.exports = {
   },
   showFile: function( req, res ){
     github( req.session.accessToken ).gist( req.params.id, function( gist ){
-      //gist.file( req.params.filename, function( content ){
-	//res.render('showFile', {content: content}) 
-      //})
+	res.render('showFile', {content: gist.files[req.params.filename].content}) 
     })
   }
 }

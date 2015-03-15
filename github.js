@@ -19,7 +19,6 @@ module.exports = function( accessToken ){
     },
     gist: function( id, callback ){
       var uri = baseUrl + "/" + id + '?access_token=' + accessToken
-      var self = this
       request({
 	uri: uri,
 	method: 'GET',
@@ -27,21 +26,13 @@ module.exports = function( accessToken ){
 	  'User-Agent': 'gist-pro'
 	}
       }, function(err, response, body){
-	self.files = JSON.parse(body)["files"]
 	var data = {
 	  gist: body
 	}
-	if( accessToken )
-	  data.loggedIn = true
 	if( callback )
 	  callback( JSON.parse(data.gist) )
       })
-      self.id = id
-      return self
-    },
-    file: function( filename, callback ){
-      console.log( this.files )	  
-      callback( )
+      return this
     }
   }
 }
