@@ -47,7 +47,7 @@ module.exports = {
     } else {
       res.render('showFile', {
         clientFetch: true,
-	id: req.params.id,
+	gist: { id: req.params.id },
 	filename: req.params.filename
       })
     }

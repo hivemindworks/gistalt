@@ -1,3 +1,4 @@
+<br><br><a href='/{{gist.id}}'>&larr; Back to gist</a>
 <a href='{{gist.html_url}}'>View on GitHub</a>
 <form method="post" action="/update">
   <input type="hidden" value="{{gist.id}}" name="id">
@@ -6,7 +7,7 @@
   {{#if clientFetch}}
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
   <script>
-  $.getJSON('https://api.github.com/gists/{{id}}', function( res ){
+  $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
     var content = res.files["{{filename}}"].content
     $('textarea').html( content )
   })

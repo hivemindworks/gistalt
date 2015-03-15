@@ -9,5 +9,6 @@ body{
   width:100%;
   font:inherit;
   padding:1em;
+  margin:2em 0;
   min-height:500px;
 }
