@@ -12,6 +12,10 @@ module.exports = {
       res.render('index')	 
     }
   },
+  login: function( req, res){
+      req.session.redirect = req.get('Referrer')
+      res.redirect('https://github.com/login/oauth/authorize?redirect_uri='+config.callback_uri + '+&scope=gist&client_id='+config.client_id)
+  },
   callback: function( req, res ){
     request({
       uri: 'https://github.com/login/oauth/access_token',
@@ -23,7 +27,10 @@ module.exports = {
       }
     }, function(err, response, body){
       req.session.accessToken = body.access_token
-      res.redirect('/')
+      github( req.session.accessToken ).userInfo( function( user ){
+	req.session.currentUser = user
+        res.redirect( req.session.redirect ) 
+      })
     })
   },
   logout: function( req, res ){
@@ -41,12 +48,13 @@ module.exports = {
 	  res.render('showFile', { 
 	    content: gist.files[req.params.filename].content,
 	    gist: gist,
+	    owner: true,
 	    filename: req.params.filename
 	  }) 
       })
     } else {
       res.render('showFile', {
-        clientFetch: true,
+        owner: false,
 	gist: { id: req.params.id },
 	filename: req.params.filename
       })

@@ -23,6 +23,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', routes.index)
 app.get('/callback', routes.callback)
+app.get('/login', routes.login)
 app.get('/logout', routes.logout)
 app.get('/:id', routes.show)
 app.get('/:id/:filename', routes.showFile)

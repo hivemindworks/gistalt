@@ -50,6 +50,18 @@ module.exports = function( accessToken ){
 	  callback( body )
       })
       return this
+    },
+    userInfo: function( callback ){
+      var uri = 'https://api.github.com/user?access_token=' + accessToken
+      request({
+	uri: uri,
+        method: 'GET',
+	headers: {
+	  'User-Agent': 'gist-pro'
+	}
+      }, function( err, response, body ){
+	 callback( JSON.parse( body ) )
+      })
     }
   }
 }
