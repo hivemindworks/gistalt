@@ -1,5 +1,18 @@
 <br><br><a href='/{{gist.id}}'>&larr; Back to gist</a>
-<a href='{{gist.html_url}}'>View on GitHub</a>
+<a href='{{gist.html_url}}'>View on GitHub</a><br>
+
+<br>
+<small>{{gist.owner.login}}</small>
+
+{{#unless owner}}
+<br>
+<form method="post" action="/fork">
+  <input type="hidden" value="{{gist.id}}" name="id">
+  <input type="hidden" value="{{filename}}" name="filename">
+  <button type="submit">Fork</button>
+</form>
+{{/unless}}
+
 <form method="post" action="/update">
   <input type="hidden" value="{{gist.id}}" name="id">
   <input type="hidden" value="{{filename}}" name="filename">
@@ -14,7 +27,7 @@
       $('textarea').html( content )
     })
     </script>
-    <button type="submit">Fork and Save</button>
   {{/if}}
 </form>
+
 

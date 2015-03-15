@@ -45,10 +45,11 @@ module.exports = {
   showFile: function( req, res ){
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
+	  var owner = gist.owner.login == req.session.currentUser.login
 	  res.render('showFile', { 
 	    content: gist.files[req.params.filename].content,
+	    owner: owner,
 	    gist: gist,
-	    owner: true,
 	    filename: req.params.filename
 	  }) 
       })
@@ -59,6 +60,11 @@ module.exports = {
 	filename: req.params.filename
       })
     }
+  },
+  fork: function( req, res ){
+    github( req.session.accessToken ).fork( req, function( gist ){
+      res.redirect('/' + gist.id + '/' + req.body.filename )
+    });
   },
   updateFile: function( req, res ){
     github( req.session.accessToken ).updateGist( req, function( gist ){

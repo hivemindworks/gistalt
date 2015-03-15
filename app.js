@@ -28,6 +28,7 @@ app.get('/logout', routes.logout)
 app.get('/:id', routes.show)
 app.get('/:id/:filename', routes.showFile)
 app.post('/update', routes.updateFile)
+app.post('/fork', routes.fork)
 
 var server = app.listen(4000, function () {
     var host = server.address().address
