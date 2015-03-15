@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+  <h1><a href='/'>gizt</a></h1>
+  {{#if session.accessToken}}
+    <a href='/logout'>Logout</a>
+  {{else}}
+    <a href='https://github.com/login/oauth/authorize?redirect_uri=http://localhost:3000/callback&scope=gist&client_id=8b7a05423765a268c615' class=''>Log in with GitHub</a>
+  {{/if}}
+  {{{body}}}
+</body>
+</html>

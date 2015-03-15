@@ -26,6 +26,10 @@ module.exports = {
       res.redirect('/')
     })
   },
+  logout: function( req, res ){
+    req.session.destroy()
+    res.redirect('/')
+  },
   show: function( req, res ){
     github( req.session.accessToken ).gist( req.params.id, function( body ){
       res.render('show', {gist: body} ) 
