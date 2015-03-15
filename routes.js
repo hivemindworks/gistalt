@@ -45,10 +45,11 @@ module.exports = {
   showFile: function( req, res ){
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
+	  var owner = gist.owner.login == req.session.currentUser.login
 	  res.render('showFile', { 
 	    content: gist.files[req.params.filename].content,
+	    owner: owner,
 	    gist: gist,
-	    owner: true,
 	    filename: req.params.filename
 	  }) 
       })
