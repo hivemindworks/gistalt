@@ -28,11 +28,14 @@ module.exports = {
   },
   show: function( req, res ){
     github( req.session.accessToken ).gist( req.params.id, function( body ){
-      console.log("****")
       res.render('show', {gist: body} ) 
     })
   },
   showFile: function( req, res ){
-    github.gist( req.params.id )
+    github( req.session.accessToken ).gist( req.params.id, function( gist ){
+      //gist.file( req.params.filename, function( content ){
+	//res.render('showFile', {content: content}) 
+      //})
+    })
   }
 }
