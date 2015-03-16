@@ -3,10 +3,12 @@ var baseUrl = 'https://api.github.com/gists'
 
 module.exports = function( accessToken ){
   return {
-    gists: function( callback ){
+    gists: function( offset, callback ){
       this.accessToken = accessToken
       var uri = baseUrl + '?access_token=' + accessToken
-	console.log(uri)
+      if (offset){
+        uri += '&page='+offset
+      }
       request({
 	uri: uri,
 	method: 'GET',
@@ -14,7 +16,18 @@ module.exports = function( accessToken ){
 	  'User-Agent': 'gist-pro'
 	}
       }, function(err, response, body){
-	callback( body )
+	next = response.headers.link.match(/<(.*)>; rel="next"/);
+        if( next ){
+	  next= next[1].split('&page=')[1]
+	}
+	prev = response.headers.link.match(/<(.*)>; rel="prev"/);
+	try{
+	  prev = prev[1].split(',')[3]
+	  prev = prev.split('&page=')[1] 
+	} catch ( e ){
+	  prev = offset - 1
+	}
+	callback( body, prev, next )
       })
     },
     gist: function( id, callback ){

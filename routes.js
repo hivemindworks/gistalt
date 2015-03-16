@@ -5,8 +5,13 @@ var github = require('./github')
 module.exports = {
   index: function( req, res ){
     if ( req.session.accessToken ){
-      github( req.session.accessToken ).gists( function( body ){
-	res.render('index',{ gists: JSON.parse(body) }) 
+      var offset = req.query.p
+      github( req.session.accessToken ).gists( offset, function( body, prev, next ){
+	res.render('index',{ 
+	  gists: JSON.parse(body),
+	  prev: prev,
+	  next: next
+	}) 
       })
     } else {
       res.render('index')	 
