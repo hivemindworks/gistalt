@@ -9,7 +9,11 @@ var exphbs = require('express-handlebars');
 
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(sesh({secret: config.session_secret}))
+app.use(sesh({
+  secret: config.session_secret,
+  saveUninitialized: true,
+  resave: true
+}))
 app.use(function(req,res,next){
   res.locals.session = req.session;
   res.locals.callback_uri = config.callback_uri
