@@ -1,0 +1,92 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+};
+
+@media all and (max-width: 72em) {
+  body {
+    // font-size: 95%;
+  }
+}
+
+p {
+  font-size: 1em;       /* 16 */
+  line-height: 1.5em;   /* 24 */
+  margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  // padding-top: 1px;
+}
+
+h1 {
+  font-size: 3em;       /* 48 */
+  line-height: 1em;     /* 48 */
+  margin: 1em auto .5em;
+}
+
+h2 {
+  font-size: 2.25em;       /* 36 */
+  line-height: 1.3333em;   /* 48 */
+  // margin: .66667em;
+  margin: 1.3333em auto .66667em;
+}
+
+h3 {
+  font-size: 1.5em;     /* 24 */
+  line-height: 1em;     /* 24 */
+  margin-bottom: 1em;
+}
+
+h4, h5, h6 {
+  font-size: 1em;      /* 16 */
+  line-height: 1.5em;  /* 24 */
+  margin-bottom: 1.5em;
+}
+
+ul, ol {
+  font-size: 1em;
+	list-style-type: none;
+  line-height: 1.5em;
+  margin: 0 auto 1.5em;
+  padding-left: 3em;
+}
+
+small,
+.dablink,
+.hatnote {
+  max-width: 46em;
+  font-size: .875em;            /* 14 */
+  line-height: 1.714285714em;   /* 24 */
+  margin: 0 0 1.714285714em;
+}
+
+tr, td, th {
+  padding: 0;
+}
+
+tr th {
+  padding-top: 1.714285714em;
+}
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+}
+
+label {
+  font-weight: bold;
+}

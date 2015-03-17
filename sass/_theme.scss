@@ -1,0 +1,22 @@
+::selection {
+  background-color: #efefef;
+  color: #000;
+}
+
+
+body, input {
+  font-family: $longform;
+  color: #222;
+}
+
+h1,
+h2 {
+  font-family: $heading;
+  font-weight: normal;
+}
+
+h3,
+label {
+  font-family: $longform;
+  font-weight: bold;
+}
