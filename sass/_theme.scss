@@ -5,18 +5,18 @@
 
 
 body, input {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: $longform;
   color: #222;
 }
 
 h1,
 h2 {
-  font-family: $serif;
+  font-family: $heading;
   font-weight: normal;
 }
 
 h3,
 label {
-  font-family: $sans-serif;
+  font-family: $longform;
   font-weight: bold;
 }

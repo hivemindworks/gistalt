@@ -287,13 +287,13 @@ label {
   color: #000; }
 
 body, input {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #222; }
 
 h1, h2 {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "kepler-std", "Georgia", "Times New Roman", serif;
   font-weight: normal; }
 
 h3, label {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: bold; }
