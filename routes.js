@@ -5,12 +5,30 @@ var github = require('./github')
 module.exports = {
   index: function( req, res ){
     if ( req.session.accessToken ){
-      var offset = req.query.p
-      github( req.session.accessToken ).gists( offset, function( body, prev, next ){
+      var theBeginningOfTime = new Date(-8640000000000000).toISOString()
+      var since = req.session.since ? req.session.since : theBeginningOfTime
+      var opts = {
+	since: since,
+	offset: 0
+      }
+      github( req.session.accessToken ).gists( opts, [], function( gists ){
+	console.log( "got", gists)
+	req.session.gists = req.session.gists || []
+	for( var i = 0; i < gists.length; i++ ){
+	  var gist = gists[i]
+	  var appFriendly = false
+	  for( var file in gist.files ){
+	    if( file.match(/^gistalt-(.*)\.md/) ){
+	       appFriendly = true 
+	    }
+	  }
+          if( appFriendly ){
+	    req.session.gists.push( gist )	
+	  }
+	}
+        req.session.since = new Date().toISOString()
 	res.render('index',{ 
-	  gists: JSON.parse(body),
-	  prev: prev,
-	  next: next
+	  gists: req.session.gists
 	}) 
       })
     } else {

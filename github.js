@@ -3,11 +3,12 @@ var baseUrl = 'https://api.github.com/gists'
 
 module.exports = function( accessToken ){
   return {
-    gists: function( offset, callback ){
+    gists: function( opts, allGists, callback ){
       this.accessToken = accessToken
       var uri = baseUrl + '?access_token=' + accessToken
-      if (offset){
-        uri += '&page='+offset
+      var self = this
+      if ( opts.offset && opts.since ){
+        uri += '&page='+opts.offset + '&since=' + opts.since
       }
       request({
 	uri: uri,
@@ -17,17 +18,20 @@ module.exports = function( accessToken ){
 	}
       }, function(err, response, body){
 	next = response.headers.link.match(/<(.*)>; rel="next"/);
+	gists = JSON.parse( body )
+	for( var i = 0, len = gists.length; i < len; i++ ){
+	  allGists.push( gists[i] )
+	}
         if( next ){
 	  next= next[1].split('&page=')[1]
+	  self.gists({
+	    offset: next, 
+	    since: opts.since
+	  }, allGists, callback )
+	} else{
+	  if( callback )
+	    callback( allGists )	
 	}
-	prev = response.headers.link.match(/<(.*)>; rel="prev"/);
-	try{
-	  prev = prev[1].split(',')[3]
-	  prev = prev.split('&page=')[1] 
-	} catch ( e ){
-	  prev = offset - 1
-	}
-	callback( body, prev, next )
       })
     },
     gist: function( id, callback ){
