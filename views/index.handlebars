@@ -4,7 +4,7 @@
 <ul>
 {{#each gists}}
   {{#if this.description}}
-    <li><a href='/{{ this.id }}'>{{ this.description }}</a></li>
+    <li><a href='/{{ this.filename }}'>{{ this.description }}</a></li>
   {{else}}
     <li><a href='/{{ this.id }}'>{{ this.id }}</a></li>
   {{/if}}

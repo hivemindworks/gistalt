@@ -1,11 +1,17 @@
 var request = require('request')
-var baseUrl = 'https://api.github.com/gists'
+var baseUrl = 'https://api.github.com/users/'
 
 module.exports = function( accessToken ){
   return {
     gists: function( opts, allGists, callback ){
       this.accessToken = accessToken
-      var uri = baseUrl + '?access_token=' + accessToken
+      var uri, next
+      if( opts.user ){
+	uri =  baseUrl + opts.user +'/gists?access_token=' + accessToken
+      } else {
+	uri = baseUrl + '?access_token=' + accessToken
+      }
+      console.log( uri )
       if( opts.since )
         uri += '&since=' + opts.since
       if ( opts.offset )
@@ -37,7 +43,7 @@ module.exports = function( accessToken ){
       })
     },
     gist: function( id, callback ){
-      var uri = baseUrl + "/" + id + '?access_token=' + accessToken
+      var uri = url( req.) + "/" + id + '?access_token=' + accessToken
       request({
 	uri: uri,
 	method: 'GET',

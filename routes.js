@@ -25,7 +25,6 @@ module.exports = {
 	    }
 	  }
 	  if( appFriendly && !_.contains( req.session.gists, gist )){
-              debugger;
 	    req.session.gists.push( gist )	
 	  }
 	}
@@ -64,11 +63,15 @@ module.exports = {
     res.redirect('/')
   },
   show: function( req, res ){
-    github( req.session.accessToken ).gist( req.params.id, function( body ){
+    var opts = {
+      user: req.params.user
+    }
+    github( req.session.accessToken ).gists( opts, [], function( body ){
       res.render('show', {gist: body} ) 
     })
   },
   showFile: function( req, res ){
+    
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
 	  var owner = gist.owner.login == req.session.currentUser.login

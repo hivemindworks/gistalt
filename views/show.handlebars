@@ -2,6 +2,6 @@
   <a href='{{gist.html_url}}'>View on GitHub</a>
   <ul>
   {{#each gist.files}}
-    <li><a href='/{{../gist.id}}/{{this.filename}}'>{{this.filename}}</a></li>
+    <li><a href='/{{this.filename}}'>{{this.filename}}</a></li>
   {{/each}}
   </ul>
