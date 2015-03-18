@@ -1,6 +1,7 @@
 var request = require('request')
 var config = require('./config')
 var github = require('./github')
+var _ = require('lodash')
 
 module.exports = {
   index: function( req, res ){
@@ -9,20 +10,22 @@ module.exports = {
       var since = req.session.since ? req.session.since : theBeginningOfTime
       var opts = {
 	since: since,
-	offset: 0
+	offset: 0,
       }
       github( req.session.accessToken ).gists( opts, [], function( gists ){
-	console.log( "got", gists)
 	req.session.gists = req.session.gists || []
 	for( var i = 0; i < gists.length; i++ ){
 	  var gist = gists[i]
 	  var appFriendly = false
-	  for( var file in gist.files ){
-	    if( file.match(/^gistalt-(.*)\.md/) ){
-	       appFriendly = true 
+	  if( gist.files ){
+	    for( var file in gist.files ){
+	      if( file.match(/^gistalt-(.*)\.md/) ){
+		 appFriendly = true 
+	      }
 	    }
 	  }
-          if( appFriendly ){
+	  if( appFriendly && !_.contains( req.session.gists, gist )){
+              debugger;
 	    req.session.gists.push( gist )	
 	  }
 	}
@@ -87,11 +90,11 @@ module.exports = {
   fork: function( req, res ){
     github( req.session.accessToken ).fork( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )
-    });
+    })
   },
   updateFile: function( req, res ){
     github( req.session.accessToken ).updateGist( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )
-    });
+    })
   }
 }

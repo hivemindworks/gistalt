@@ -6,10 +6,11 @@ module.exports = function( accessToken ){
     gists: function( opts, allGists, callback ){
       this.accessToken = accessToken
       var uri = baseUrl + '?access_token=' + accessToken
+      if( opts.since )
+        uri += '&since=' + opts.since
+      if ( opts.offset )
+        uri += '&page='+opts.offset 
       var self = this
-      if ( opts.offset && opts.since ){
-        uri += '&page='+opts.offset + '&since=' + opts.since
-      }
       request({
 	uri: uri,
 	method: 'GET',
@@ -17,7 +18,8 @@ module.exports = function( accessToken ){
 	  'User-Agent': 'gist-pro'
 	}
       }, function(err, response, body){
-	next = response.headers.link.match(/<(.*)>; rel="next"/);
+	if( response.headers.link )
+	  next = response.headers.link.match(/<(.*)>; rel="next"/)
 	gists = JSON.parse( body )
 	for( var i = 0, len = gists.length; i < len; i++ ){
 	  allGists.push( gists[i] )
