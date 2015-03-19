@@ -1,7 +1,7 @@
-  <h1>{{gist.description}}</h1>
+  <h1>{{owner}}'s public gists</h1>
   <a href='{{gist.html_url}}'>View on GitHub</a>
   <ul>
-  {{#each gist.files}}
+  {{#each gists}}
     <li><a href='/{{this.filename}}'>{{this.filename}}</a></li>
   {{/each}}
   </ul>

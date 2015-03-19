@@ -1,5 +1,8 @@
 var request = require('request')
 var baseUrl = 'https://api.github.com/users/'
+var url = function url( user ){
+  var baseUrl = 'https://api.github.com/users/'
+}
 
 module.exports = function( accessToken ){
   return {
@@ -11,7 +14,6 @@ module.exports = function( accessToken ){
       } else {
 	uri = baseUrl + '?access_token=' + accessToken
       }
-      console.log( uri )
       if( opts.since )
         uri += '&since=' + opts.since
       if ( opts.offset )
@@ -43,7 +45,7 @@ module.exports = function( accessToken ){
       })
     },
     gist: function( id, callback ){
-      var uri = url( req.) + "/" + id + '?access_token=' + accessToken
+      var uri = ( req.session.user ) + "/" + id + '?access_token=' + accessToken
       request({
 	uri: uri,
 	method: 'GET',

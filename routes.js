@@ -66,12 +66,30 @@ module.exports = {
     var opts = {
       user: req.params.user
     }
-    github( req.session.accessToken ).gists( opts, [], function( body ){
-      res.render('show', {gist: body} ) 
+    github( req.session.accessToken ).gists( opts, [], function( gists ){
+      var appFriendlyGists = []
+      _.each( gists, function( gist ){
+	var appFriendly = false
+	if( gist.files ){
+	  for( var file in gist.files ){
+	    gist.filename = file
+	    if( file.match(/^gistalt-(.*)\.md/) ){
+	       appFriendly = true 
+	    }
+	  }
+	  if( appFriendly ){
+	    appFriendlyGists.push( gist )	
+	  }
+	}
+      })
+      res.render('show', { 
+	gists: appFriendlyGists,
+	owner: opts.user
+      }) 
     })
+
   },
   showFile: function( req, res ){
-    
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
 	  var owner = gist.owner.login == req.session.currentUser.login
