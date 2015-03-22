@@ -1,8 +1,6 @@
 <br><br><a href='/{{gist.id}}'>&larr; Back to gist</a>
 <a href='{{gist.html_url}}'>View on GitHub</a><br>
 
-<br>
-<small>{{gist.owner.login}}</small>
 
 {{#unless owner}}
 <br>
@@ -15,7 +13,11 @@
 
 <form method="post" action="/update">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input type="hidden" value="{{filename}}" name="filename">
+  <input class='filename' type="text" value="{{filename}}" name="filename">
+  <br>
+  <small>by {{gist.owner.login}}</small>
+  <br>
+  <br>
   <textarea class='file' name="content">{{content}}</textarea>
   {{#if owner}}
     <button type="submit">Update File</button>

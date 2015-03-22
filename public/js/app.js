@@ -1,12 +1,12 @@
 var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keydown', autosize);
 window.onload = autosize;
+textarea.addEventListener('keydown', autosize);
              
 function autosize(){
   var el = textarea;
   setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    el.style.cssText = 'padding:0';
+    el.style.cssText = 'height:' + parseInt(el.scrollHeight + 35 )+ 'px';
   },0);
 }

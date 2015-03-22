@@ -1,13 +1,17 @@
 {{#if gists}}
   <h2>Your Gists:</h2>
 {{/if}}
-<ul>
+<ul class='gists'>
 {{#each gists}}
-  {{#if this.description}}
-    <li><a href='/{{ this.id }}'>{{ this.description }}</a></li>
-  {{else}}
-    <li><a href='/{{ this.id }}'>Untitled, on {{ this.time }}</a></li>
-  {{/if}}
+  <li>
+    {{#if this.description}}
+      <a href='/{{ this.id }}' class='gist-title'>{{ this.description }}</a><br>
+    {{/if}}
+      {{#each this.files}}
+        <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
+      {{/each}}
+      <small>on {{ this.time }}</small>
+  </li>
 {{/each}}
 </ul>
 {{#if prev}}
