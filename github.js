@@ -64,6 +64,27 @@ module.exports = function( accessToken ){
       })
       return this
     },
+    createGist: function( req, callback ){
+      var uri = baseUrl + '?access_token=' + accessToken
+      var data = { 
+	files: {},
+	isPublic: req.body.isPublic,
+        description: req.body.description || "A gistalt piece"
+      }
+      data.files[ req.body.filename ] = { content: req.body.content }
+      request({
+	uri: uri,
+	method: 'POST',
+	headers: {
+	  'User-Agent': 'gist-pro'
+	},
+	json: data
+      }, function(err, response, body){
+	if( callback )
+	  callback( body )
+      })
+      return this
+    },
     fork: function( req, callback ){
       var uri = baseUrl + "/" + req.body.id + '/forks?access_token=' + accessToken
       request({

@@ -103,6 +103,13 @@ textarea {
   font-size:2em;
 }
 
+.description{
+  display:block;
+  width:100%;
+  font:inherit;
+  padding:.5em 1em;
+}
+
 .gists small{
   display:block; 
 }

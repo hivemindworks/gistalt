@@ -1,0 +1,16 @@
+<form method="post" action="/create">
+  <input class='filename' type="text" name="filename" value="{{time}}.md"><br>
+  <input type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> Public?
+  <br>
+  <br>
+  <input class='description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
+  <br>
+  <small>by {{owner.login}}</small>
+  <br>
+  <br>
+  <textarea class='file' name="content">{{content}}</textarea>
+  <br>
+  <button type="submit">Create File</button>
+</form>
+
+
