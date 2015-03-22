@@ -100,7 +100,7 @@ textarea {
   margin-bottom:.5em;
   border-bottom: 1px solid #eee;
   font-family: "kepler-std", "Georgia", "Times New Roman", serif;
-  font-size:2em;
+  font-size:1.25em;
 }
 
 .description{
@@ -108,6 +108,10 @@ textarea {
   width:100%;
   font:inherit;
   padding:.5em 1em;
+  margin:0 0 0 0;
+  border:none;
+  font-size:1.5em;
+  padding-left:0;
 }
 
 .gists small{
@@ -341,3 +345,9 @@ h1, h2 {
 h3, label {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: bold; }
+
+.private{
+  color:#FCD333;
+  font-size:.8em;
+  font-weight:bold;
+}
