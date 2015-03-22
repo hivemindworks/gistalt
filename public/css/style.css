@@ -107,6 +107,10 @@ textarea {
   display:block; 
 }
 
+.gists{
+  padding: 0;
+}
+
 .gist-title{
   font-size: 2em;
 }
