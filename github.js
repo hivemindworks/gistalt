@@ -68,6 +68,7 @@ module.exports = function( accessToken ){
       var uri = baseUrl + '?access_token=' + accessToken
       var data = { 
 	files: {},
+	isPublic: req.body.isPublic,
         description: req.body.description || "A gistalt piece"
       }
       data.files[ req.body.filename ] = { content: req.body.content }

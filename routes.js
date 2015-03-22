@@ -33,7 +33,8 @@ module.exports = {
       console.log(time)
       res.render('new',{ 
 	time: time,
-	owner: req.session.currentUser
+	owner: req.session.currentUser,
+        isPublic: true
       })     
     }
   },
