@@ -25,6 +25,23 @@ module.exports = {
       res.render('index')	 
     }
   },
+  newGist: function( req, res ){
+    if(!req.session.currentUser){
+      res.redirect('/')
+    }else{
+      time = moment().format('YYYY-MM-DD')
+      console.log(time)
+      res.render('new',{ 
+	time: time,
+	owner: req.session.currentUser
+      })     
+    }
+  },
+  create: function( req, res ){
+    github( req.session.accessToken ).createGist( req, function( gist ){
+      res.redirect('/'+ gist.id + '/' + req.body.filename ) 
+    })	  
+  },
   login: function( req, res){
       req.session.redirect = req.get('Referrer')
       res.redirect('https://github.com/login/oauth/authorize?redirect_uri='+config.callback_uri + '+&scope=gist&client_id='+config.client_id)

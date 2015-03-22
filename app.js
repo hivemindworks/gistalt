@@ -33,9 +33,11 @@ app.get('/', routes.index)
 app.get('/callback', routes.callback)
 app.get('/login', routes.login)
 app.get('/logout', routes.logout)
+app.post('/update', routes.updateFile)
+app.get('/new', routes.newGist)
+app.post('/create', routes.create)
+app.post('/fork', routes.fork)
 app.get('/:id', routes.show)
 app.get('/:id/:filename', routes.showFile)
-app.post('/update', routes.updateFile)
-app.post('/fork', routes.fork)
 
 module.exports = app;
