@@ -1,14 +1,22 @@
 var request = require('request')
 var config = require('./config')
+var _ = require('lodash')
 var github = require('./github')
+var moment = require('moment')
 
 module.exports = {
   index: function( req, res ){
     if ( req.session.accessToken ){
       var offset = req.query.p
       github( req.session.accessToken ).gists( offset, function( body, prev, next ){
+	var gists = _.map( JSON.parse(body), function( gist ){
+	  console.log("======")
+	  var date = moment( gist.updated_at ).format('MMMM Do, YYYY - ha')
+	  gist.time = date
+	  return gist
+	})
 	res.render('index',{ 
-	  gists: JSON.parse(body),
+	  gists: gists,
 	  prev: prev,
 	  next: next
 	}) 
