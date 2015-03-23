@@ -7,7 +7,15 @@
     <meta name="viewport" content="width=device-width"
   </head>
 <body>
-  <h1><a href='/'>gistalt.</a></h1>
+   <nav>
+    <a href='/'>GISTALT</a> 
+    <ul>
+        <li>Your gists</li>
+        <li>New gist</li>
+        <li>Fork and save</li>
+        <li>View on github</li>
+  </nav>
+  <h1></h1>
   {{#if session.accessToken}}
     <a href='/logout'>Logout</a>
   {{else}}
