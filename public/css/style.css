@@ -84,6 +84,15 @@ label {
   margin: 0 auto;
   overflow: hidden; }
 
+.top1 {
+  margin-top: 1em; }
+
+.top2 {
+  margin-top: 1.5em; }
+
+.top3 {
+  margin-top: 3em; }
+
 .page-loading {
   position: fixed;
   top: 0;
@@ -288,7 +297,8 @@ label {
 
 body, input {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  color: #222; }
+  color: #222;
+  background-color: #f6f6f6; }
 
 h1, h2 {
   font-family: "kepler-std", "Georgia", "Times New Roman", serif;
@@ -300,3 +310,7 @@ h3, label {
 
 nav {
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  nav li a {
+    color: #c4c4c4; }
+  nav li a:hover {
+    color: #1998e8; }

@@ -8,24 +8,24 @@
   </head>
 <body>
    <nav>
-    <ul>
+    <ul class='top2'>
       {{#if session.accessToken}}
         <li>
             <a href='/'>GISTALT</a> 
         </li>
-        <li>
+        <li class='top1'>
             <a href='/'>Your gists</a>
         </li>
         <li>
             <a href='/'>New gist</a>
         </li>
-        <li>
+        <li class='top1'>
             <a href='/'>Fork and save</a>
         </li>
         <li>
             <a href='/'>View on github</a>
         </li>
-        <li>
+        <li class='top1'>
             <a href='/logout'>Logout</a>
         </li>
     {{else}}
