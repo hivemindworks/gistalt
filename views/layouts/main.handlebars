@@ -8,20 +8,48 @@
   </head>
 <body>
    <nav>
-    <a href='/'>GISTALT</a> 
     <ul>
-        <li>Your gists</li>
-        <li>New gist</li>
-        <li>Fork and save</li>
-        <li>View on github</li>
+      {{#if session.accessToken}}
+        <li>
+            <a href='/'>GISTALT</a> 
+        </li>
+        <li>
+            <a href='/'>Your gists</a>
+        </li>
+        <li>
+            <a href='/'>New gist</a>
+        </li>
+        <li>
+            <a href='/'>Fork and save</a>
+        </li>
+        <li>
+            <a href='/'>View on github</a>
+        </li>
+        <li>
+            <a href='/logout'>Logout</a>
+        </li>
+    {{else}}
+        <li>
+            <a href='/'>GISTALT</a> 
+        </li>
+        <li>
+            <a href='/login'>Your gists</a>
+        </li>
+        <li>
+            <a href='/login'>New gist</a>
+        </li>
+        <li>
+            <a href='/login'>Fork and save</a>
+        </li>
+        <li>
+            <!-- This should be the default loaded gist -->
+            <a href='/'>View on github</a>
+        </li>
+      {{/if}}
+    </ul>
   </nav>
   <h1></h1>
-  {{#if session.accessToken}}
-    <a href='/logout'>Logout</a>
-  {{else}}
-  <a href='/login' class=''>Log in with GitHub</a>
-  {{/if}}
-  {{{body}}}
+    {{{body}}}
   <script src='/js/app.js'></script>
 </body>
 </html>
