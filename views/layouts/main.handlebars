@@ -6,50 +6,52 @@
     <script>try{Typekit.load();}catch(e){}</script>
     <meta name="viewport" content="width=device-width"
   </head>
-<body>
-   <nav>
-    <ul class='top2'>
+<body class='limiter'>
+   <nav class='col4'>
+    <ul class='top3'>
       {{#if session.accessToken}}
         <li>
             <a href='/'>GISTALT</a> 
         </li>
-        <li class='top1'>
+        <li class='top2'>
             <a href='/'>Your gists</a>
         </li>
         <li>
-            <a href='/'>New gist</a>
+            <a href='/new'>New gist</a>
         </li>
-        <li class='top1'>
+        <li class='top2'>
             <a href='/'>Fork and save</a>
         </li>
         <li>
             <a href='/'>View on github</a>
         </li>
-        <li class='top1'>
+        <li class='top2'>
             <a href='/logout'>Logout</a>
         </li>
     {{else}}
-        <li>
+        <li class='top3'>
             <a href='/'>GISTALT</a> 
         </li>
-        <li>
+        <li class='top2'>
             <a href='/login'>Your gists</a>
         </li>
-        <li>
+        <li class='top2'>
             <a href='/login'>New gist</a>
         </li>
         <li>
             <a href='/login'>Fork and save</a>
         </li>
-        <li>
+        <li class='top2'>
             <!-- This should be the default loaded gist -->
             <a href='/'>View on github</a>
         </li>
       {{/if}}
     </ul>
   </nav>
-  <h1></h1>
+  <div>
+      <article class='col8'>
     {{{body}}}
+    </article>
   <script src='/js/app.js'></script>
 </body>
 </html>
