@@ -10,7 +10,6 @@ module.exports = {
       var offset = req.query.p
       github( req.session.accessToken ).gists( offset, function( body, prev, next ){
 	var gists = _.map( JSON.parse(body), function( gist ){
-	  console.log("======")
 	  var date = moment( gist.updated_at ).format('MMMM Do, YYYY - ha')
 	  gist.time = date
 	  return gist
@@ -30,7 +29,6 @@ module.exports = {
       res.redirect('/')
     }else{
       time = moment().format('YYYY-MM-DD')
-      console.log(time)
       res.render('new',{ 
 	time: time,
 	owner: req.session.currentUser,
@@ -101,5 +99,10 @@ module.exports = {
     github( req.session.accessToken ).updateGist( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )
     });
+  },
+  deleteGist: function( req, res ){
+    github( req.session.accessToken ).deleteGist( req, function( response ){
+      res.redirect('/')
+    })	  
   }
 }
