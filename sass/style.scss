@@ -8,9 +8,23 @@
 
 // in desperate need of refactoring:
 
-.gists{
-  max-width:40em;
+body{
+  padding-bottom: 2em;
+  &:after{
+    content:' ';
+    display:table;
+    clear:both;
+  }
 }
+
+.prev{
+  float:left;
+}
+
+.next{
+  float:right;
+}
+
 .gists li{
   border-bottom:1px solid #c4c4c4;
   padding:2em 0;
@@ -54,6 +68,7 @@ textarea {
 
 .gists{
   padding: 0;
+  margin-bottom:2em;
 }
 
 .gist-title{

@@ -8,7 +8,7 @@
 {{#each gists}}
   <li>
     {{#if this.description}}
-      <a href='/{{ this.id }}' class='gist-title'>{{ this.description }}</a><br>
+      <a href='/{{ this.id }}/{{this.filename}}' class='gist-title'>{{ this.description }}</a><br>
     {{/if}}
       {{#each this.files}}
         <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
@@ -18,8 +18,8 @@
 {{/each}}
 </ul>
 {{#if prev}}
-  <a href='/?p={{prev}}'>&laquo; prev</a>
+  <a class='prev' href='/?p={{prev}}'>&laquo; prev</a>
 {{/if}}
 {{#if next}}
-  <a href='/?p={{next}}'>next &raquo;</a>
+  <a class='next' href='/?p={{next}}'>next &raquo;</a>
 {{/if}}

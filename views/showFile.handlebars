@@ -1,37 +1,42 @@
-{{#unless owner}}
-<form method="post" action="/fork">
-  <input type="hidden" value="{{gist.id}}" name="id">
-  <input type="hidden" value="{{filename}}" name="filename">
-  <button type="submit">Fork</button>
-</form>
+{{#unless gist.public}}
+  <div class='private'>Private</div>
 {{/unless}}
 
-  {{#unless gist.public}}
-    <div class='private'>Private</div>
-  {{/unless}}
+{{#unless owner}}
+  {{#if session.currentUser }}
+    <form method="post" action="/fork">
+      <input type="hidden" value="{{gist.id}}" name="id">
+      <input type="hidden" value="{{filename}}" name="filename">
+      <button type="submit">Fork</button>
+    </form>
+  {{/if}}
+{{/unless}}
+
 <form method="post" action="/update">
   <input type="hidden" value="{{gist.id}}" name="id">
   <input type='text' name='description' value='{{gist.description}}' class='description' placeholder="Enter Description...">
   <input type="hidden" value="{{filename}}" name="oldFilename">
   <input class='filename' type="text" value="{{filename}}" name="filename">
   <br>
-  <small>by {{gist.owner.login}}
-  &middot; <a href='{{gist.html_url}}'>View on GitHub</a></small><br>
-  <br>
-  <br>
-  <textarea class='file' name="content">{{content}}</textarea>
-  <br>
+  <small class='js-by'>by {{gist.owner.login}}
+  &middot; <a href='{{gist.html_url}}'>View on GitHub</a></small>
   {{#if owner}}
     <button type="submit">Update File</button>
   {{else}}
+    {{#unless session.currentUser}}
+      &middot; <small><a href='/login'>Log In to Update</a></small>
+    {{/unless}}
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script>
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
+      $('.js-by').html( "by "+ res.owner.login )
     })
     </script>
   {{/if}}
+  <br><br>
+  <textarea class='file' name="content">{{content}}</textarea>
 </form>
 
 

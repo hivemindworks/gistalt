@@ -531,8 +531,18 @@ nav {
   nav li a:hover {
     color: #1998e8; }
 
-.gists {
-  max-width: 40em; }
+body {
+  padding-bottom: 2em; }
+  body:after {
+    content: ' ';
+    display: table;
+    clear: both; }
+
+.prev {
+  float: left; }
+
+.next {
+  float: right; }
 
 .gists li {
   border-bottom: 1px solid #c4c4c4;
@@ -572,7 +582,8 @@ textarea {
   display: block; }
 
 .gists {
-  padding: 0; }
+  padding: 0;
+  margin-bottom: 2em; }
 
 .gist-title {
   font-size: 2em; }
