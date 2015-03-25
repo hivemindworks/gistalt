@@ -5,3 +5,62 @@
 @import 'modules'; // reusable widgets
 @import 'states'; // active classes (.is-collapsed), media queries
 @import 'theme'; // colors, fonts, etc.
+
+// in desperate need of refactoring:
+
+.gists{
+  max-width:40em;
+}
+.gists li{
+  border-bottom:1px solid #c4c4c4;
+  padding:2em 0;
+}
+.gist-title{
+  font-size:2em;
+}
+
+textarea {
+  display: block;  
+  width: 100%;
+  border: none;
+  overflow:hidden;
+  background: #eee;
+  font: inherit;
+  padding: 1em;
+  font-family: Monaco, monospace; }
+
+.filename{
+  display:inline-block;
+  border:none;
+  margin-bottom:.5em;
+  font-size:1.25em;
+}
+
+.description{
+  display:block;
+  width:100%;
+  font:inherit;
+  padding:.5em 1em;
+  margin:0 0 0 0;
+  border:none;
+  font-size:1.5em;
+  padding-left:0;
+}
+
+.gists small{
+  display:block; 
+}
+
+.gists{
+  padding: 0;
+}
+
+.gist-title{
+  font-size: 2em;
+}
+
+.private{
+  font-size:.8em;
+  margin-bottom: 2em;
+  color:#c4c4c4;
+}
