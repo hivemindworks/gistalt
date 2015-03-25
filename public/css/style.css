@@ -54,8 +54,8 @@ ul, ol {
   font-size: 1em;
   list-style-type: none;
   line-height: 1.5em;
-  margin: 0 auto 1.5em;
-  padding-left: 3em; }
+  margin: 0;
+  padding: 0; }
 
 small, .dablink, .hatnote {
   max-width: 46em;
@@ -92,6 +92,15 @@ label {
 
 .top3 {
   margin-top: 3em; }
+
+.left1 {
+  margin-left: 1em; }
+
+.left2 {
+  margin-left: 1.5em; }
+
+.left3 {
+  margin-left: 3em; }
 
 i.limiter {
   width: 83.3333%;

@@ -8,7 +8,7 @@
   </head>
 <body class='limiter'>
    <nav class='col4'>
-    <ul class='top3'>
+    <ul class='top3 left3'>
       {{#if session.accessToken}}
         <li>
             <a href='/'>GISTALT</a> 
@@ -19,11 +19,6 @@
         <li>
             <a href='/new'>New gist</a>
         </li>
-        <li class='top2'>
-            <a href='/'>Fork and save</a>
-        </li>
-        <li>
-            <a href='/'>View on github</a>
         </li>
         <li class='top2'>
             <a href='/logout'>Logout</a>
@@ -34,16 +29,6 @@
         </li>
         <li class='top2'>
             <a href='/login'>Your gists</a>
-        </li>
-        <li class='top2'>
-            <a href='/login'>New gist</a>
-        </li>
-        <li>
-            <a href='/login'>Fork and save</a>
-        </li>
-        <li class='top2'>
-            <!-- This should be the default loaded gist -->
-            <a href='/'>View on github</a>
         </li>
       {{/if}}
     </ul>
