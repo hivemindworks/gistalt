@@ -1,13 +1,10 @@
 {{#unless owner}}
-<br>
 <form method="post" action="/fork">
   <input type="hidden" value="{{gist.id}}" name="id">
   <input type="hidden" value="{{filename}}" name="filename">
   <button type="submit">Fork</button>
 </form>
 {{/unless}}
-<br>
-<br>
 
   {{#unless gist.public}}
     <div class='private'>Private</div>
