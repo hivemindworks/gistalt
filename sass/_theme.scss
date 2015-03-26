@@ -5,21 +5,23 @@
 
 
 body, input {
-  font-family: $longform;
-  color: #222;
+  font-family: $sans;
+  color: #333;
   background-color: $offWhite;
 }
 
 h1,
 h2 {
-  font-family: $heading;
-  font-weight: normal;
+  font-family: $sans;
+  font-weight: bold;
+  color: #222;
 }
 
 h3,
 label {
-  font-family: $longform;
+  font-family: $sans;
   font-weight: bold;
+  color: #222;
 }
 
 nav {

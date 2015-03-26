@@ -504,16 +504,18 @@ i.limiter {
 
 body, input {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  color: #222;
+  color: #333;
   background-color: #f6f6f6; }
 
 h1, h2 {
-  font-family: "kepler-std", "Georgia", "Times New Roman", serif;
-  font-weight: normal; }
+  font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+  color: #222; }
 
 h3, label {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #222; }
 
 nav {
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
