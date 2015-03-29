@@ -87,15 +87,6 @@ label {
 .top3 {
   margin-top: 3em; }
 
-.left1 {
-  margin-left: 1em; }
-
-.left2 {
-  margin-left: 1.5em; }
-
-.left3 {
-  margin-left: 3em; }
-
 /* Columns
 ========================================*/
 .limiter {
@@ -250,6 +241,9 @@ label {
 .margin12r {
   margin-right: 100%; }
 
+.pad3y {
+  padding: 3em 0em 3em 0em; }
+
 .row0 {
   height: 0px; }
 
@@ -300,6 +294,32 @@ label {
 
 .row16 {
   height: 640px; }
+
+/* Markup free clearing
+Details: http://www.positioniseverything.net/easyclearing.html
+------------------------------------------------------- */
+.clearfix {
+  display: block; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/* fixed stuff
+========================================*/
+.pin-topleft {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.amp {
+  font-size: 110%;
+  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+  font-style: italic;
+  font-weight: normal; }
 
 .page-loading {
   position: fixed;
@@ -551,6 +571,12 @@ textarea {
   resize: none;
   overflow: auto; }
 
+footer {
+  text-align: center;
+  color: #ccc;
+  padding: 12em 0em 0em 0em;
+  font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
 body {
   padding-bottom: 2em; }
   body:after {
@@ -563,10 +589,6 @@ body {
 
 .next {
   float: right; }
-
-.gists li {
-  border-bottom: 1px solid #c4c4c4;
-  padding: 2em 0; }
 
 .gist-title {
   font-size: 2em; }

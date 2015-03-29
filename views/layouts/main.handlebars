@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width"
   </head>
 <body class=''>
-   <nav class='col4'>
-    <ul class='top3 left3'>
+   <nav class='pin-topleft margin0 col2 top3'>
+    <ul>
       {{#if session.accessToken}}
         <li>
             <a href='/'>GISTALT</a> 
@@ -33,10 +33,16 @@
       {{/if}}
     </ul>
   </nav>
-  <div class='limiter'>
-      <article class='col8'>
+  <div class='clearfix'>
+  <div class='col8 margin3 top3'>
+      <article class='limiter'>
     {{{body}}}
     </article>
+  </div>
+  </div>
+<footer class="col12">
+    Gistalt is brought to you by <a href='https://twitter.com/jshawl'>@jshawl</a> <em class="amp">&amp;</em> <a href='https://twitter.com/duncangraham'>@duncangraham</a>
+</footer>
   <script src='/js/app.js'></script>
 </body>
 </html>
