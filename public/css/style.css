@@ -527,3 +527,17 @@ textarea {
   outline: none;
   resize: none;
   overflow: auto; }
+
+.content {
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  flex-direction: column;
+  resize: auto;
+  cursor: auto;
+  padding: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: auto; }

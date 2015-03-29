@@ -27,7 +27,7 @@
   &middot; <a href='{{gist.html_url}}'>View on GitHub</a><br>
   <br>
   <br>
-  <textarea class='col12 pad4' name="content">{{content}}</textarea>
+  <p class='col12 pad4 content' contenteditable='true' name="content">{{content}}</p>
   <br>
   {{#if owner}}
     <button type="submit">Update File</button>
@@ -36,7 +36,7 @@
     <script>
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
-      $('textarea').html( content )
+      $('.content').html( content )
     })
     </script>
   {{/if}}
