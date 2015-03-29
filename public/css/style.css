@@ -78,12 +78,6 @@ a {
 label {
   font-weight: bold; }
 
-.bw-wrapper {
-  width: 100%;
-  max-width: 72em;
-  margin: 0 auto;
-  overflow: hidden; }
-
 .top1 {
   margin-top: 1em; }
 
@@ -102,7 +96,9 @@ label {
 .left3 {
   margin-left: 3em; }
 
-i.limiter {
+/* Columns
+========================================*/
+.limiter {
   width: 83.3333%;
   max-width: 1000px;
   margin-left: auto;
@@ -171,10 +167,6 @@ i.limiter {
 .col12 {
   width: 100%;
   display: block; }
-
-.fifths > * {
-  float: left;
-  width: 20%; }
 
 .unlimiter .col0, .unlimiter .col1, .unlimiter .col2, .unlimiter .col3, .unlimiter .col4, .unlimiter .col5, .unlimiter .col6, .unlimiter .col7, .unlimiter .col8, .unlimiter .col9, .unlimiter .col10, .unlimiter .col11 {
   max-width: none; }
@@ -513,16 +505,18 @@ i.limiter {
 
 body, input {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  color: #222;
+  color: #333;
   background-color: #f6f6f6; }
 
 h1, h2 {
-  font-family: "kepler-std", "Georgia", "Times New Roman", serif;
-  font-weight: normal; }
+  font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+  color: #222; }
 
 h3, label {
   font-family: "ff-dagny-web-pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #222; }
 
 nav {
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
@@ -530,6 +524,32 @@ nav {
     color: #c4c4c4; }
   nav li a:hover {
     color: #1998e8; }
+
+/* NEW GIST STYLES */
+input {
+  display: block;
+  border-bottom: 1px solid #1998e8; }
+
+textarea {
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: auto; }
+
+.content {
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  flex-direction: column;
+  resize: auto;
+  cursor: auto;
+  padding: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: auto; }
 
 body {
   padding-bottom: 2em; }

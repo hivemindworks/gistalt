@@ -113,6 +113,19 @@ module.exports = function( accessToken ){
       }, function( err, response, body ){
 	 callback( JSON.parse( body ) )
       })
-    }
+  },
+  deleteGist: function( req, callback ){
+    var uri = baseUrl + "/" + req.body.id + "?access_token=" + accessToken
+      request({
+	uri: uri,
+	method: 'DELETE',
+	headers: {
+	  'User-Agent': 'gist-pro'
+	}
+      }, function(err, response, body){
+	if( callback )
+	  callback( )
+      })
   }
+}
 }

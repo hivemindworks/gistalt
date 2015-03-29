@@ -32,7 +32,6 @@ module.exports = {
       res.redirect('/')
     }else{
       time = moment().format('YYYY-MM-DD')
-      console.log(time)
       res.render('new',{ 
 	time: time,
 	owner: req.session.currentUser,
@@ -103,5 +102,10 @@ module.exports = {
     github( req.session.accessToken ).updateGist( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )
     });
+  },
+  deleteGist: function( req, res ){
+    github( req.session.accessToken ).deleteGist( req, function( response ){
+      res.redirect('/')
+    })	  
   }
 }

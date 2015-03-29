@@ -5,21 +5,23 @@
 
 
 body, input {
-  font-family: $longform;
-  color: #222;
+  font-family: $sans;
+  color: #333;
   background-color: $offWhite;
 }
 
 h1,
 h2 {
-  font-family: $heading;
-  font-weight: normal;
+  font-family: $sans;
+  font-weight: bold;
+  color: #222;
 }
 
 h3,
 label {
-  font-family: $longform;
+  font-family: $sans;
   font-weight: bold;
+  color: #222;
 }
 
 nav {
@@ -31,4 +33,33 @@ nav {
     li a:hover {
         color: $linkColor;
     }
+}
+
+/* NEW GIST STYLES */
+input {
+    display: block;
+    border-bottom: 1px solid $linkColor;
+}
+
+textarea {
+    background-color: #f7f7f7;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
+}
+
+.content {
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    padding: 2px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
 }
