@@ -10,7 +10,7 @@ body {
   padding: 0;
   background-color: #fff; }
 
-p {
+p, textarea {
   font-size: 1em;
   /* 16 */
   line-height: 1.5em;
@@ -78,12 +78,6 @@ a {
 label {
   font-weight: bold; }
 
-.bw-wrapper {
-  width: 100%;
-  max-width: 72em;
-  margin: 0 auto;
-  overflow: hidden; }
-
 .top1 {
   margin-top: 1em; }
 
@@ -93,7 +87,9 @@ label {
 .top3 {
   margin-top: 3em; }
 
-i.limiter {
+/* Columns
+------------------------------------------------------- */
+.limiter {
   width: 83.3333%;
   max-width: 1000px;
   margin-left: auto;
@@ -162,10 +158,6 @@ i.limiter {
 .col12 {
   width: 100%;
   display: block; }
-
-.fifths > * {
-  float: left;
-  width: 20%; }
 
 .unlimiter .col0, .unlimiter .col1, .unlimiter .col2, .unlimiter .col3, .unlimiter .col4, .unlimiter .col5, .unlimiter .col6, .unlimiter .col7, .unlimiter .col8, .unlimiter .col9, .unlimiter .col10, .unlimiter .col11 {
   max-width: none; }
@@ -523,3 +515,15 @@ nav {
     color: #c4c4c4; }
   nav li a:hover {
     color: #1998e8; }
+
+/* NEW GIST STYLES */
+input {
+  display: block;
+  border-bottom: 1px solid #1998e8; }
+
+textarea {
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: auto; }

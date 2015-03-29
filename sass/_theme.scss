@@ -34,3 +34,17 @@ nav {
         color: $linkColor;
     }
 }
+
+/* NEW GIST STYLES */
+input {
+    display: block;
+    border-bottom: 1px solid $linkColor;
+}
+
+textarea {
+    background-color: #f7f7f7;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
+}
