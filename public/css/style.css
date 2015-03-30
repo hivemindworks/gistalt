@@ -323,17 +323,34 @@ Details: http://www.positioniseverything.net/easyclearing.html
   position: fixed;
   top: 0;
   left: 0; }
+  @media all and (max-width: 40em) {
+    .pin-topleft {
+      position: relative; } }
 
 .pin-bottomleft {
   position: fixed;
   bottom: 0;
   left: 0; }
+  @media all and (max-width: 40em) {
+    .pin-bottomleft {
+      position: relative; } }
 
 .amp {
   font-size: 110%;
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
   font-style: italic;
   font-weight: normal; }
+
+@media all and (max-width: 40em) {
+  .col8 {
+    width: 100%; }
+  .margin3 {
+    margin-left: 0; }
+  .pin-topleft, .pin-bottomleft {
+    float: none;
+    max-width: 400px;
+    margin: 2em auto 0 auto;
+    width: 83.333%; } }
 
 .page-loading {
   position: fixed;
