@@ -41,29 +41,6 @@ input {
     border-bottom: 1px solid $linkColor;
 }
 
-textarea {
-    background-color: #f7f7f7;
-    border: none;
-    outline: none;
-    resize: none;
-    overflow: auto;
-}
-
-.content {
-    -webkit-rtl-ordering: logical;
-    -webkit-user-select: text;
-    flex-direction: column;
-    resize: auto;
-    cursor: auto;
-    padding: 2px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    border: none;
-    outline: none;
-    resize: none;
-    overflow: auto;
-}
-
 footer {
     color: #ccc;
     padding: 12em 0em 0em 0em;

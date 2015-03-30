@@ -1,4 +1,10 @@
-var textarea = document.querySelector('textarea');
+CodeMirror.fromTextArea(document.getElementById('content'), {
+mode: 'markdown',
+lineWrapping: true,
+autofocus: true
+});
+
+var textarea = document.querySelector('.CodeMirror');
 
 window.onload = autosize;
 textarea.addEventListener('keydown', autosize);
