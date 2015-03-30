@@ -87,6 +87,15 @@ label {
 .top3 {
   margin-top: 3em; }
 
+.bottom1 {
+  margin-bottom: 1em; }
+
+.bottom2 {
+  margin-bottom: 1.5em; }
+
+.bottom3 {
+  margin-bottom: 3em; }
+
 /* Columns
 ========================================*/
 .limiter {
@@ -313,6 +322,11 @@ Details: http://www.positioniseverything.net/easyclearing.html
 .pin-topleft {
   position: fixed;
   top: 0;
+  left: 0; }
+
+.pin-bottomleft {
+  position: fixed;
+  bottom: 0;
   left: 0; }
 
 .amp {
@@ -572,10 +586,13 @@ textarea {
   overflow: auto; }
 
 footer {
-  text-align: center;
   color: #ccc;
   padding: 12em 0em 0em 0em;
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  footer a {
+    color: #c4c4c4; }
+  footer a:hover {
+    color: #1998e8; }
 
 body {
   padding-bottom: 2em; }

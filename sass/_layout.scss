@@ -2,6 +2,10 @@
 .top2 {margin-top:1.5em}
 .top3 {margin-top:3em}
 
+.bottom1 {margin-bottom:1em}
+.bottom2 {margin-bottom:1.5em}
+.bottom3 {margin-bottom:3em}
+
 /* Columns
 ========================================*/
 
@@ -108,6 +112,11 @@ Details: http://www.positioniseverything.net/easyclearing.html
 .pin-topleft {
     position: fixed;
     top: 0;
+    left: 0;
+}
+.pin-bottomleft {
+    position: fixed;
+    bottom: 0;
     left: 0;
 }
 
