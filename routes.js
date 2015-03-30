@@ -12,6 +12,9 @@ module.exports = {
 	var gists = _.map( JSON.parse(body), function( gist ){
 	  var date = moment( gist.updated_at ).format('MMMM Do, YYYY - ha')
 	  gist.time = date
+	  for( var file in gist.files ){
+	    gist.filename = file
+	  }
 	  return gist
 	})
 	res.render('index',{ 
