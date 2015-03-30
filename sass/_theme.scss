@@ -63,3 +63,17 @@ textarea {
     resize: none;
     overflow: auto;
 }
+
+footer {
+    color: #ccc;
+    padding: 12em 0em 0em 0em;
+    font-family: $code;
+
+    a {
+        color: $lightGray;
+    }
+
+    a:hover {
+        color: $linkColor
+    }
+}

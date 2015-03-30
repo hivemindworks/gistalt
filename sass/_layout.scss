@@ -2,9 +2,14 @@
 .top2 {margin-top:1.5em}
 .top3 {margin-top:3em}
 
+.bottom1 {margin-bottom:1em}
+.bottom2 {margin-bottom:1.5em}
+.bottom3 {margin-bottom:3em}
+
 /* Columns
-------------------------------------------------------- */
-  .limiter {
+========================================*/
+
+.limiter {
       width:83.3333%;
       max-width:1000px;
       margin-left:auto;
@@ -69,6 +74,8 @@
 .margin11r { margin-right:91.6666%; }
 .margin12r { margin-right:100.0000%; }
 
+.pad3y { padding: 3em 0em 3em 0em; }
+
 .row0  { height: 0px;}
 .row1  { height: 40px;}
 .row2  { height: 80px;}
@@ -86,3 +93,36 @@
 .row14 { height: 560px;}
 .row15 { height: 600px;}
 .row16 { height: 640px;}
+
+/* Markup free clearing
+Details: http://www.positioniseverything.net/easyclearing.html
+------------------------------------------------------- */
+.clearfix { display:block; }
+.clearfix:after {
+    content:'';
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+
+/* fixed stuff
+========================================*/
+
+.pin-topleft {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.pin-bottomleft {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.amp {
+  font-size: 110%;
+    font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+  font-style: italic;
+    font-weight: normal;
+}

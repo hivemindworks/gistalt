@@ -1,45 +1,42 @@
-
+{{#unless gist.public}}
+  <div class='private'>Private</div>
+{{/unless}}
 
 {{#unless owner}}
-<br>
-<form method="post" action="/fork">
-  <input type="hidden" value="{{gist.id}}" name="id">
-  <input type="hidden" value="{{filename}}" name="filename">
-  <button type="submit">Fork</button>
-</form>
+  {{#if session.currentUser }}
+    <form method="post" action="/fork">
+      <input type="hidden" value="{{gist.id}}" name="id">
+      <input type="hidden" value="{{filename}}" name="filename">
+      <button type="submit">Fork</button>
+    </form>
+  {{/if}}
 {{/unless}}
-<br>
-<br>
 
-  {{#unless gist.public}}
-    <div class='private'>Private</div>
-  {{/unless}}
-  <form method="post" action="/delete">
-    <input type="hidden" value="{{gist.id}}" name="id">
-    <button type='submit'>Delete</button>
-  </form>
 <form method="post" action="/update">
-  <input type='text' name='description' value='{{gist.description}}' class='description'>
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='filename' type="text" value="{{filename}}" name="filename">
+  <input type='text' name='description' value='{{gist.description}}' class='description' placeholder="Enter Description...">
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <small>by {{gist.owner.login}}</small>
-  &middot; <a href='{{gist.html_url}}'>View on GitHub</a><br>
+  <input class='filename' type="text" value="{{filename}}" name="filename">
   <br>
-  <br>
-  <p class='col12 pad4 content' contenteditable='true' name="content">{{content}}</p>
-  <br>
+  <small class='js-by'>by {{gist.owner.login}}
+  &middot; <a href='{{gist.html_url}}'>View on GitHub</a></small>
   {{#if owner}}
     <button type="submit">Update File</button>
   {{else}}
+    {{#unless session.currentUser}}
+      &middot; <small><a href='/login'>Log In to Update</a></small>
+    {{/unless}}
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script>
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
-      $('.content').html( content )
+      $('textarea').html( content )
+      $('.js-by').html( "by "+ res.owner.login )
     })
     </script>
   {{/if}}
+  <br><br>
+  <p class='file col12 content' contenteditable='true' name="content">{{content}}</p>
 </form>
 
 
