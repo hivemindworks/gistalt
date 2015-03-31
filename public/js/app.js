@@ -1,7 +1,7 @@
 CodeMirror.fromTextArea(document.getElementById('content'), {
-mode: 'markdown',
-lineWrapping: true,
-autofocus: true
+    mode: 'gfm',
+    lineWrapping: true,
+    theme: "default"
 });
 
 var textarea = document.querySelector('.CodeMirror');
