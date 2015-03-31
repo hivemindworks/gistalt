@@ -8,6 +8,7 @@
   {{/if}}
 {{/unless}}
 
+
 <div class='row3'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
   <input class='filename col4' type="text" value="{{filename}}" name="filename">
@@ -21,10 +22,11 @@
       <small class='fr'>Private</small>
       <br/>
       <a class='fr' href='{{gist.html_url}}'>View on GitHub</a></small>
+	Forks: {{gist.forks.length}}<br>
+	Revisions: {{gist.history.length}}
     {{/if}}
   </div>
 </div>
-{{!--
   {{#if owner}}
     <button type="submit">Update File</button>
   {{else}}
@@ -40,7 +42,6 @@
     })
     </script>
   {{/if}}
---}}
   <br><br>
   <textarea id='content' class='file col12' name="content" style='display:none'>{{content}}</textarea>
 </form>
