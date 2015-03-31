@@ -8,7 +8,34 @@ module.exports = {
   index: function( req, res ){
     if ( req.session.accessToken ){
       var offset = req.query.p
-      github( req.session.accessToken ).gists( offset, function( body, prev, next ){
+      github( req.session.accessToken ).gists({ 
+	offset: offset 
+      }, function( body, prev, next ){
+	var gists = _.map( JSON.parse(body), function( gist ){
+	  var date = moment( gist.updated_at ).format('MMMM Do, YYYY - ha')
+	  gist.time = date
+	  for( var file in gist.files ){
+	    gist.filename = file
+	  }
+	  return gist
+	})
+	res.render('index',{ 
+	  gists: gists,
+	  prev: prev,
+	  next: next
+	}) 
+      })
+    } else {
+      res.render('index')	 
+    }
+  },
+  starred: function( req, res ){
+    if ( req.session.accessToken ){
+      var offset = req.query.p
+      github( req.session.accessToken ).gists( {
+        offset: offset,
+        starred: true
+      }, function( body, prev, next ){
 	var gists = _.map( JSON.parse(body), function( gist ){
 	  var date = moment( gist.updated_at ).format('MMMM Do, YYYY - ha')
 	  gist.time = date

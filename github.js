@@ -3,11 +3,15 @@ var baseUrl = 'https://api.github.com/gists'
 
 module.exports = function( accessToken ){
   return {
-    gists: function( offset, callback ){
+    gists: function( opts, callback ){
       this.accessToken = accessToken
-      var uri = baseUrl + '?access_token=' + accessToken
-      if (offset){
-        uri += '&page='+offset
+      var uri = baseUrl
+      if( opts.starred ){
+        uri += '/starred' 
+      }
+      uri += '?access_token=' + accessToken
+      if (opts.offset){
+        uri += '&page='+ opts.offset
       }
       request({
 	uri: uri,
@@ -16,16 +20,22 @@ module.exports = function( accessToken ){
 	  'User-Agent': 'gist-pro'
 	}
       }, function(err, response, body){
-	next = response.headers.link.match(/<(.*)>; rel="next"/);
-        if( next ){
-	  next= next[1].split('&page=')[1]
-	}
-	prev = response.headers.link.match(/<(.*)>; rel="prev"/);
-	try{
-	  prev = prev[1].split(',')[3]
-	  prev = prev.split('&page=')[1] 
-	} catch ( e ){
-	  prev = offset - 1
+	console.log( response.headers )
+	if( response.headers.link ){
+	  next = response.headers.link.match(/<(.*)>; rel="next"/);
+	  if( next ){
+	    next= next[1].split('&page=')[1]
+	  }
+	  prev = response.headers.link.match(/<(.*)>; rel="prev"/);
+	  try{
+	    prev = prev[1].split(',')[3]
+	    prev = prev.split('&page=')[1] 
+	  } catch ( e ){
+	    prev = opts.offset - 1
+	  }
+	} else{
+	  var prev = null
+	  var next = null
 	}
 	callback( body, prev, next )
       })
