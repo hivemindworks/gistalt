@@ -8,24 +8,22 @@
   {{/if}}
 {{/unless}}
 
-<div class='row2'>
+<div class='row3'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename col6' type="text" value="{{filename}}" name="filename">
+  <input class='filename col4' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='description col6' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-</div>
-<div class='row1'>
-{{#if gist.public}}
-{{else}}
-  <small class='private col8'>Private</small>
+  <input class='description col4' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
   <div class='col4'>
-  <small class='js-by fr'>by {{gist.owner.login}}
-  &middot; <a class='fr' ref='{{gist.html_url}}'>View on GitHub</a></small>
+    {{#if gist.public}}
+    {{else}}
+      <small class='js-by fr'>by {{gist.owner.login}}
+      <br/>
+      <small class='fr'>Private</small>
+      <br/>
+      <a class='fr' href='{{gist.html_url}}'>View on GitHub</a></small>
+    {{/if}}
   </div>
-{{/if}}
 </div>
-
-
 {{!--
   {{#if owner}}
     <button type="submit">Update File</button>

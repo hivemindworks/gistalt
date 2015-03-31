@@ -26,6 +26,7 @@ label {
 
 small {
     color: $lightGray;
+    font: $code;
 }
 
 nav {
@@ -49,7 +50,7 @@ input {
     border-bottom: 2px solid $lighterGray;
     }
     &:focus {
-    border-bottom: 1px solid $linkColor;
+    border-bottom: 2px solid $linkColor;
     outline: none; //test
     }
 }
