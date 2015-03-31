@@ -1,7 +1,3 @@
-{{#unless gist.public}}
-  <div class='private'>Private</div>
-{{/unless}}
-
 {{#unless owner}}
   {{#if session.currentUser }}
     <form method="post" action="/fork">
@@ -12,14 +8,23 @@
   {{/if}}
 {{/unless}}
 
-<form method="post" action="/update">
-  <input type="hidden" value="{{gist.id}}" name="id">
-  <input type='text' name='description' value='{{gist.description}}' class='description' placeholder="Enter Description...">
+<div class='row3'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename' type="text" value="{{filename}}" name="filename">
-  <br>
-  <small class='js-by'>by {{gist.owner.login}}
-  &middot; <a href='{{gist.html_url}}'>View on GitHub</a></small>
+  <input class='filename col4' type="text" value="{{filename}}" name="filename">
+  <input type="hidden" value="{{gist.id}}" name="id">
+  <input class='description col4' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+  <div class='col4'>
+    {{#if gist.public}}
+    {{else}}
+      <small class='js-by fr'>by {{gist.owner.login}}
+      <br/>
+      <small class='fr'>Private</small>
+      <br/>
+      <a class='fr' href='{{gist.html_url}}'>View on GitHub</a></small>
+    {{/if}}
+  </div>
+</div>
+{{!--
   {{#if owner}}
     <button type="submit">Update File</button>
   {{else}}
@@ -35,8 +40,9 @@
     })
     </script>
   {{/if}}
+--}}
   <br><br>
-  <p class='file col12 content' contenteditable='true' name="content">{{content}}</p>
+  <textarea id='content' class='file col12' name="content" style='display:none'>{{content}}</textarea>
 </form>
 
 

@@ -19,7 +19,7 @@ body {
   }
 }
 
-p {
+p, .CodeMirror  {
   font-size: 1em;       /* 16 */
   line-height: 1.5em;   /* 24 */
   margin-bottom: 1.5em;
@@ -71,7 +71,6 @@ small,
   max-width: 46em;
   font-size: .875em;            /* 14 */
   line-height: 1.714285714em;   /* 24 */
-  margin: 0 0 1.714285714em;
 }
 
 tr, td, th {
