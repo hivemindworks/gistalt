@@ -1,6 +1,7 @@
 .top1 {margin-top:1em}
 .top2 {margin-top:1.5em}
 .top3 {margin-top:3em}
+.top15 {margin-top:15em}
 
 .bottom1 {margin-bottom:1em}
 .bottom2 {margin-bottom:1.5em}
@@ -103,6 +104,11 @@ Details: http://www.positioniseverything.net/easyclearing.html
     position: fixed;
     top: 0;
     left: 0;
+}
+.pin-topright {
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 .pin-bottomleft {
     position: fixed;

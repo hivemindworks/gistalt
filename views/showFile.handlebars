@@ -11,24 +11,29 @@
 
 <div class='row3'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename col4' type="text" value="{{filename}}" name="filename">
+  <input class='filename col6' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='description col4' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-  <div class='col4'>
-    {{#if gist.public}}
-    {{else}}
-      <small class='js-by fr'>by {{gist.owner.login}}
-      <br/>
-      <small class='fr'>Private</small>
-      <br/>
-      <a class='fr' href='{{gist.html_url}}'>View on GitHub</a></small>
-	Forks: {{gist.forks.length}}<br>
-	Revisions: {{gist.history.length}}
-    {{/if}}
-  </div>
+  <input class='description col6' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
 </div>
   {{#if owner}}
-    <button type="submit">Update File</button>
+  <div class='pin-topleft col2 top15 margin0'>
+    {{#if gist.public}}
+    {{else}}
+    <small class='js-by'>by {{gist.owner.login}}
+    <br/>
+    Private
+    <br/>
+    Forks: {{gist.forks.length}}
+    <br/>
+    Revisions: {{gist.history.length}}
+    </small>
+    {{/if}}
+
+    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
+    <button type='submit' class='btn btn-main'>Save</button>
+    <small>Last Saved: **ADD DATE**</small>
+</div>
+
   {{else}}
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>

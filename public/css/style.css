@@ -86,6 +86,9 @@ label {
 .top3 {
   margin-top: 3em; }
 
+.top15 {
+  margin-top: 15em; }
+
 .bottom1 {
   margin-bottom: 1em; }
 
@@ -290,6 +293,11 @@ Details: http://www.positioniseverything.net/easyclearing.html
   top: 0;
   left: 0; }
 
+.pin-topright {
+  position: fixed;
+  top: 0;
+  right: 0; }
+
 .pin-bottomleft {
   position: fixed;
   bottom: 0;
@@ -386,3 +394,23 @@ footer {
 
 article > h1 {
   margin-top: 0; }
+
+.btn {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: .5em;
+  font-size: .875em;
+  line-height: 1.71429em;
+  color: #c4c4c4;
+  width: 75%;
+  margin: .5em;
+  text-align: center;
+  display: block; }
+  .btn:hover {
+    background-color: #eee;
+    border-color: #c4c4c4;
+    color: #222; }
+  .btn.btn-main {
+    border-color: #1998e8;
+    color: #1998e8;
+    background-color: #fafafa; }
