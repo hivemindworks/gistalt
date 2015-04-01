@@ -24,6 +24,8 @@ module.exports = {
 Then, install dependencies and run the app
 
     $ npm install
-    $ npm start
+    $ gulp
+
+(Gulp will run nodemon and will compile sass on the fly)
 
 
