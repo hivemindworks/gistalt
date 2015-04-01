@@ -4,16 +4,22 @@
 {{#if gists}}
   <h1>Your Gists:</h1>
 {{/if}}
-<ul class='gists'>
+<ul class='gists col12'>
 {{#each gists}}
   <li>
     {{#if this.description}}
-      <a href='/{{ this.id }}/{{this.filename}}' class='gist-title'>{{ this.description }}</a><br>
-    {{/if}}
+      <a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a><br>
+    {{else}}
+
+    <div class='col8'>
       {{#each this.files}}
         <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
       {{/each}}
-      <small>on {{ this.time }}</small>
+    </div>
+    <div class='col4'>
+        <small class='fr'>on {{ this.time }}</small>
+    </div>
+    {{/if}}
   </li>
 {{/each}}
 </ul>

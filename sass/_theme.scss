@@ -100,7 +100,14 @@ footer {
 .gists{
   padding: 0;
   margin-bottom:2em;
+
+  li {
+    padding: 1em 0em;
+    border-bottom: 1px solid $lightGray;
+  }
 }
+
+
 
 .gist-title{
   font-size: 2em;
