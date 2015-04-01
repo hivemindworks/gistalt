@@ -2,15 +2,19 @@
 
 <!-- remove this stuff at the end? -->
 {{#if gists}}
-  <h1>Your Gists:</h1>
+  <h3>Your Gists:</h3>
 {{/if}}
 <ul class='gists col12'>
 {{#each gists}}
   <li>
     {{#if this.description}}
+    <div class='col8'>
       <a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a><br>
+    </div>
+    <div class='col4'>
+        <small class='fr'>on {{ this.time }}</small>
+    </div>
     {{else}}
-
     <div class='col8'>
       {{#each this.files}}
         <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
@@ -23,9 +27,11 @@
   </li>
 {{/each}}
 </ul>
+<div class='row3'>
 {{#if prev}}
   <a class='prev' href='/?p={{prev}}'>&laquo; prev</a>
 {{/if}}
 {{#if next}}
   <a class='next' href='/?p={{next}}'>next &raquo;</a>
 {{/if}}
+</div>

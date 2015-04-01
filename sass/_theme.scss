@@ -102,8 +102,9 @@ footer {
   margin-bottom:2em;
 
   li {
-    padding: 1em 0em;
-    border-bottom: 1px solid $lightGray;
+    overflow: auto;
+    padding: 1.5em 0em 1.5em;
+    border-bottom: 1px solid $lighterGray;
   }
 }
 
