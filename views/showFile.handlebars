@@ -32,7 +32,7 @@
 
     <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
     <a href='#' type='submit' data-submit="form" class='btn btn-main'>Save</a>
-    <small>Last Saved: **ADD DATE**</small>
+    <small>Last Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>
     </div>
   {{/if}}
   {{#if owner}}
