@@ -10,7 +10,7 @@
 
 
 <form action="/update" method="post">
-<div class='row3'>
+<div class='row3 clearfix'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
   <input class='filename col4' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
@@ -29,7 +29,7 @@
   </div>
 </div>
   {{#if owner}}
-    <button type="submit">Update File</button>
+    <button class='cb' type="submit">Update File</button>
   {{else}}
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>

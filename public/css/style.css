@@ -255,23 +255,11 @@ label {
 .pad3y {
   padding: 3em 0em 3em 0em; }
 
-.row0 {
-  height: 1em; }
-
-.row1 {
-  height: 1.5; }
-
-.row2 {
-  height: 3em; }
-
-.row3 {
-  height: 4em; }
-
-.row4 {
-  height: 4.5em; }
-
 .fr {
   float: right; }
+
+.cb {
+  clear: both; }
 
 /* Markup free clearing
 Details: http://www.positioniseverything.net/easyclearing.html
@@ -338,7 +326,9 @@ nav {
 input {
   display: block;
   border: none;
-  padding: .25em 0em .5em 0em; }
+  padding: .5em;
+  box-sizing: border-box;
+  border-bottom: 2px solid transparent; }
   input:hover {
     border-bottom: 2px solid #eee; }
   input:focus {
@@ -356,13 +346,18 @@ footer {
 
 .filename {
   font-weight: bold;
+  display: block;
+  width: 100%;
   font-size: 1.5em;
-  line-height: 1em; }
+  line-height: 1em;
+  margin-bottom: .5em; }
 
 .description {
   font-size: 1em;
-  line-height: 1.5em;
-  padding: .375em 0em .75em 0em; }
+  margin-bottom: .5em;
+  display: block;
+  width: 100%;
+  line-height: 1.5em; }
 
 .prev {
   float: left; }

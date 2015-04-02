@@ -44,7 +44,9 @@ nav {
 input {
     display: block;
     border: none;
-    padding: .25em 0em .5em 0em;
+    padding: .5em;
+    box-sizing:border-box;
+    border-bottom:2px solid transparent;
 
     &:hover {
     border-bottom: 2px solid $lighterGray;
@@ -71,14 +73,19 @@ footer {
 
 .filename {
     font-weight: bold;
+    display:block;
+    width:100%;
     font-size: 1.5em;
     line-height: 1em;
+    margin-bottom:.5em;
 }
 
 .description {
     font-size: 1em;
+    margin-bottom:.5em;
+    display:block;
+    width:100%;
     line-height: 1.5em;
-    padding: .375em 0em .75em 0em;
 }
 
 .prev{
