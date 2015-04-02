@@ -31,16 +31,16 @@
     {{/if}}
 
     <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
-    <button type='submit' class='btn btn-main'>Save</button>
+    <a href='#' type='submit' data-submit="form" class='btn btn-main'>Save</a>
     <small>Last Saved: **ADD DATE**</small>
-</div>
+    </div>
+  {{/if}}
   {{#if owner}}
     <button class='cb' type="submit">Update File</button>
   {{else}}
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>
     {{/unless}}
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script>
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
