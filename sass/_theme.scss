@@ -56,6 +56,9 @@ input {
     outline: none; //test
     }
 }
+input[type="checkbox"]{
+    display:inline-block;
+}
 
 footer {
     color: #ccc;
@@ -152,3 +155,8 @@ article > h1{
         background-color: $offWhite;
     }
 }
+
+.CodeMirror-wrap{
+  background: #fff;
+}
+

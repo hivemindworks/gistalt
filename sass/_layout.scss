@@ -120,6 +120,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
     font-weight: normal;
 }
 
+[role="main"]{
+  padding-bottom:2em;
+}
 @media all and (max-width:40em){
   .pin-topleft,
   .pin-bottomleft,

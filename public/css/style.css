@@ -300,6 +300,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
   font-style: italic;
   font-weight: normal; }
 
+[role="main"] {
+  padding-bottom: 2em; }
+
 @media all and (max-width: 40em) {
   .pin-topleft, .pin-bottomleft, [role="main"] {
     position: relative;
@@ -356,6 +359,9 @@ input {
   input:focus {
     border-bottom: 2px solid #1998e8;
     outline: none; }
+
+input[type="checkbox"] {
+  display: inline-block; }
 
 footer {
   color: #ccc;
@@ -429,3 +435,6 @@ article > h1 {
     border-color: #1998e8;
     color: #1998e8;
     background-color: #f6f6f6; }
+
+.CodeMirror-wrap {
+  background: #fff; }
