@@ -12,9 +12,9 @@
 <form action="/update" method="post">
 <div class='row3 clearfix'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename col6' type="text" value="{{filename}}" name="filename">
+  <input class='filename ' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='description col6' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+  <input class='description ' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
 </div>
   {{#if owner}}
   <div class='pin-topleft col2 top15 margin0'>
@@ -30,13 +30,15 @@
     </small>
     {{/if}}
 
-    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
-    <a href='#' type='submit' data-submit="form" class='btn btn-main'>Save</a>
+    <div>
+      <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
+      <a href='#' type='submit' data-submit="form" class='btn btn-main'>Save</a>
+    </div>
     <small>Last Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>
     </div>
   {{/if}}
   {{#if owner}}
-    <button class='cb' type="submit">Update File</button>
+    <button class='cb js-hide' type="submit">Update File</button>
   {{else}}
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>
@@ -50,7 +52,7 @@
     </script>
   {{/if}}
   <br><br>
-  <textarea id='content' class='file col12' name="content" style='display:none'>{{content}}</textarea>
+  <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
 </form>
 
 

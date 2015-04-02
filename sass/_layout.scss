@@ -141,4 +141,15 @@ Details: http://www.positioniseverything.net/easyclearing.html
     margin-right: auto;
     float:none;
   }
+  form .pin-topleft{
+    position:relative;
+    float:none;
+    max-width:1000px;
+    width:100%;
+    margin:0;
+    small, div{
+      float:left;
+      width:50%;
+    }
+  }
 }

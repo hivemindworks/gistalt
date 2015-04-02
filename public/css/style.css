@@ -315,7 +315,16 @@ Details: http://www.positioniseverything.net/easyclearing.html
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    float: none; } }
+    float: none; }
+  form .pin-topleft {
+    position: relative;
+    float: none;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0; }
+    form .pin-topleft small, form .pin-topleft div {
+      float: left;
+      width: 50%; } }
 
 ::selection {
   background-color: #efefef;
@@ -437,4 +446,5 @@ article > h1 {
     background-color: #f6f6f6; }
 
 .CodeMirror-wrap {
-  background: #fff; }
+  background: #fff;
+  clear: both; }

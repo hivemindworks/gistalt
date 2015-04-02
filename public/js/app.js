@@ -17,6 +17,7 @@ function autosize(){
   },0);
 }
 
+$('.js-hide').hide()
 $('[data-submit]').on('click', function( event ){
   event.preventDefault()
   var $submittee = $($(this).data('submit'))
