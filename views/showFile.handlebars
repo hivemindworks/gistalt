@@ -12,29 +12,35 @@
 <form action="/update" method="post">
 <div class='row3 clearfix'>
   <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename col4' type="text" value="{{filename}}" name="filename">
+  <input class='filename col6' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='description col4' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-  <div class='col4'>
+  <input class='description col6' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+</div>
+  {{#if owner}}
+  <div class='pin-topleft col2 top15 margin0'>
     {{#if gist.public}}
     {{else}}
-      <small class='js-by fr'>by {{gist.owner.login}}
-      <br/>
-      <small class='fr'>Private</small>
-      <br/>
-      <a class='fr' href='{{gist.html_url}}'>View on GitHub</a></small>
-	Forks: {{gist.forks.length}}<br>
-	Revisions: {{gist.history.length}}
+    <small class='js-by'>by {{gist.owner.login}}
+    <br/>
+    Private
+    <br/>
+    Forks: {{gist.forks.length}}
+    <br/>
+    Revisions: {{gist.history.length}}
+    </small>
     {{/if}}
-  </div>
-</div>
+
+    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
+    <a href='#' type='submit' data-submit="form" class='btn btn-main'>Save</a>
+    <small>Last Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>
+    </div>
+  {{/if}}
   {{#if owner}}
     <button class='cb' type="submit">Update File</button>
   {{else}}
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>
     {{/unless}}
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script>
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content

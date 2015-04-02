@@ -100,7 +100,11 @@ module.exports = {
   },
   updateFile: function( req, res ){
     github( req.session.accessToken ).updateGist( req, function( gist ){
-      res.redirect('/' + gist.id + '/' + req.body.filename )
+      if( req.params.format ){
+        res.json( gist )
+      }else{
+	res.redirect('/' + gist.id + '/' + req.body.filename )
+      }
     });
   },
   deleteGist: function( req, res ){
