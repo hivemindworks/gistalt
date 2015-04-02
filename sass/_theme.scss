@@ -128,3 +128,27 @@ article > h1{
 [role="main"]{
   background: $offWhite;
 }
+.btn {
+    border: 1px solid $lighterGray;
+    border-radius: 5px;
+    padding: .5em;
+    font-size: .875em;
+    line-height: 1.71429em;
+    color: $lightGray;
+    width: 75%;
+    margin: .5em;
+    text-align: center;
+    display: block;
+
+    &:hover {
+        background-color: $lighterGray;
+        border-color: $lightGray;
+        color: $gray;
+    }
+
+    &.btn-main {
+        border-color: $linkColor;
+        color: $linkColor;
+        background-color: $offWhite;
+    }
+}
