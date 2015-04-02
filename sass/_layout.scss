@@ -126,6 +126,8 @@ Details: http://www.positioniseverything.net/easyclearing.html
 @media all and (max-width:40em){
   .pin-topleft,
   .pin-bottomleft,
+  .col8,
+  .col4,
   [role="main"]{
      position: relative;
      width:100%;
@@ -139,6 +141,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    float:none;
+  }
+  .col4 .fr{
     float:none;
   }
   form .pin-topleft{
