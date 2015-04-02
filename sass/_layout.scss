@@ -113,3 +113,23 @@ Details: http://www.positioniseverything.net/easyclearing.html
   font-style: italic;
     font-weight: normal;
 }
+
+@media all and (max-width:40em){
+  .pin-topleft,
+  .pin-bottomleft,
+  [role="main"]{
+     position: relative;
+     width:100%;
+   }
+  [role="main"]{
+    margin:0;
+  }
+  nav.top3{
+    margin:1em auto;
+    width: 83.3333%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    float:none;
+  }
+}
