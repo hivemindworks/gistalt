@@ -4,11 +4,9 @@ var cm = CodeMirror.fromTextArea(document.getElementById('content'), {
     theme: "default"
 });
 
-var isDirty = function(){
-  $("[data-saved]").attr('data-saved', cm.getValue() == g.content )
-}
 
 cm.on("change", function( cm ){
+  $("[data-saved]").attr('data-saved', cm.getValue() == g.content )
 })
 
 var textarea = document.querySelector('.CodeMirror');
@@ -35,6 +33,7 @@ function autosize(){
 
 $('.js-hide').hide()
 $('[data-submit]').on('click', function( event ){
+  $(this).attr('data-saved', true )
   event.preventDefault()
   var $submittee = $($(this).data('submit'))
   cm.save() // update textarea
