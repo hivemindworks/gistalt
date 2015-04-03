@@ -43,16 +43,21 @@
     {{#unless session.currentUser}}
       &middot; <small><a href='/login'>Log In to Update</a></small>
     {{/unless}}
-    <script>
-    $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
-      var content = res.files["{{filename}}"].content
-      $('textarea').html( content )
-      $('.js-by').html( "by "+ res.owner.login )
-    })
-    </script>
   {{/if}}
   <br><br>
   <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
 </form>
+{{#unless session.currentUser}}
+  <script type='text/javascript'>
+  window.onload = function(){
+    $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
+      var content = res.files["{{filename}}"].content
+      $('textarea').html( content )
+      cm.getDoc().setValue(content);
+      $('.js-by').html( "by "+ res.owner.login )
+    })
+  }
+  </script>
+{{/unless}}
 
 
