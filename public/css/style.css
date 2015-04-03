@@ -447,6 +447,10 @@ article > h1 {
     color: #1998e8;
     background-color: #f6f6f6; }
 
+[data-saved="false"].btn.btn-main {
+  border-color: orange;
+  color: orange; }
+
 .CodeMirror-wrap {
   background: #fff;
   clear: both; }
