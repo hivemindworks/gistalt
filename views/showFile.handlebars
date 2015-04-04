@@ -10,34 +10,35 @@
 
 
 <form action="/update" method="post">
-<div class='row3 clearfix'>
-  <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='filename ' type="text" value="{{filename}}" name="filename">
-  <input type="hidden" value="{{gist.id}}" name="id">
-  <input class='description ' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-</div>
-  {{#if owner}}
-  <div class='pin-topleft col2 top15 margin0'>
+  <input class='col6 margin1r' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+{{#if owner}}
     {{#if gist.public}}
     {{else}}
-    <small class='js-by'>by {{gist.owner.login}}
-    <br/>
+    <small class='col5 fr js-by'>
+    by {{gist.owner.login}}
+    | 
     Private
-    <br/>
+    |
     Forks: {{gist.forks.length}}
-    <br/>
+    |
     Revisions: {{gist.history.length}}
     </small>
     {{/if}}
 
-    <div>
-      <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
-      <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
-    </div>
-    <small>Last Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>
-    </div>
+<div class='col2 pin-topright top4'>
+    <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
+    <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
+</div>
   {{/if}}
-  {{#if owner}}
+
+<div class='row3 clearfix'>
+
+  <input type="hidden" value="{{filename}}" name="oldFilename">
+  <input class='filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+  <input type="hidden" value="{{gist.id}}" name="id">
+  <a class='btn col2 fr' href='{{gist.html_url}}'>View on GitHub</a>
+</div>
+    {{#if owner}}
     <button class='cb js-hide' type="submit">Update File</button>
   {{else}}
     {{#unless session.currentUser}}

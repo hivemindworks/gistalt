@@ -86,11 +86,8 @@ label {
 .top3 {
   margin-top: 3em; }
 
-.ptop3 {
-  padding-top: 3em; }
-
-.top15 {
-  margin-top: 15em; }
+.top4 {
+  margin-top: 4.8em; }
 
 .bottom1 {
   margin-bottom: 1em; }
@@ -362,9 +359,10 @@ nav {
 input {
   display: block;
   border: none;
-  padding: .5em;
+  padding: .5em .5em .5em 0em;
   box-sizing: border-box;
-  border-bottom: 2px solid transparent; }
+  border-bottom: 2px solid transparent;
+  font-size: .875em; }
   input:hover {
     border-bottom: 2px solid #eee; }
   input:focus {
@@ -385,18 +383,7 @@ footer {
 
 .filename {
   font-weight: bold;
-  display: block;
-  width: 100%;
-  font-size: 1.5em;
-  line-height: 1em;
-  margin-bottom: .5em; }
-
-.description {
-  font-size: 1em;
-  margin-bottom: .5em;
-  display: block;
-  width: 100%;
-  line-height: 1.5em; }
+  font-size: 1.5em; }
 
 .prev {
   float: left; }
@@ -423,9 +410,6 @@ footer {
 
 article > h1 {
   margin-top: 0; }
-
-[role="main"] {
-  background: #f6f6f6; }
 
 .btn {
   border: 1px solid #eee;

@@ -44,9 +44,10 @@ nav {
 input {
     display: block;
     border: none;
-    padding: .5em;
+    padding: .5em .5em .5em 0em;
     box-sizing:border-box;
     border-bottom:2px solid transparent;
+    font-size: .875em;
 
     &:hover {
     border-bottom: 2px solid $lighterGray;
@@ -76,19 +77,7 @@ footer {
 
 .filename {
     font-weight: bold;
-    display:block;
-    width:100%;
     font-size: 1.5em;
-    line-height: 1em;
-    margin-bottom:.5em;
-}
-
-.description {
-    font-size: 1em;
-    margin-bottom:.5em;
-    display:block;
-    width:100%;
-    line-height: 1.5em;
 }
 
 .prev{
@@ -128,9 +117,6 @@ article > h1{
   margin-top:0;
 }
 
-[role="main"]{
-  background: $offWhite;
-}
 .btn {
     border: 1px solid $lighterGray;
     border-radius: 5px;
