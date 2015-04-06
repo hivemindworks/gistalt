@@ -1,9 +1,9 @@
 <!-- I think on this page we'll just open to your gists by default-->
 
+
 <!-- remove this stuff at the end? -->
 {{#if gists}}
   <h3>Your Gists:</h3>
-{{/if}}
 <ul class='gists col12'>
 {{#each gists}}
   <li>
@@ -35,3 +35,44 @@
   <a class='next' href='/?p={{next}}'>next &raquo;</a>
 {{/if}}
 </div>
+{{else}}
+<form action="/update" method="post">
+  <input class='col6 margin1r' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
+{{#if owner}}
+    {{#if gist.public}}
+    {{else}}
+    <small class='col5 fr js-by'>
+    by {{gist.owner.login}}
+    | 
+    Private
+    |
+    Forks: {{gist.forks.length}}
+    |
+    Revisions: {{gist.history.length}}
+    </small>
+    {{/if}}
+
+<div class='col2 margin0 pin-topleft top3'>
+    <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
+    <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
+    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
+
+</div>
+  {{else}}
+<div class='col2 pin-topright top3'>
+    {{#unless session.currentUser}}
+      <a class='btn-main btn' href='/login'>Log In to Update</a>
+    {{/unless}}
+</div>
+  {{/if}}
+
+<div class='row3 clearfix'>
+
+  <input type="hidden" value="Gistalt.md" name="oldFilename">
+  <input class='filename col7 margin1r' type="text" value="Gistalt.md" name="filename">
+  <input type="hidden" value="{{gist.id}}" name="id">
+</div>
+  <br><br>
+  <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
+</form>
+{{/if}}
