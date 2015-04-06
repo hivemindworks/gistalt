@@ -25,9 +25,10 @@
     </small>
     {{/if}}
 
-<div class='col2 pin-topright top4'>
+<div class='col2 pin-topright top3'>
     <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
     <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
+    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
 </div>
   {{/if}}
 
@@ -36,7 +37,6 @@
   <input type="hidden" value="{{filename}}" name="oldFilename">
   <input class='filename col7 margin1r' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
-  <a class='btn col2 fr' href='{{gist.html_url}}'>View on GitHub</a>
 </div>
     {{#if owner}}
     <button class='cb js-hide' type="submit">Update File</button>
