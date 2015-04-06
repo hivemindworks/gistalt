@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width"
   </head>
 <body class=''>
-   <nav class='pin-topleft margin0 col2 top3'>
-    <ul>
       {{#if session.accessToken}}
+   <nav class='pin-topleft margin0 col2 top12'>
+    <ul>
         <li>
             <a href='/'>Your gists</a>
         </li>
@@ -26,6 +26,8 @@
             <a href='/logout'>Logout</a>
         </li>
     {{else}}
+   <nav class='pin-topleft margin0 col2 top6'>
+    <ul>
         <li>
             <a href='/'>GISTALT</a> 
         </li>

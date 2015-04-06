@@ -3,6 +3,7 @@
 .top3 {margin-top:3em}
 //BARF
 .top4 {margin-top:4.8em}
+.top12 {margin-top:12em}
 
 .bottom1 {margin-bottom:1em}
 .bottom2 {margin-bottom:1.5em}
@@ -10,6 +11,10 @@
 
 /* Columns
 ========================================*/
+
+.row6 {
+    height: 6em;
+}
 
 .limiter {
       width:83.3333%;

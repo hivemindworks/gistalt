@@ -25,10 +25,17 @@
     </small>
     {{/if}}
 
-<div class='col2 pin-topright top3'>
+<div class='col2 margin0 pin-topleft top3'>
     <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
     <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
     <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
+
+</div>
+  {{else}}
+<div class='col2 pin-topright top3'>
+    {{#unless session.currentUser}}
+      <a class='btn-main btn' href='/login'>Log In to Update</a>
+    {{/unless}}
 </div>
   {{/if}}
 
@@ -38,13 +45,6 @@
   <input class='filename col7 margin1r' type="text" value="{{filename}}" name="filename">
   <input type="hidden" value="{{gist.id}}" name="id">
 </div>
-    {{#if owner}}
-    <button class='cb js-hide' type="submit">Update File</button>
-  {{else}}
-    {{#unless session.currentUser}}
-      &middot; <small><a href='/login'>Log In to Update</a></small>
-    {{/unless}}
-  {{/if}}
   <br><br>
   <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
 </form>

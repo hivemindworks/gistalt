@@ -123,14 +123,13 @@ article > h1{
     padding: .5em;
     font-size: .875em;
     line-height: 1.71429em;
-    color: $lightGray;
     width: 75%;
     margin: .5em;
     text-align: center;
     display: block;
+    color: $lightGray;
 
     &:hover {
-        background-color: $lighterGray;
         border-color: $lightGray;
         color: $gray;
     }
@@ -138,7 +137,11 @@ article > h1{
     &.btn-main {
         border-color: $linkColor;
         color: $linkColor;
-        background-color: $offWhite;
+    }
+    
+    &.btn-main:hover {
+        color: #FFF;
+        background-color: $linkColor;
     }
 }
 

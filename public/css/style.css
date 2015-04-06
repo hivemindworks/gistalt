@@ -89,6 +89,9 @@ label {
 .top4 {
   margin-top: 4.8em; }
 
+.top12 {
+  margin-top: 12em; }
+
 .bottom1 {
   margin-bottom: 1em; }
 
@@ -100,6 +103,9 @@ label {
 
 /* Columns
 ========================================*/
+.row6 {
+  height: 6em; }
+
 .limiter {
   width: 83.3333%;
   max-width: 1000px;
@@ -417,19 +423,20 @@ article > h1 {
   padding: .5em;
   font-size: .875em;
   line-height: 1.71429em;
-  color: #c4c4c4;
   width: 75%;
   margin: .5em;
   text-align: center;
-  display: block; }
+  display: block;
+  color: #c4c4c4; }
   .btn:hover {
-    background-color: #eee;
     border-color: #c4c4c4;
     color: #222; }
   .btn.btn-main {
     border-color: #1998e8;
-    color: #1998e8;
-    background-color: #f6f6f6; }
+    color: #1998e8; }
+  .btn.btn-main:hover {
+    color: #FFF;
+    background-color: #1998e8; }
 
 [data-saved="false"].btn.btn-main {
   border-color: orange;

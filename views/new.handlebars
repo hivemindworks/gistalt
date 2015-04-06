@@ -1,14 +1,19 @@
 <form method="post" action="/create">
-  <input class='filename' type="text" name="filename" value="{{time}}.md"><br>
-  <input type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> Public?
-  <br>
-  <br>
-  <input class='description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
-  <br>
-  <small>by {{owner.login}}</small>
-  <br>
-  <br>
-  <textarea class='file' id="content" name="content">{{content}}</textarea>
+  <input class='col8 description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
+  <div class='col4'>
+  <small class='fr'>by {{owner.login}}</small>
+  </div>
+  <div class="bottom2 row6">
+  <input class='filename col8' type="text" name="filename" value="{{time}}.md"><br>
+  <div class='col4'>
+  <input class='fr' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
+  <small class='fr'>Public</small>
+  </div>
+  </div>
+  <textarea autofocus slass='file' id="content" name="content">{{content}}</textarea>
   <br>
   <button type="submit">Create File</button>
+  <div class='col2 margin0 pin-topleft top3'>
+      <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Create File</a>
+  </div>
 </form>
