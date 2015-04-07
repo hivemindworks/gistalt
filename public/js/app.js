@@ -38,12 +38,16 @@ $('[data-submit]').on('click', function( event ){
   cm.save() // update textarea
   g.content = cm.getValue()
   g.save()
-  $.ajax({
-    url: $submittee.attr('action') + '/json',
-    method: $submittee.attr('method'),
-    data: $submittee.serialize(),
-    success: function( response ){
-      $('.js-updated-at').html( response.updated_at )
-    }
-  })
+  if ( $submittee.attr('action') == "/create" ){
+    $submittee.submit()   
+  } else {
+    $.ajax({
+      url: $submittee.attr('action') + '/json',
+      method: $submittee.attr('method'),
+      data: $submittee.serialize(),
+      success: function( response ){
+	$('.js-updated-at').html( response.updated_at )
+      }
+    })
+  }
 })
