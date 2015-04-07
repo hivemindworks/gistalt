@@ -59,7 +59,7 @@
 
 </div>
   {{else}}
-<div class='col2 pin-bottomright bottom1'>
+<div class='col2 pin-topright top3'>
     {{#unless session.currentUser}}
       <a class='btn-main btn' href='/login'>Log In to Update</a>
     {{/unless}}
@@ -73,8 +73,6 @@
   <input type="hidden" value="{{gist.id}}" name="id">
 </div>
   <br><br>
-  <textarea id='content' class='file col8' name="content" style='display:none'>
-  </textarea>
+  <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
 </form>
-
 {{/if}}

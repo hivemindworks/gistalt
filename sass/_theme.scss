@@ -117,46 +117,17 @@ article > h1{
   margin-top:0;
 }
 
-/* Pill wrapper for joining buttons. */
-/* Use <!-- --> to eliminate whitespace between buttons. */
-.pill {
-    display:inline-block;
-}
-.pill > * {
-    border-radius:0 0 0 0;
-    border:0 solid white;
-    border-left-width:1px;
-}
-.pill > *:first-of-type {
-    border-radius:3px 0 0 3px;
-    border-left-width:0;
-}
-.pill > *:last-of-type {
-    border-radius:0 3px 3px 0;
-}
-.pill > *:only-child {
-    border-radius:3px;
-}
-
-.pill .button.stroke {
-    border-right-width: 2px;
-    border-left-width: 0;
-}
-
-.pill .button.stroke:first-of-type {
-    border-left-width: 2px;
-}
-
 .btn {
-    display: inline;
+    border: 1px solid $lighterGray;
+    border-radius: 5px;
     padding: .5em;
     font-size: .875em;
     line-height: 1.71429em;
-    margin: 0em;
+    width: 75%;
+    margin: .5em;
     text-align: center;
+    display: block;
     color: $lightGray;
-    background-color: $gray;
-    font-family: $code;
 
     &:hover {
         border-color: $lightGray;

@@ -12,26 +12,42 @@
     <meta name="viewport" content="width=device-width"
   </head>
 <body class=''>
-  <div class='clearfix'>
-  <div class='col7 float-none top3 margin-auto' role="main">
       {{#if session.accessToken}}
-   <nav class='pin-bottom margin-auto col7'>
-    <div class='pill bottom1'>
-       <a class='btn' href='/'>Your gists</a><!--
-        --><a class='btn' href='/new'>New gist</a><!--
-        --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a><!--
-        --><a class='btn' href='/logout'>Logout</a>
+   <nav class='pin-topleft margin0 col2 top12'>
+    <ul>
+        <li>
+            <a href='/'>Your gists</a>
+        </li>
+        <li>
+            <a href='/new'>New gist</a>
+        </li>
+        <li>
+            <a href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a>
+        </li>
+        </li>
+        <li class='top2'>
+            <a href='/logout'>Logout</a>
+        </li>
     {{else}}
    <nav class='pin-topleft margin0 col2 top3'>
+    <ul>
+        <li>
+            <a href='/'>GISTALT</a> 
+        </li>
+        <li class='top2'>
+            <a href='/login'>Log In with GitHub</a>
+        </li>
       {{/if}}
-    </div>
+    </ul>
   </nav>
-      <article class=''>
+  <div class='clearfix'>
+  <div class='col9 margin2 top3' role="main">
+      <article class='limiter'>
     {{{body}}}
     </article>
   </div>
   </div>
-<footer style='display:none' class="col2 margin0 bottom3 pin-bottomleft">
+<footer class="col2 margin0 bottom3 pin-bottomleft">
     Made with ♥ by
     <br/>
     <a href='https://twitter.com/jshawl'>@jshawl</a> 
