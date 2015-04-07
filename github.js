@@ -49,7 +49,7 @@ module.exports = function( accessToken ){
     },
     updateGist: function( req, callback ){
       var uri = baseUrl + "/" + req.body.id + '?access_token=' + accessToken
-      var data = { files: { } }
+      var data = { files: { }, description: req.body.description }
       data.files[ req.body.oldFilename ] = { 
 	content: req.body.content, 
 	filename: req.body.filename
