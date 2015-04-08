@@ -1,5 +1,6 @@
 var request = require('request')
 var baseUrl = 'https://api.github.com/gists'
+var _ = require('lodash')
 
 module.exports = function( accessToken ){
   return {
@@ -27,7 +28,10 @@ module.exports = function( accessToken ){
 	} catch ( e ){
 	  prev = offset - 1
 	}
-	callback( body, prev, next )
+	gists = _.sortBy( JSON.parse(body), function( gist ){
+	  return gist.updated_at
+	}).reverse()
+	callback( JSON.stringify(gists), prev, next )
       })
     },
     gist: function( id, callback ){
