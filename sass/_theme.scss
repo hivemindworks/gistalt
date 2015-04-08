@@ -146,15 +146,16 @@ article > h1{
 }
 
 .btn {
-    display: inline;
+    border: 1px solid $lighterGray;
+    border-radius: 5px;
     padding: .5em;
     font-size: .875em;
     line-height: 1.71429em;
-    margin: 0em;
+    width: 75%;
+    margin: .5em;
     text-align: center;
+    display: block;
     color: $lightGray;
-    background-color: $gray;
-    font-family: $code;
 
     &:hover {
         color: #FFF;

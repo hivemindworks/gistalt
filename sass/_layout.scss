@@ -23,12 +23,6 @@
       margin-right:auto;
   }
 
-  .margin-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
   .col0    { float:left; width:04.1666%; max-width:50px; }
   .col1    { float:left; width:08.3333%; max-width:100px; }
   .col2    { float:left; width:16.6666%; max-width:200px; }
@@ -58,7 +52,7 @@
     max-width: none;
 }
 
-.margin0  { margin-left:1em; }
+.margin0  { margin-left:04.1666%; }
 .margin1  { margin-left:08.3333%; }
 .margin2  { margin-left:16.6666%; }
 .margin3  { margin-left:25.0000%; }
@@ -90,7 +84,6 @@
 .pad3y { padding: 3em 0em 3em 0em; }
 
 
-.float-none { float: none; }
 .fr { float: right; }
 .fl { float: left; }
 .cb { clear:both; }
@@ -109,12 +102,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
 
 /* fixed stuff
 ========================================*/
-.pin-bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
+
 .pin-topleft {
     position: fixed;
     top: 0;
@@ -125,17 +113,10 @@ Details: http://www.positioniseverything.net/easyclearing.html
     top: 0;
     right: 0;
 }
-
 .pin-bottomleft {
     position: fixed;
     bottom: 0;
     left: 0;
-}
-
-.pin-bottomright {
-    position: fixed;
-    bottom: 0;
-    right: 0;
 }
 
 .amp {

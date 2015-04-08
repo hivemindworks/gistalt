@@ -112,10 +112,6 @@ label {
   margin-left: auto;
   margin-right: auto; }
 
-.margin-auto {
-  margin-left: auto;
-  margin-right: auto; }
-
 .col0 {
   float: left;
   width: 4.1666%;
@@ -184,7 +180,7 @@ label {
   max-width: none; }
 
 .margin0 {
-  margin-left: 1em; }
+  margin-left: 4.1666%; }
 
 .margin1 {
   margin-left: 8.3333%; }
@@ -265,9 +261,6 @@ label {
 .pad3y {
   padding: 3em 0em 3em 0em; }
 
-.float-none {
-  float: none; }
-
 .fr {
   float: right; }
 
@@ -292,12 +285,6 @@ Details: http://www.positioniseverything.net/easyclearing.html
 
 /* fixed stuff
 ========================================*/
-.pin-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
 .pin-topleft {
   position: fixed;
   top: 0;
@@ -312,11 +299,6 @@ Details: http://www.positioniseverything.net/easyclearing.html
   position: fixed;
   bottom: 0;
   left: 0; }
-
-.pin-bottomright {
-  position: fixed;
-  bottom: 0;
-  right: 0; }
 
 .amp {
   font-size: 110%;
@@ -464,15 +446,16 @@ article > h1 {
   border-left-width: 2px; }
 
 .btn {
-  display: inline;
+  border: 1px solid #eee;
+  border-radius: 5px;
   padding: .5em;
   font-size: .875em;
   line-height: 1.71429em;
-  margin: 0em;
+  width: 75%;
+  margin: .5em;
   text-align: center;
-  color: #c4c4c4;
-  background-color: #222;
-  font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  display: block;
+  color: #c4c4c4; }
   .btn:hover {
     color: #FFF; }
   .btn.btn-main {

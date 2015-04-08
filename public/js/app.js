@@ -47,6 +47,7 @@ $('[data-submit]').on('click', function( event ){
       data: $submittee.serialize(),
       success: function( response ){
 	$('.js-updated-at').html( response.updated_at )
+	$('.js-revisions').html( response.history.length )
       }
     })
   }
