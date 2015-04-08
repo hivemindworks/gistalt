@@ -14,6 +14,19 @@
   <br>
   <button class='js-hide' type="submit">Create File</button>
   <div class='col2 margin0 pin-topleft top3'>
-      <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Create File</a>
   </div>
+
+{{#if session.accessToken}}
+  <nav class='pin-bottom margin-auto col7'>
+    <div class='pill bottom1 fl'>
+       <a class='btn' href='/'>Your gists</a><!--
+        --><a class='btn' href='/new'>New gist</a><!--
+        --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a>
+    </div>
+    <div class='pill bottom1 fr'>
+        <a class='btn' href='/logout'>Logout</a><!--
+       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Create File</a>
+    </div>
+  </nav>
+  {{/if}}
 </form>

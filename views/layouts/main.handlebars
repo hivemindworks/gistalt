@@ -14,21 +14,9 @@
 <body class=''>
   <div class='clearfix'>
   <div class='col7 float-none top3 margin-auto' role="main">
-      {{#if session.accessToken}}
-   <nav class='pin-bottom margin-auto col7'>
-    <div class='pill bottom1'>
-       <a class='btn' href='/'>Your gists</a><!--
-        --><a class='btn' href='/new'>New gist</a><!--
-        --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a><!--
-        --><a class='btn' href='/logout'>Logout</a>
-    {{else}}
-   <nav class='pin-topleft margin0 col2 top3'>
-      {{/if}}
-    </div>
-  </nav>
-      <article class=''>
+  <article class=''>
     {{{body}}}
-    </article>
+  </article>
   </div>
   </div>
 <footer style='display:none' class="col2 margin0 bottom3 pin-bottomleft">

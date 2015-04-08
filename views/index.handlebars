@@ -1,4 +1,16 @@
 <!-- I think on this page we'll just open to your gists by default-->
+{{#if session.accessToken}}
+  <nav class='pin-bottom margin-auto col7'>
+    <div class='pill bottom1 fl'>
+       <a class='btn' href='/'>Your gists</a><!--
+        --><a class='btn' href='/new'>New gist</a><!--
+        --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a>
+    </div>
+    <div class='pill bottom1 fr'>
+        <a class='btn' href='/logout'>Logout</a>
+    </div>
+  </nav>
+  {{/if}}
 
 
 <!-- remove this stuff at the end? -->
@@ -60,9 +72,13 @@
 </div>
   {{else}}
 <div class='col2 pin-bottomright bottom1'>
-    {{#unless session.currentUser}}
-      <a class='btn-main btn' href='/login'>Log In to Update</a>
-    {{/unless}}
+  {{#unless session.currentUser}}
+      <nav class='pin-bottom margin-auto col7'>
+        <div class='pill bottom1 fr'>
+          <a class='btn-main btn' href='/login'>Log In to Update</a>
+        </div>
+      </nav>
+  {{/unless}}
 </div>
   {{/if}}
 

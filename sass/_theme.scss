@@ -30,6 +30,7 @@ small {
 }
 
 nav {
+    z-index: 100;
     font-family: $code;
     li a {
         color: $lightGray;
@@ -119,9 +120,6 @@ article > h1{
 
 /* Pill wrapper for joining buttons. */
 /* Use <!-- --> to eliminate whitespace between buttons. */
-.pill {
-    display:inline-block;
-}
 .pill > * {
     border-radius:0 0 0 0;
     border:0 solid white;
@@ -159,18 +157,16 @@ article > h1{
     font-family: $code;
 
     &:hover {
-        border-color: $lightGray;
-        color: $gray;
+        color: #FFF;
     }
 
     &.btn-main {
-        border-color: $linkColor;
-        color: $linkColor;
+        color: #FFF;
+        background-color: $linkColor;
     }
     
     &.btn-main:hover {
-        color: #FFF;
-        background-color: $linkColor;
+
     }
 }
 

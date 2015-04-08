@@ -271,6 +271,9 @@ label {
 .fr {
   float: right; }
 
+.fl {
+  float: left; }
+
 .cb {
   clear: both; }
 
@@ -373,6 +376,7 @@ small {
   font: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 nav {
+  z-index: 100;
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   nav li a {
     color: #c4c4c4; }
@@ -437,9 +441,6 @@ article > h1 {
 
 /* Pill wrapper for joining buttons. */
 /* Use <!-- --> to eliminate whitespace between buttons. */
-.pill {
-  display: inline-block; }
-
 .pill > * {
   border-radius: 0 0 0 0;
   border: 0 solid white;
@@ -473,12 +474,8 @@ article > h1 {
   background-color: #222;
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   .btn:hover {
-    border-color: #c4c4c4;
-    color: #222; }
+    color: #FFF; }
   .btn.btn-main {
-    border-color: #1998e8;
-    color: #1998e8; }
-  .btn.btn-main:hover {
     color: #FFF;
     background-color: #1998e8; }
 
