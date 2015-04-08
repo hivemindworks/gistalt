@@ -27,14 +27,16 @@
 
 <div class='col2 margin0 pin-topleft top3'>
     <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
-    <a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
-    <a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
 
 </div>
   {{else}}
 <div class='col2 pin-topright top3'>
     {{#unless session.currentUser}}
-      <a class='btn-main btn' href='/login'>Log In to Update</a>
+ <nav class='pin-bottom margin-auto col7'>
+        <div class='pill bottom1 fr'>
+          <a class='btn-main btn' href='/login'>Log In to Update</a>
+        </div>
+      </nav>
     {{/unless}}
 </div>
   {{/if}}
@@ -47,6 +49,22 @@
 </div>
   <br><br>
   <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
+
+{{#if session.accessToken}}
+  <nav class='pin-bottom margin-auto col7'>
+    <div class='pill bottom1 fl'>
+       <a class='btn' href='/'>Your gists</a><!--
+        --><a class='btn' href='/new'>New gist</a><!--
+        --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a>
+    </div>
+    <div class='pill bottom1 fr'>
+        <a class='btn' href='/logout'>Logout</a><!--
+       --><a class='btn' href='{{gist.html_url}}'>View on GitHub</a><!--
+       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
+    </div>
+  </nav>
+  {{/if}}
+
 </form>
 {{#unless session.currentUser}}
   <script type='text/javascript'>

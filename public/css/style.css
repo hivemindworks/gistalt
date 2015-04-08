@@ -179,6 +179,10 @@ label {
 .unlimiter .col0, .unlimiter .col1, .unlimiter .col2, .unlimiter .col3, .unlimiter .col4, .unlimiter .col5, .unlimiter .col6, .unlimiter .col7, .unlimiter .col8, .unlimiter .col9, .unlimiter .col10, .unlimiter .col11 {
   max-width: none; }
 
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto; }
+
 .margin0 {
   margin-left: 4.1666%; }
 
@@ -261,8 +265,14 @@ label {
 .pad3y {
   padding: 3em 0em 3em 0em; }
 
+.float-none {
+  float: none; }
+
 .fr {
   float: right; }
+
+.fl {
+  float: left; }
 
 .cb {
   clear: both; }
@@ -292,10 +302,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
   top: 0;
   right: 0; }
 
-.pin-bottomleft {
+.pin-bottom {
   position: fixed;
-  bottom: 0;
-  left: 0; }
+  bottom: 0; }
 
 .amp {
   font-size: 110%;
@@ -355,6 +364,7 @@ small {
   font: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 nav {
+  z-index: 100;
   font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   nav li a {
     color: #c4c4c4; }
@@ -417,26 +427,47 @@ footer {
 article > h1 {
   margin-top: 0; }
 
+/* Pill wrapper for joining buttons. */
+/* Use <!-- --> to eliminate whitespace between buttons. */
+.pill > * {
+  border-radius: 0 0 0 0;
+  border: 0 solid white;
+  border-left-width: 1px; }
+
+.pill > *:first-of-type {
+  border-radius: 3px 0 0 3px;
+  border-left-width: 0; }
+
+.pill > *:last-of-type {
+  border-radius: 0 3px 3px 0; }
+
+.pill > *:only-child {
+  border-radius: 3px; }
+
+.pill .button.stroke {
+  border-right-width: 2px;
+  border-left-width: 0; }
+
+.pill .button.stroke:first-of-type {
+  border-left-width: 2px; }
+
 .btn {
-  border: 1px solid #eee;
-  border-radius: 5px;
+  display: inline;
   padding: .5em;
   font-size: .875em;
   line-height: 1.71429em;
-  width: 75%;
-  margin: .5em;
+  margin: 0em;
   text-align: center;
-  display: block;
-  color: #c4c4c4; }
+  color: #c4c4c4;
+  background-color: #222;
+  font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   .btn:hover {
-    border-color: #c4c4c4;
-    color: #222; }
+    color: #FFF; }
   .btn.btn-main {
-    border-color: #1998e8;
-    color: #1998e8; }
-  .btn.btn-main:hover {
     color: #FFF;
     background-color: #1998e8; }
+  .btn.btn-main:hover {
+    background-color: #51BCFF; }
 
 [data-saved="false"].btn.btn-main {
   border-color: orange;
