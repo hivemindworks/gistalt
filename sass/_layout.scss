@@ -52,6 +52,11 @@
     max-width: none;
 }
 
+.margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .margin0  { margin-left:04.1666%; }
 .margin1  { margin-left:08.3333%; }
 .margin2  { margin-left:16.6666%; }
@@ -84,6 +89,7 @@
 .pad3y { padding: 3em 0em 3em 0em; }
 
 
+.float-none { float: none; }
 .fr { float: right; }
 .fl { float: left; }
 .cb { clear:both; }
@@ -113,10 +119,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
     top: 0;
     right: 0;
 }
-.pin-bottomleft {
+.pin-bottom{
     position: fixed;
     bottom: 0;
-    left: 0;
 }
 
 .amp {

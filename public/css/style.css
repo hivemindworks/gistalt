@@ -179,6 +179,10 @@ label {
 .unlimiter .col0, .unlimiter .col1, .unlimiter .col2, .unlimiter .col3, .unlimiter .col4, .unlimiter .col5, .unlimiter .col6, .unlimiter .col7, .unlimiter .col8, .unlimiter .col9, .unlimiter .col10, .unlimiter .col11 {
   max-width: none; }
 
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto; }
+
 .margin0 {
   margin-left: 4.1666%; }
 
@@ -261,6 +265,9 @@ label {
 .pad3y {
   padding: 3em 0em 3em 0em; }
 
+.float-none {
+  float: none; }
+
 .fr {
   float: right; }
 
@@ -295,10 +302,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
   top: 0;
   right: 0; }
 
-.pin-bottomleft {
+.pin-bottom {
   position: fixed;
-  bottom: 0;
-  left: 0; }
+  bottom: 0; }
 
 .amp {
   font-size: 110%;
@@ -446,16 +452,15 @@ article > h1 {
   border-left-width: 2px; }
 
 .btn {
-  border: 1px solid #eee;
-  border-radius: 5px;
+  display: inline;
   padding: .5em;
   font-size: .875em;
   line-height: 1.71429em;
-  width: 75%;
-  margin: .5em;
+  margin: 0em;
   text-align: center;
-  display: block;
-  color: #c4c4c4; }
+  color: #c4c4c4;
+  background-color: #222;
+  font-family: "inconsolata", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   .btn:hover {
     color: #FFF; }
   .btn.btn-main {
