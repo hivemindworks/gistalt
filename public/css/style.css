@@ -478,6 +478,8 @@ article > h1 {
   .btn.btn-main {
     color: #FFF;
     background-color: #1998e8; }
+  .btn.btn-main:hover {
+    background-color: #51BCFF; }
 
 [data-saved="false"].btn.btn-main {
   border-color: orange;
