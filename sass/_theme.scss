@@ -171,8 +171,34 @@ article > h1{
 }
 
 [data-saved="false"].btn.btn-main {
-  border-color: orange;
-  color: orange;
+  transition: all 1s;
+  background-color: #F2AA4B;
+  -webkit-animation: pulse 15s 1s infinite;
+  animation: pulse 15s 1s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+      background-color: #F2AA4B;
+  }
+  50% {
+      background-color: #E84019;
+  }
+  100% {
+      background-color: #F2AA4B;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      background-color: #F2AA4B;
+  }
+  50% {
+      background-color: #E84019;
+  }
+  100% {
+      background-color: #F2AA4B;
+  }
 }
 
 .CodeMirror-wrap{
