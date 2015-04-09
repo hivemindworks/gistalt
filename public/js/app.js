@@ -5,9 +5,12 @@ var cm = CodeMirror.fromTextArea(document.getElementById('content'), {
     lineWrapping: true,
     theme: "default"
 });
-cm.on("change", function( cm ){
-  $("[data-saved]").attr('data-saved', cm.getValue() == g.content )
-})
+var isSaved = function(){
+  $("[data-saved]").attr('data-saved', cm.getValue() == g.content && $("[name='description']") == g.description && $("[name='filename']") == g.filename )
+}
+$("form").on("change", isSaved) 
+cm.on("change", isSaved)
+
 var textarea = document.querySelector('.CodeMirror');
 var autosize = function autosize(){
   var el = textarea;
@@ -22,10 +25,14 @@ var g = Gistalt.findBy({
 if( !g ){
   Gistalt.create({
     gist_id: $("[name='id']").val(),
-    content: $('#content').html()
+    content: $('#content').html(),
+    description: $("[name='description']").val(),
+    filename: $("[name='filename']").val()
   })
 }else{
   g.content = $('#content').html()
+  g.description = $("[name='description']").val()
+  g.filename = $("[name='filename']").val()
 }
 
 autosize()
