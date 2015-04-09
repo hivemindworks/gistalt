@@ -10,11 +10,12 @@
 
 
 <form action="/update" method="post">
-  <input class='col6 margin1r' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+  <input class='col6 ' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
 {{#if owner}}
     {{#if gist.public}}
     {{else}}
-    <small class='col5 fr js-by'>
+    <div class='col6 js-by'>
+    <small class="fr">
     by {{gist.owner.login}}
     | 
     Private
@@ -23,6 +24,7 @@
     |
     Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
     </small>
+    </div>
     {{/if}}
 
 <div class='col2 margin0 pin-topleft top3'>
