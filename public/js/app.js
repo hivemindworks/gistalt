@@ -46,7 +46,6 @@ $('form input').on('keypress', function( event ){
 })
 
 $('[data-submit]').on('click', function( event ){
-  console.log( this )
   $(this).attr('data-saved', true )
   event.preventDefault()
   var $submittee = $($(this).data('submit'))
