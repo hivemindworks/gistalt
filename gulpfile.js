@@ -32,6 +32,10 @@ gulp.task('concat', function(){
     .pipe(gulp.dest('./public/dist/'));
 })
 
+gulp.task('build', function(){
+  gulp.run(['sass','concat','rev'])
+})
+
 // The default task (called when you run `gulp`)
 gulp.task('default', function() {
   nodemon({script: './bin/www'})
