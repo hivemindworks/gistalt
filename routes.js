@@ -1,14 +1,11 @@
 var request = require('request')
 var config = require('./config')
 var _ = require('lodash')
-var fs = require('fs')
 var github = require('./github')
 var moment = require('moment')
 
 module.exports = {
   index: function( req, res ){
-    var data = JSON.parse( fs.readFileSync('public/dist/rev-manifest.json','utf-8') );
-
     if ( req.session.accessToken ){
       var offset = req.query.p
       github( req.session.accessToken ).gists( offset, function( body, prev, next ){

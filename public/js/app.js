@@ -1,13 +1,11 @@
-$(function(){
-
 $('.js-hide').hide()
 var Gistalt = Object.create( new ActiveStorage("Gistalt") )
 var cm = CodeMirror.fromTextArea(document.getElementById('content'), {
     mode: 'gfm',
     lineWrapping: true,
     theme: "default",
-    autofocus: true,
-    viewportMargin: Infinity
+    autofocus: true
+
 });
 var isSaved = function(){
   $("[data-saved]").attr('data-saved', cm.getValue() == g.content && $("[name='description']") == g.description && $("[name='filename']") == g.filename )
@@ -68,5 +66,4 @@ $('[data-submit]').on('click', function( event ){
       }
     })
   }
-})
 })
