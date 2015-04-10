@@ -206,3 +206,10 @@ article > h1{
   clear:both;
 }
 
+.CodeMirror{
+  min-height: 500px;
+}
+
+.CodeMirror .CodeMirror-cursors div.CodeMirror-cursor{
+  border-left: 2px solid #333;
+}

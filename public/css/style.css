@@ -498,3 +498,9 @@ article > h1 {
 .CodeMirror-wrap {
   background: #fff;
   clear: both; }
+
+.CodeMirror {
+  min-height: 500px; }
+
+.CodeMirror .CodeMirror-cursors div.CodeMirror-cursor {
+  border-left: 2px solid #333; }
