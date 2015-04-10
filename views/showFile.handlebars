@@ -17,7 +17,7 @@
     </div>
     <div class='pill bottom1 fr'>
        <a href='#' type='submit' data-submit="form.js-delete" class='btn btn-main btn-delete'>Delete</a><!--
-       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Save</a>
+       --><a href='#' type='submit' data-saved="true" data-submit="form.js-save" class='btn btn-main'>Save</a>
     </div>
     <div class='pill bottom1'>
         <a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a><!--
@@ -35,7 +35,7 @@
       </nav>
     </div>
   {{/unless}}
-<form action="/update" method="post">
+<form action="/update" method="post" class='js-save'>
   <input class='col6 ' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
 {{#if owner}}
     {{#if gist.public}}
