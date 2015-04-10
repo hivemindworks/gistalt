@@ -190,30 +190,30 @@ article > h1{
 }
 
 
-
 @-webkit-keyframes pulse {
   0% {
-      background-color: #59AD5E;
+      background-color: #F2AA4B;
   }
   50% {
-      background-color: lighten(#59AD5E, 10%);
+      background-color: #E84019;
   }
   100% {
-      background-color: #59AD5E;
+      background-color: #F2AA4B;
   }
 }
 
 @keyframes pulse {
   0% {
-      background-color: #59AD5E;
+      background-color: #F2AA4B;
   }
   50% {
-      background-color: lighten(#59AD5E, 10%);
+      background-color: #E84019;
   }
   100% {
-      background-color: #59AD5E;
+      background-color: #F2AA4B;
   }
 }
+
 
 .CodeMirror-wrap{
   background: #fff;
