@@ -132,12 +132,14 @@ Details: http://www.positioniseverything.net/easyclearing.html
 }
 
 [role="main"]{
-  padding-bottom:6em;
+  padding:2em 2em 6em 2em;
 }
 @media all and (max-width:40em){
   .pin-topleft,
+  .pin-bottom,
   .pin-bottomleft,
   .col8,
+  .col6,
   .col4,
   [role="main"]{
      position: relative;
@@ -154,8 +156,11 @@ Details: http://www.positioniseverything.net/easyclearing.html
     margin-right: auto;
     float:none;
   }
-  .col4 .fr{
+  .fl, .fr{
     float:none;
+  }
+  .pin-bottom{
+    margin-bottom:2em;
   }
   form .pin-topleft{
     position:relative;
