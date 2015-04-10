@@ -20,7 +20,7 @@ app.use(sesh({
 
 app.use(function(req,res,next){
   res.locals.session = req.session;
-  res.locals.css = '/dist/' + assets['css/style.min.css'];
+  res.locals.css = assets['public/dist/style.css'].replace('public','')
   res.locals.js =  assets['public/dist/app.js'].replace('public','')
   res.locals.callback_uri = config.callback_uri
   res.locals.client_id = config.client_id
