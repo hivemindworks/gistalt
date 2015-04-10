@@ -3,7 +3,6 @@
   color: #000;
 }
 
-
 body, input {
   font-family: $sans;
   color: #333;
@@ -189,7 +188,6 @@ article > h1{
   animation: pulse 15s 1s infinite;
 }
 
-
 @-webkit-keyframes pulse {
   0% {
       background-color: #F2AA4B;
@@ -213,7 +211,6 @@ article > h1{
       background-color: #F2AA4B;
   }
 }
-
 
 .CodeMirror-wrap{
   background: #fff;
