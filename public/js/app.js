@@ -39,7 +39,6 @@ autosize()
 textarea.addEventListener('keydown', autosize);
 
 $('form input').on('keypress', function( event ){
-  event.preventDefault()
   if( event.keyCode == 13 ){
     return false
   }
