@@ -53,7 +53,7 @@ $('[data-submit]').on('click', function( event ){
   cm.save() // update textarea
   g.content = cm.getValue()
   g.save()
-  if ( $submittee.attr('action') == "/create" ){
+  if ( $submittee.attr('action') == "/create" || $submittee.attr('action') == "/delete" ){
     $submittee.submit()   
   } else {
     $.ajax({
