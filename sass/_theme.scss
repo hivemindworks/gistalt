@@ -145,6 +145,12 @@ article > h1{
     border-left-width: 2px;
 }
 
+@media all and (max-width:40em){
+  .pill{
+    font-size:.9em;
+  }
+}
+
 .btn {
     display: inline;
     padding: .5em;
@@ -208,8 +214,6 @@ article > h1{
       background-color: #59AD5E;
   }
 }
-
-
 
 .CodeMirror-wrap{
   background: #fff;

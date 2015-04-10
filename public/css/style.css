@@ -101,6 +101,9 @@ label {
 .bottom3 {
   margin-bottom: 3em; }
 
+.ta-center {
+  text-align: center; }
+
 /* Columns
 ========================================*/
 .row6 {
@@ -313,10 +316,10 @@ Details: http://www.positioniseverything.net/easyclearing.html
   font-weight: normal; }
 
 [role="main"] {
-  padding-bottom: 6em; }
+  padding: 1em 1em 6em 1em; }
 
 @media all and (max-width: 40em) {
-  .pin-topleft, .pin-bottomleft, .col8, .col4, [role="main"] {
+  .pin-topleft, .pin-topright, .pin-bottom, .pin-bottomleft, .col8, .col6, .col4, [role="main"] {
     position: relative;
     width: 100%; }
   [role="main"] {
@@ -328,8 +331,10 @@ Details: http://www.positioniseverything.net/easyclearing.html
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .col4 .fr {
+  .fl, .fr {
     float: none; }
+  .pin-bottom {
+    margin-bottom: 2em; }
   form .pin-topleft {
     position: relative;
     float: none;
@@ -450,6 +455,10 @@ article > h1 {
 
 .pill .button.stroke:first-of-type {
   border-left-width: 2px; }
+
+@media all and (max-width: 40em) {
+  .pill {
+    font-size: .9em; } }
 
 .btn {
   display: inline;
