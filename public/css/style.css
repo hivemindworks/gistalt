@@ -340,6 +340,9 @@ Details: http://www.positioniseverything.net/easyclearing.html
       float: left;
       width: 50%; } }
 
+.CodeMirror {
+  min-height: 500px; }
+
 ::selection {
   background-color: #efefef;
   color: #000; }

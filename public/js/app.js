@@ -3,7 +3,9 @@ var Gistalt = Object.create( new ActiveStorage("Gistalt") )
 var cm = CodeMirror.fromTextArea(document.getElementById('content'), {
     mode: 'gfm',
     lineWrapping: true,
-    theme: "default"
+    theme: "default",
+    autofocus: true
+
 });
 var isSaved = function(){
   $("[data-saved]").attr('data-saved', cm.getValue() == g.content && $("[name='description']") == g.description && $("[name='filename']") == g.filename )
