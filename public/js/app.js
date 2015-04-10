@@ -38,7 +38,15 @@ if( !g ){
 autosize()
 textarea.addEventListener('keydown', autosize);
 
+$('form input').on('keypress', function( event ){
+  event.preventDefault()
+  if( event.keyCode == 13 ){
+    return false
+  }
+})
+
 $('[data-submit]').on('click', function( event ){
+  console.log( this )
   $(this).attr('data-saved', true )
   event.preventDefault()
   var $submittee = $($(this).data('submit'))
