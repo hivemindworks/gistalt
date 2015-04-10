@@ -182,5 +182,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
 
 input[name="description"],
 input[name="filename"]{
-  width:100%;
+  &, &.col7 {
+    width:100%;
+  }
 }
