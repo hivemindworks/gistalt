@@ -1,12 +1,13 @@
 var express = require('express')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+var fs = require('fs')
 var sesh = require('express-session')
 var routes = require('./routes')
 var config = require('./config')
 var path = require('path')
 var exphbs = require('express-handlebars')
-
+var assets = JSON.parse( fs.readFileSync('public/dist/rev-manifest.json','utf-8') );
 var app = express()
 
 app.use(cookieParser())
@@ -19,6 +20,8 @@ app.use(sesh({
 
 app.use(function(req,res,next){
   res.locals.session = req.session;
+  res.locals.css = assets['public/dist/style.css'].replace('public','')
+  res.locals.js =  assets['public/dist/app.js'].replace('public','')
   res.locals.callback_uri = config.callback_uri
   res.locals.client_id = config.client_id
   next();

@@ -13,6 +13,13 @@
   {{/if}}
 
 
+  {{#unless session.currentUser}}
+      <nav class='pin-bottom margin-auto col7 top2'>
+        <div class='pill bottom1 fr'>
+          <a class='btn-main btn' href='/login'>Log In to Update</a>
+        </div>
+      </nav>
+  {{/unless}}
 <!-- remove this stuff at the end? -->
 {{#if gists}}
   <h3>Your Gists:</h3>
@@ -65,13 +72,6 @@
     {{/if}}
 
   {{else}}
-  {{#unless session.currentUser}}
-      <nav class='pin-bottom margin-auto col7'>
-        <div class='pill bottom1 fr'>
-          <a class='btn-main btn' href='/login'>Log In to Update</a>
-        </div>
-      </nav>
-  {{/unless}}
   {{/if}}
 
 <div class='row3 clearfix'>
