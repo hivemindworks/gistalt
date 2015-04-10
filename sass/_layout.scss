@@ -9,6 +9,10 @@
 .bottom2 {margin-bottom:1.5em}
 .bottom3 {margin-bottom:3em}
 
+.ta-center{
+  text-align:center;
+}
+
 /* Columns
 ========================================*/
 
@@ -132,7 +136,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
 }
 
 [role="main"]{
-  padding:2em 2em 6em 2em;
+  padding:1em 1em 6em 1em;
 }
 @media all and (max-width:40em){
   .pin-topleft,
