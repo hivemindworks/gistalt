@@ -168,38 +168,48 @@ article > h1{
     &.btn-main:hover {
         background-color:#51BCFF;
     }
+    &.btn-delete{
+      background-color: #E84019;
+    }
+    &.btn-delete:hover{
+      background-color: #F2AA4B;
+    }
 }
 
 [data-saved="false"].btn.btn-main {
   transition: all 1s;
-  background-color: #F2AA4B;
+  background-color: #59AD5E;
   -webkit-animation: pulse 15s 1s infinite;
   animation: pulse 15s 1s infinite;
 }
 
+
+
 @-webkit-keyframes pulse {
   0% {
-      background-color: #F2AA4B;
+      background-color: #59AD5E;
   }
   50% {
-      background-color: #E84019;
+      background-color: lighten(#59AD5E, 10%);
   }
   100% {
-      background-color: #F2AA4B;
+      background-color: #59AD5E;
   }
 }
 
 @keyframes pulse {
   0% {
-      background-color: #F2AA4B;
+      background-color: #59AD5E;
   }
   50% {
-      background-color: #E84019;
+      background-color: lighten(#59AD5E, 10%);
   }
   100% {
-      background-color: #F2AA4B;
+      background-color: #59AD5E;
   }
 }
+
+
 
 .CodeMirror-wrap{
   background: #fff;
