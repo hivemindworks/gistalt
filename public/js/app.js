@@ -23,7 +23,7 @@ var g = Gistalt.findBy({
   gist_id: $("[name='id']").val()
 })
 if( !g ){
-  Gistalt.create({
+  g = Gistalt.create({
     gist_id: $("[name='id']").val(),
     content: $('#content').html(),
     description: $("[name='description']").val(),
