@@ -1,4 +1,4 @@
-<form method="post" action="/create">
+<form method="post" action="/create" class='js-do-save'>
   <input type="hidden" class='js-id' value="">
   <input type="hidden" class='js-delete' value="">
   <input class='col8 description js-description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
@@ -27,7 +27,7 @@
     </div>
     <div class='pill bottom1 fr'>
         <a class='btn' href='/logout'>Logout</a><!--
-       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main js-save'>Create File</a>
+       --><a href='#' type='submit' data-saved="true" data-submit=".js-do-save" class='btn btn-main js-save'>Create File</a>
     </div>
   </nav>
   {{/if}}
