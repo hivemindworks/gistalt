@@ -28,6 +28,14 @@ small {
     font: $code;
 }
 
+.gradient {
+    position: fixed;
+    bottom: 0;
+    height: 9em;
+    width: 100%;
+    background-image: linear-gradient(transparent, $lightestGray);
+}
+
 nav {
     z-index: 100;
     font-family: $code;
