@@ -56,6 +56,19 @@ var gistalt = (function(){
       this.els.codemirror && this.els.codemirror.on('change', function(){
 	gistalt.isSaved.call( self )
       })
+      if( this.els.save )
+	this.autoSave()
+    },
+    autoSave: function(){
+      var typingTimer;                //timer identifier
+      var doneTypingInterval = 5000;  //time in ms, 5 second for example
+      this.els.codemirror.on("change",function(){
+	  clearTimeout(typingTimer);
+	  typingTimer = setTimeout(doneTyping, doneTypingInterval);
+      });
+      var doneTyping = function doneTyping(){
+	  gistalt.save( gistalt.els.save )
+      }
     },
     preventFormSubmit: function( event ){
       this.isSaved()
