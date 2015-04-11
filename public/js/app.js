@@ -14,44 +14,46 @@ var gistalt = (function(){
   Gistalt.prototype = {
     init: function(){
       $('.js-hide').hide()
-      this.els.codemirror = CodeMirror.fromTextArea( this.els.content, {
-	mode: 'gfm',
-	lineWrapping: true,
-	theme: "default",
-	autofocus: true
-      });
-      this.localStorage = Object.create( new ActiveStorage("Gistalt") )
-      this.gist = this.localStorage.findBy({
-	gist_id: this.els.id.value
-      })
-      if( !this.gist ){
-	this.gist = this.localStorage.create({
-	  gist_id: this.els.id.value,
-	  content: this.els.content.value,
-	  description: this.els.description.value,
-	  filename: this.els.filename.value
+      if( this.els.content ){
+	this.els.codemirror = CodeMirror.fromTextArea( this.els.content, {
+	  mode: 'gfm',
+	  lineWrapping: true,
+	  theme: "default",
+	  autofocus: true
+	});
+	this.localStorage = Object.create( new ActiveStorage("Gistalt") )
+	this.gist = this.localStorage.findBy({
+	  gist_id: this.els.id.value
 	})
-      }else{
-	this.gist.content = this.els.content.innerHTML
-	this.gist.description = this.els.description.value
-	this.gist.filename = this.els.filename.value
-	this.gist.save()
+	if( !this.gist ){
+	  this.gist = this.localStorage.create({
+	    gist_id: this.els.id.value,
+	    content: this.els.content.value,
+	    description: this.els.description.value,
+	    filename: this.els.filename.value
+	  })
+	}else{
+	  this.gist.content = this.els.content.innerHTML
+	  this.gist.description = this.els.description.value
+	  this.gist.filename = this.els.filename.value
+	  this.gist.save()
+	}
       }
       this.bindUI()	  
     },
     bindUI: function(){
       var self = this
-      this.els.save.addEventListener('click', function( event ){
+      this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
       })
-      this.els.delete.addEventListener('click', function( event ){
+      this.els.delete && this.els.delete.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
       })
-      this.els.filename.addEventListener('keypress', this.preventFormSubmit, false)
-      this.els.description.addEventListener('keypress', this.preventFormSubmit, false)
-      this.els.codemirror.on('change', function(){
+      this.els.filename && this.els.filename.addEventListener('keypress', this.preventFormSubmit, false)
+      this.els.description && this.els.description.addEventListener('keypress', this.preventFormSubmit, false)
+      this.els.codemirror && this.els.codemirror.on('change', function(){
 	gistalt.isSaved.call( self )
       })
     },

@@ -67,20 +67,20 @@
   {{#unless session.currentUser}}
       <nav class='pin-bottom margin-auto col7'>
         <div class='pill bottom1 fr'>
-          <a class='btn-main btn' href='/login'>Log In to Update</a>
+          <a class='btn-main btn' href='/login'>Log In with GitHub</a>
         </div>
       </nav>
   {{/unless}}
-  <input class='col6 margin1r' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
+  <input class='col6 margin1r js-description' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
   {{/if}}
 
 <div class='row3 clearfix'>
 
   <input type="hidden" value="Gistalt.md" name="oldFilename">
-  <input class='filename col7 margin1r' type="text" value="Gistalt.md" name="filename">
-  <input type="hidden" value="{{gist.id}}" name="id">
+  <input class='js-filename filename col7 margin1r' type="text" value="Gistalt.md" name="filename">
+  <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
 </div>
   <br><br>
-  <textarea id='content' class='file col8' name="content" style='display:none'>{{content}}</textarea>
+  <textarea id='content' class='file col8 js-content' name="content" style='display:none'>{{content}}</textarea>
 </form>
 {{/if}}
