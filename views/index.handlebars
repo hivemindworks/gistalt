@@ -49,7 +49,6 @@
 </div>
 {{else}}
 <form action="/update" method="post">
-  <input class='col6 margin1r' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
 {{#if owner}}
     {{#if gist.public}}
     {{else}}
@@ -72,6 +71,7 @@
         </div>
       </nav>
   {{/unless}}
+  <input class='col6 margin1r' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
   {{/if}}
 
 <div class='row3 clearfix'>
