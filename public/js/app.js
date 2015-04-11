@@ -87,7 +87,6 @@ var gistalt = (function(){
       }
     }
   }
-
   return new Gistalt()
 })()
 

@@ -1,16 +1,18 @@
 <form method="post" action="/create">
-  <input class='col8 description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
+  <input type="hidden" class='js-id' value="">
+  <input type="hidden" class='js-delete' value="">
+  <input class='col8 description js-description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
   <div class='col4'>
   <small class='fr'>by {{owner.login}}</small>
   </div>
   <div class="bottom2 row6">
-  <input class='filename col8' type="text" name="filename" value="{{time}}.md"><br>
+  <input class='filename col8 js-filename' type="text" name="filename" value="{{time}}.md"><br>
   <div class='col4'>
   <input class='fr' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
   <small class='fr'>Public</small>
   </div>
   </div>
-  <textarea autofocus slass='file' id="content" name="content">{{content}}</textarea>
+  <textarea autofocus class='js-content' id="content" name="content">{{content}}</textarea>
   <br>
   <button class='js-hide' type="submit">Create File</button>
   <div class='col2 margin0 pin-topleft top3'>
@@ -25,7 +27,7 @@
     </div>
     <div class='pill bottom1 fr'>
         <a class='btn' href='/logout'>Logout</a><!--
-       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main'>Create File</a>
+       --><a href='#' type='submit' data-saved="true" data-submit="form" class='btn btn-main js-save'>Create File</a>
     </div>
   </nav>
   {{/if}}
