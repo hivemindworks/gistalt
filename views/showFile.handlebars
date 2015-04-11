@@ -27,13 +27,11 @@
   </nav>
   {{/if}}
   {{#unless session.currentUser}}
-    <div class='col2 pin-topright top2'>
       <nav class='pin-bottom margin-auto col7'>
         <div class='pill bottom1 fr'>
           <a class='btn-main btn' href='/login'>Log In to Update</a>
         </div>
       </nav>
-    </div>
   {{/unless}}
 <form action="/update" method="post" class='js-submit'>
   <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
