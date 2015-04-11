@@ -45,7 +45,7 @@ var gistalt = (function(){
       var self = this
       document.body.addEventListener('click', function( event ){
         if( !event.target.value )
-	  gistalt.els.codemirror.focus()
+	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
       }, false)
       this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
