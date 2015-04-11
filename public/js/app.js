@@ -60,18 +60,21 @@ var gistalt = (function(){
 	this.autoSave()
     },
     autoSave: function(){
-      var typingTimer;                //timer identifier
-      var doneTypingInterval = 5000;  //time in ms, 5 second for example
-      this.els.codemirror.on("change",function(){
-	  clearTimeout(typingTimer);
-	  typingTimer = setTimeout(doneTyping, doneTypingInterval);
-      });
+      var typingTimer
+      var doneTypingInterval = 5000
       var doneTyping = function doneTyping(){
 	  gistalt.save( gistalt.els.save )
       }
+      var isTyping = function isTyping( event ){
+	clearTimeout(typingTimer)
+	typingTimer = setTimeout(doneTyping, doneTypingInterval)
+      }
+      this.els.codemirror.on("change", isTyping)
+      this.els.description.addEventListener("keypress", isTyping)
+      this.els.filename.addEventListener("keypress", isTyping)
     },
     preventFormSubmit: function( event ){
-      this.isSaved()
+      gistalt.isSaved( event.target )
       if( event.keyCode == 13 ){
 	return false
       }
