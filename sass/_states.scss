@@ -1,0 +1,41 @@
+.is-saving:before{
+  content:'';
+  width:0;
+  height:0;
+  display:inline-block;
+  margin-right:10px;
+  border-width:6px;
+  border-style:solid;
+  animation: rotate-border .75s linear infinite;
+  -webkit-animation: rotate-border .75s linear infinite;
+}
+
+$color: #fff;
+@-webkit-keyframes rotate-border{
+  0%{
+    border-color: transparent $color transparent transparent;
+  }
+  25%{
+    border-color: transparent transparent $color transparent;
+  }
+  50%{
+    border-color: transparent transparent transparent $color;
+  }
+  100%{
+    border-color: $color transparent transparent transparent;
+  }
+}
+@keyframes rotate-border{
+  0%{
+    border-color: transparent $color transparent transparent;
+  }
+  25%{
+    border-color: transparent transparent $color transparent;
+  }
+  50%{
+    border-color: transparent transparent transparent $color;
+  }
+  100%{
+    border-color: $color transparent transparent transparent;
+  }
+}

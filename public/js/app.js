@@ -45,9 +45,12 @@ var gistalt = (function(){
     bindUI: function(){
       var self = this
       document.body.addEventListener('click', function( event ){
-        if( !event.target.value )
+        if( event.target.value == undefined )
 	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
       }, false)
+      $('.js-show-progress').on('click', function(){
+        this.classList.add('is-saving')
+      })
       this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
@@ -105,6 +108,7 @@ var gistalt = (function(){
 	    if( response.history )
 	      $('.js-revisions').html( response.history.length )
 	      $(callee).attr('data-saved', true)
+              callee.classList.remove('is-saving')
 	  }
 	})
       }
