@@ -29,7 +29,7 @@
   {{#unless session.currentUser}}
       <nav class='pin-bottom margin-auto col7'>
         <div class='pill bottom1 fr'>
-          <a class='btn-main btn' href='/login'>Log In to Update</a>
+          <a class='btn-main btn' href='/login'>Log In with GitHub</a>
         </div>
       </nav>
   {{/unless}}
@@ -76,9 +76,9 @@
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
-      cm.getDoc().setValue(content);
+      gistalt.els.codemirror.getDoc().setValue(content);
       $('.js-by').html( "by "+ res.owner.login )
-      autosize()
+      gistalt.els.description.value = res.description
     })
   }
   </script>
