@@ -16,7 +16,7 @@
         --><a class='btn' href='/new'>New gist</a>
     </div>
     <div class='pill bottom1 fr'>
-       <a href='#' type='submit' data-submit="form.js-delete" class='btn btn-main btn-delete'>Delete</a><!--
+       <a href='#' type='submit' data-submit="form.js-do-delete" class='btn btn-main btn-delete js-delete'>Delete</a><!--
        --><a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='btn btn-main js-save'>Save</a>
     </div>
     <div class='pill bottom1'>
@@ -69,7 +69,7 @@
   <textarea id='content' class='file col8 js-content' name="content" style='display:none'>{{content}}</textarea>
 
 </form>
-<form method="post" action="/delete" class='js-delete'>
+<form method="post" action="/delete" class='js-do-delete'>
   <input type="hidden" value="{{gist.id}}" name="id">
 </form>
 {{#unless session.currentUser}}

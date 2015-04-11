@@ -45,6 +45,10 @@ var gistalt = (function(){
 	event.preventDefault()
 	gistalt.save( event.target )
       })
+      this.els.delete.addEventListener('click', function( event ){
+	event.preventDefault()
+	gistalt.save( event.target )
+      })
       this.els.filename.addEventListener('keypress', this.preventFormSubmit, false)
       this.els.description.addEventListener('keypress', this.preventFormSubmit, false)
       this.els.codemirror.on('change', function(){
