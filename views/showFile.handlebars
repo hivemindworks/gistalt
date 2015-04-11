@@ -35,11 +35,15 @@
   {{/unless}}
 <form action="/update" method="post" class='js-submit'>
   <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+
+<div class='row3 clearfix'>
+  <input type="hidden" value="{{filename}}" name="oldFilename">
+  <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+  <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
+</div>
 {{#if owner}}
-    {{#if gist.public}}
-    {{else}}
-    <div class='col6 js-by'>
-    <small class="fr">
+    <div class='js-by'>
+    <small class="">
     by {{gist.owner.login}}
     | 
     Private
@@ -49,20 +53,7 @@
     Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
     </small>
     </div>
-    {{/if}}
-
-<div class='col2 margin0 pin-topleft top3'>
-    <!-- <small>Saved: <span class='js-updated-at'>{{gist.updated_at}}</span></small>-->
-</div>
-  {{else}}
   {{/if}}
-
-<div class='row3 clearfix'>
-
-  <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
-  <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
-</div>
   <br><br>
   <textarea id='content' class='file col8 js-content' name="content" style='display:none'>{{content}}</textarea>
 
