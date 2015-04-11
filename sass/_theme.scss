@@ -28,6 +28,14 @@ small {
     font: $code;
 }
 
+.gradient {
+    position: fixed;
+    bottom: 0;
+    height: 9em;
+    width: 100%;
+    background-image: linear-gradient(transparent, $lightestGray);
+}
+
 nav {
     z-index: 100;
     font-family: $code;
@@ -82,10 +90,14 @@ footer {
 
 .prev{
   float:left;
+  position:relative;
+  z-index:2;
 }
 
 .next{
   float:right;
+  position:relative;
+  z-index:2;
 }
 
 .gist-title{
@@ -223,4 +235,12 @@ article > h1{
 
 .CodeMirror .CodeMirror-cursors div.CodeMirror-cursor{
   border-left: 2px solid #333;
+}
+
+[filename] + .CodeMirror{
+  font-family:'Inconsolata', Monaco, monospace;
+}
+
+[filename$=".md"] + .CodeMirror{
+  font: inherit;
 }

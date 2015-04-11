@@ -21,6 +21,7 @@ var gistalt = (function(){
 	  theme: "default",
 	  autofocus: true
 	});
+	this.els.codemirror.setCursor({line: 99999999 })
 	this.localStorage = Object.create( new ActiveStorage("Gistalt") )
 	this.gist = this.localStorage.findBy({
 	  gist_id: this.els.id.value
@@ -43,6 +44,10 @@ var gistalt = (function(){
     },
     bindUI: function(){
       var self = this
+      document.body.addEventListener('click', function( event ){
+        if( !event.target.value )
+	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
+      }, false)
       this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
@@ -60,18 +65,21 @@ var gistalt = (function(){
 	this.autoSave()
     },
     autoSave: function(){
-      var typingTimer;                //timer identifier
-      var doneTypingInterval = 5000;  //time in ms, 5 second for example
-      this.els.codemirror.on("change",function(){
-	  clearTimeout(typingTimer);
-	  typingTimer = setTimeout(doneTyping, doneTypingInterval);
-      });
+      var typingTimer
+      var doneTypingInterval = 5000
       var doneTyping = function doneTyping(){
 	  gistalt.save( gistalt.els.save )
       }
+      var isTyping = function isTyping( event ){
+	clearTimeout(typingTimer)
+	typingTimer = setTimeout(doneTyping, doneTypingInterval)
+      }
+      this.els.codemirror.on("change", isTyping)
+      this.els.description.addEventListener("keypress", isTyping)
+      this.els.filename.addEventListener("keypress", isTyping)
     },
     preventFormSubmit: function( event ){
-      this.isSaved()
+      gistalt.isSaved( event.target )
       if( event.keyCode == 13 ){
 	return false
       }
