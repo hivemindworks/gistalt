@@ -90,10 +90,14 @@ footer {
 
 .prev{
   float:left;
+  position:relative;
+  z-index:2;
 }
 
 .next{
   float:right;
+  position:relative;
+  z-index:2;
 }
 
 .gist-title{
