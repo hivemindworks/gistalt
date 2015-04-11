@@ -54,7 +54,11 @@
   {{#if owner}}
     <div class='js-by'>
     <small class="">
-      by {{gist.owner.login}} | Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+      {{#if gist.public}}
+	by {{gist.owner.login}} | Public | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+      {{else}}
+	by {{gist.owner.login}} | Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+      {{/if}}
     </small>
     </div>
   {{/if}}
