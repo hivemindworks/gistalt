@@ -21,6 +21,7 @@ var gistalt = (function(){
 	  theme: "default",
 	  autofocus: true
 	});
+	this.els.codemirror.setCursor({line: 99999999 })
 	this.localStorage = Object.create( new ActiveStorage("Gistalt") )
 	this.gist = this.localStorage.findBy({
 	  gist_id: this.els.id.value

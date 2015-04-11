@@ -38,6 +38,7 @@
       gistalt.els.codemirror.getDoc().setValue(content);
       $('.js-by').html( "by "+ res.owner.login )
       gistalt.els.description.value = res.description
+      gistalt.els.codemirror.setCursor({line: res.description.length})
     })
   }
   </script>
