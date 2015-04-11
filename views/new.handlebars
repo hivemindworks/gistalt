@@ -3,13 +3,13 @@
   <input type="hidden" class='js-delete' value="">
   <input class='col8 description js-description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
   <div class='col4'>
-  <small class='fr'>by {{owner.login}}</small>
+  <small class=''>by {{owner.login}}</small>
   </div>
   <div class="bottom2 row6">
   <input class='filename col8 js-filename' type="text" name="filename" value="{{time}}.md"><br>
   <div class='col4'>
-  <input class='fr' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
-  <small class='fr'>Public</small>
+  <input class='' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
+  <small class=''>Public</small>
   </div>
   </div>
   <textarea autofocus class='js-content' id="content" name="content">{{content}}</textarea>
