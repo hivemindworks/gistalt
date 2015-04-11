@@ -236,3 +236,11 @@ article > h1{
 .CodeMirror .CodeMirror-cursors div.CodeMirror-cursor{
   border-left: 2px solid #333;
 }
+
+[filename] + .CodeMirror{
+  font-family:'Inconsolata', Monaco, monospace;
+}
+
+[filename$=".md"] + .CodeMirror{
+  font: inherit;
+}

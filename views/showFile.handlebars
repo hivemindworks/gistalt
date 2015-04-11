@@ -8,7 +8,6 @@
   {{/if}}
 {{/unless}}
 
-
 {{#if session.accessToken}}
   <nav class='pin-bottom margin-auto col7 ta-center'>
     <div class='pill bottom1 fl'>
@@ -25,43 +24,12 @@
        --><a class='btn' href='{{gist.html_url}}'>View on GitHub</a>
     </div>
   </nav>
-  {{/if}}
-  {{#unless session.currentUser}}
-      <nav class='pin-bottom margin-auto col7'>
-        <div class='pill bottom1 fr'>
-          <a class='btn-main btn' href='/login'>Log In with GitHub</a>
-        </div>
-      </nav>
-  {{/unless}}
-<form action="/update" method="post" class='js-submit'>
-  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-
-<div class='row3 clearfix'>
-  <input type="hidden" value="{{filename}}" name="oldFilename">
-  <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
-  <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
-</div>
-{{#if owner}}
-    <div class='js-by'>
-    <small class="">
-    by {{gist.owner.login}}
-    | 
-    Private
-    |
-    Forks: {{gist.forks.length}}
-    |
-    Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
-    </small>
+{{else}}
+  <nav class='pin-bottom margin-auto col7'>
+    <div class='pill bottom1 fr'>
+      <a class='btn-main btn' href='/login'>Log In with GitHub</a>
     </div>
-  {{/if}}
-  <br><br>
-  <textarea id='content' class='file col8 js-content' name="content" style='display:none'>{{content}}</textarea>
-
-</form>
-<form method="post" action="/delete" class='js-do-delete'>
-  <input type="hidden" value="{{gist.id}}" name="id">
-</form>
-{{#unless session.currentUser}}
+  </nav>
   <script type='text/javascript'>
   window.onload = function(){
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
@@ -73,6 +41,25 @@
     })
   }
   </script>
-{{/unless}}
+{{/if}}
 
-
+<form action="/update" method="post" class='js-submit'>
+  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+  <div class='row3 clearfix'>
+    <input type="hidden" value="{{filename}}" name="oldFilename">
+    <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+    <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
+  </div>
+  {{#if owner}}
+    <div class='js-by'>
+    <small class="">
+      by {{gist.owner.login}} | Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+    </small>
+    </div>
+  {{/if}}
+  <br><br>
+  <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+</form>
+<form method="post" action="/delete" class='js-do-delete'>
+  <input type="hidden" value="{{gist.id}}" name="id">
+</form>
