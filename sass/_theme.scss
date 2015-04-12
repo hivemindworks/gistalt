@@ -247,3 +247,23 @@ article > h1{
 [filename$=".md"] + .CodeMirror{
   font: inherit;
 }
+
+.CodeMirror .cm-variable-2{
+  color: #666;
+}
+
+.cm-s-default .cm-header {
+  color:inherit;
+}
+
+.cm-header-1{
+  font-size: 1.5em;
+}
+
+.cm-header-2{
+  font-size: 1.25em;
+}
+
+.cm-header-3{
+  font-size: 1em;
+}
