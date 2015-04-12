@@ -53,7 +53,7 @@ var gistalt = (function(){
                     gistalt.els.codemirror && gistalt.els.codemirror.focus()
             }, false)
             window.addEventListener('beforeunload', function(e) {
-                var saved = gistalt.els.save.getAttribute('data-saved') == "true"
+                var saved = gistalt.els.save.getAttribute('data-saved') == "true" || gistalt.els.save.classList.contains('js-skip-alert')
                 if( !saved ){
                     e.returnValue = 'Uh oh, you\'re about to lose some changes!'
                 }
@@ -66,9 +66,8 @@ var gistalt = (function(){
                 event.preventDefault()
                 gistalt.save( event.target )
             })
-            this.els.publicToggle.addEventListener('change', function( event ){
-                console.log(event.target.checked);
-                $('#is-public').attr('checked', event.target.checked)
+            this.els.publicToggle && this.els.publicToggle.addEventListener('click', function( event ){
+                event.target.attr('checked', event.target.checked)
             })
             this.els.filename && this.els.filename.addEventListener('keypress', this.preventFormSubmit, false)
             this.els.description && this.els.description.addEventListener('keypress', this.preventFormSubmit, false)
