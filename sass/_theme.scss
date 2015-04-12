@@ -269,14 +269,6 @@ label.btn.icon.check {
   border-left: 2px solid #333;
 }
 
-[filename] + .CodeMirror{
-  font-family:'Inconsolata', Monaco, monospace;
-}
-
-[filename$=".md"] + .CodeMirror{
-  font: inherit;
-}
-
 .CodeMirror .cm-variable-2{
   color: #666;
 }
