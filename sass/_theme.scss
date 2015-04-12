@@ -218,10 +218,10 @@ label.btn.icon.check {
         background-color:#51BCFF;
     }
     &.btn-delete{
-      background-color: #E84019;
+      background-color: $salmon;
     }
     &.btn-delete:hover{
-      background-color: #F2AA4B;
+      background-color: lighten($salmon, 5%);
     }
 }
 
