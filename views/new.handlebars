@@ -7,13 +7,7 @@
   </div>
   <div class="bottom2 row6">
   <input class='filename col8 js-filename' type="text" name="filename" value="{{time}}.md"><br>
-  <!--
-  YO JESSE! if the public button is below, should this one be programmatically changed?
-  <div class='col4'>
-  <input class='' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
-  <small class=''>Public</small>
-  </div>
-  -->
+  <input id='is-public' class='hide checkbox-public' type='checkbox' name="isPublic" checked="true">
   </div>
   <textarea autofocus class='js-content' id="content" name="content">{{content}}</textarea>
   <br>
