@@ -6,7 +6,7 @@ var routes = require('./routes')
 var config = require('./config')
 var path = require('path')
 var exphbs = require('express-handlebars')
-
+var fs = require('fs')
 var app = express()
 
 app.use(cookieParser())
@@ -21,6 +21,7 @@ app.use(function(req,res,next){
   res.locals.session = req.session;
   res.locals.callback_uri = config.callback_uri
   res.locals.client_id = config.client_id
+  res.locals.mtime = fs.readFileSync('./.mtime','utf8')
   next();
 });
 
