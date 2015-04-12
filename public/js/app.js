@@ -44,6 +44,9 @@ var gistalt = (function(){
     },
     bindUI: function(){
       var self = this
+      $('.js-show-progress').on('click', function(){
+	this.classList.add('is-saving')
+      })
       document.body.addEventListener('click', function( event ){
         if( event.target.value == undefined )
 	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
@@ -111,6 +114,7 @@ var gistalt = (function(){
 	    if( response.history )
 	      $('.js-revisions').html( response.history.length )
 	      $(callee).attr('data-saved', true)
+	      callee.classList.remove('is-saving')
 	  }
 	})
       }
