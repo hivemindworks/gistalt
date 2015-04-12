@@ -209,20 +209,20 @@ label.btn.icon.check {
 
 [data-saved="false"].btn.btn-main {
   transition: all 1s;
-  background-color: #F2AA4B;
+  background-color: $salmon;
   -webkit-animation: pulse 15s 1s infinite;
   animation: pulse 15s 1s infinite;
 }
 
 @-webkit-keyframes pulse {
   0% {
-      background-color: #F2AA4B;
+      background-color: $salmon;
   }
   50% {
-      background-color: #E84019;
+      background-color: $deepRed;
   }
   100% {
-      background-color: #F2AA4B;
+      background-color: $salmon;
   }
 }
 
