@@ -58,6 +58,13 @@ var gistalt = (function(){
                     e.returnValue = 'Uh oh, you\'re about to lose some changes!'
                 }
             })
+	    $(window).keydown(function (e){
+	      if (e.metaKey && e.keyCode == 83) {
+		gistalt.save( gistalt.els.save )
+		e.preventDefault()
+		return false
+	      }
+	    });
             this.els.save && this.els.save.addEventListener('click', function( event ){
                 event.preventDefault()
                 gistalt.save( event.target )
@@ -101,6 +108,7 @@ var gistalt = (function(){
             $(this.els.save).attr('data-saved', this.els.codemirror.getValue() == this.gist.content && this.els.description == this.els.description && this.els.filename == this.gist.filename )
         },
         save: function( callee ){
+	    callee.classList.add('is-saving')
             var $submittee = $($(callee).data('submit'))
             gistalt.els.codemirror.save() // update textarea
             gistalt.gist.description = gistalt.els.description.value
