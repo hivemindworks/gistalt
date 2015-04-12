@@ -14,32 +14,36 @@
 
 
 <!-- remove this stuff at the end? -->
-{{#if gists}}
+{{#if session.accessToken}}
 <ul class='gists col12'>
-{{#each gists}}
-  <li>
-    {{#if this.description}}
-      <div class='col8'>
-	<a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a>
-	{{#unless this.public}}
-	  <span class='public-private'><span class="icon lock"></span></span>
-	{{/unless}}
+{{#if gists}}
+  {{#each gists}}
+    <li>
+      {{#if this.description}}
+	<div class='col8'>
+	  <a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a>
+	  {{#unless this.public}}
+	    <span class='public-private'><span class="icon lock"></span></span>
+	  {{/unless}}
+	</div>
+      {{else}}
+	<div class='col8'>
+	  {{#each this.files}}
+	    <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
+	  {{/each}}
+	  {{#unless this.public}}
+	    <span class='public-private'><span class="icon lock"></span></span>
+	  {{/unless}}
+	</div>
+      {{/if}}
+      <div class='col4'>
+	  <small class='fr'>on {{ this.time }}</small>
       </div>
-    {{else}}
-      <div class='col8'>
-	{{#each this.files}}
-	  <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
-	{{/each}}
-	{{#unless this.public}}
-	  <span class='public-private'><span class="icon lock"></span></span>
-	{{/unless}}
-      </div>
-    {{/if}}
-    <div class='col4'>
-        <small class='fr'>on {{ this.time }}</small>
-    </div>
-  </li>
-{{/each}}
+    </li>
+  {{/each}}
+  {{else}}
+    <li><a href='/new'>Create your first gist</a></li>
+  {{/if}}
 </ul>
 <div class='row3'>
 {{#if prev}}
@@ -74,7 +78,7 @@
       </nav>
   {{/unless}}
   <input class='col6 margin1r js-description' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
-  {{/if}}
+{{/if}}
 
 <div class='row3 clearfix'>
 

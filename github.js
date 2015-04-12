@@ -17,12 +17,16 @@ module.exports = function( accessToken ){
 	  'User-Agent': 'gist-pro'
 	}
       }, function(err, response, body){
-	next = response.headers.link.match(/<(.*)>; rel="next"/);
-        if( next ){
-	  next= next[1].split('&page=')[1]
-	}
-	prev = response.headers.link.match(/<(.*)>; rel="prev"/);
 	try{
+	  next = response.headers.link.match(/<(.*)>; rel="next"/);
+	  if( next ){
+	    next= next[1].split('&page=')[1]
+	  }
+	} catch (e) {
+          next = undefined
+	}
+	try{
+	  prev = response.headers.link.match(/<(.*)>; rel="prev"/);
 	  prev = prev[1].split(',')[3]
 	  prev = prev.split('&page=')[1] 
 	} catch ( e ){
