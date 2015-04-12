@@ -44,13 +44,13 @@ var gistalt = (function(){
     },
     bindUI: function(){
       var self = this
+      $('.js-show-progress').on('click', function(){
+	this.classList.add('is-saving')
+      })
       document.body.addEventListener('click', function( event ){
         if( event.target.value == undefined )
 	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
       }, false)
-      $('.js-show-progress').on('click', function(){
-        this.classList.add('is-saving')
-      })
       this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
@@ -96,7 +96,13 @@ var gistalt = (function(){
       gistalt.gist.description = gistalt.els.description.value
       gistalt.gist.filename = gistalt.els.filename.value
       gistalt.gist.save()
-      if ( $submittee.attr('action') == "/create" || $submittee.attr('action') == "/delete" ){
+
+      if ( $submittee.attr('action') == "/create" ){
+        if ( gistalt.els.codemirror.getValue() != "" ){
+	  $submittee.submit()   
+	}
+      }
+      if( $submittee.attr('action') == "/delete" ){
 	$submittee.submit()   
       } else {
 	$.ajax({
@@ -108,7 +114,7 @@ var gistalt = (function(){
 	    if( response.history )
 	      $('.js-revisions').html( response.history.length )
 	      $(callee).attr('data-saved', true)
-              callee.classList.remove('is-saving')
+	      callee.classList.remove('is-saving')
 	  }
 	})
       }
