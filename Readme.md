@@ -1,11 +1,11 @@
 ## Local Setup
 First, clone the repo
 
-    $ git clone https://github.com/jshawl/gizt
-    $ cd gizt
+    $ git clone https://github.com/jshawl/gistalt
+    $ cd gistalt
 
 You'll then need to register a new oAuth application: https://github.com/settings/applications/new
-Name: Gizt
+Name: Gistalt
 Homepage URL: http://localhost:4000
 Callback URL: http://localhost:4000/callback
 
