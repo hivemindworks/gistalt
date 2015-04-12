@@ -14,9 +14,9 @@
   font-family: 'icon';
   content:'';
   display:inline-block;
-  width:20px;
-  height:20px;
-  font-size: 20px;
+  width:19px;
+  height:19px;
+  font-size: 19px;
   color: inherit;
   vertical-align:top;
   -webkit-background-size:4320px 60px;
@@ -48,7 +48,7 @@
 }
 
 .icon.big                     { line-height:40px; }
-.icon:not(.big):before        { margin-right:5px; }
+.icon:not(.big):before        { margin-right:4px; }
 .icon:empty:before            { margin:0; }
 .button.icon:empty            { width:40px; padding:10px; }
 .button.stroke.icon:empty     { vertical-align: top; padding:8px; }

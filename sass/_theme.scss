@@ -184,7 +184,7 @@ article > h1{
 }
 
 .checkbox-pill input[type=checkbox] { display: none;}
-.checkbox-pill input[type=checkbox] + label:before { background-color: $salmon; border-radius: 2px;}
+.checkbox-pill input[type=checkbox] + label:before { background-color: $salmon; border-radius: 2px; margin-top: 1px; }
 .checkbox-pill input[type=checkbox]:checked + label:before { background-color: $linkColor; }
 .checkbox-pill input[type=checkbox]:not(:checked) + label:before {
   content: "\e614";
