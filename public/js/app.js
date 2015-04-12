@@ -53,10 +53,9 @@ var gistalt = (function(){
                     gistalt.els.codemirror && gistalt.els.codemirror.focus()
             }, false)
             window.addEventListener('beforeunload', function(e) {
-                var saved = gistalt.els.save.getAttribute('data-saved') == "true" || gistalt.els.save.classList.contains('js-skip-alert')
-                if( !saved ){
-                    e.returnValue = 'Uh oh, you\'re about to lose some changes!'
-                }
+		var saved = gistalt.els.save && gistalt.els.save.getAttribute('data-saved') == "true" || gistalt.els.save.classList.contains('js-skip-alert')
+                if( !saved )
+		  e.returnValue = 'Uh oh, you\'re about to lose some changes!'
             })
 	    $(window).keydown(function (e){
 	      if (e.metaKey && e.keyCode == 83) {

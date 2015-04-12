@@ -57,14 +57,14 @@
   </div>
   {{#if owner}}
     <div class='js-by meta'>
+	by {{gist.owner.login}} &nbsp;| 
     <small class="">
       {{#if gist.public}}
-	by {{gist.owner.login}} | Public | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+	 Public 
       {{else}}
-	by {{gist.owner.login}} | 
-	<span class='public-private'><span class="icon lock"></span></span>
-	Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+	<span class='public-private'><span class="icon lock"></span></span>Private
       {{/if}}
+      &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
     </small>
     </div>
   {{/if}}

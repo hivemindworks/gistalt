@@ -289,19 +289,17 @@ label.btn.icon.check {
   font-size: 1em;
 }
 
-.public-private,
-.private-public{
-  font-size: .8em;
+.meta,
+.public-private{
+  font-size: 1em;
   color: $lightGray;
   .icon:before{
     vertical-align:middle;
-    color: $salmon;
   }
 }
 
-.meta .public-private,
-.meta .private-public{
-  font-size:1.25em;
+.lock.icon:before{
+  color: $salmon;
 }
 
 .hide { display: none; }
