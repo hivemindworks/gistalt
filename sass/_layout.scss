@@ -90,6 +90,7 @@
 .margin11r { margin-right:91.6666%; }
 .margin12r { margin-right:100.0000%; }
 
+.pad1 { padding: 1em; }
 .pad3y { padding: 3em 0em 3em 0em; }
 
 
@@ -126,6 +127,15 @@ Details: http://www.positioniseverything.net/easyclearing.html
 .pin-bottom{
     position: fixed;
     bottom: 0;
+}
+.pin-bottomleft {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.z100 {
+    z-index:100;
 }
 
 .amp {

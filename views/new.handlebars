@@ -7,10 +7,13 @@
   </div>
   <div class="bottom2 row6">
   <input class='filename col8 js-filename' type="text" name="filename" value="{{time}}.md"><br>
+  <!--
+  YO JESSE! if the public button is below, should this one be programmatically changed?
   <div class='col4'>
   <input class='' type='checkbox' name="isPublic" {{#if isPublic}}checked="true"{{/if}}"> 
   <small class=''>Public</small>
   </div>
+  -->
   </div>
   <textarea autofocus class='js-content' id="content" name="content">{{content}}</textarea>
   <br>
@@ -25,8 +28,10 @@
         --><a class='btn' href='/new'>New gist</a><!--
         --><a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a>
     </div>
-    <div class='pill bottom1 fr'>
+    <div class='pill bottom1 fr checkbox-pill'>
         <a class='btn' href='/logout'>Logout</a><!--
+        --><input type='checkbox' id='checkbox-public' checked='checked'><!--
+        --><label for='checkbox-public' class='btn icon check'>Public</label><!--
        --><a href='#' type='submit' data-saved="true" data-submit=".js-do-save" class='btn btn-main js-save js-show-progress'>Create File</a>
     </div>
   </nav>

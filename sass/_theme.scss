@@ -16,8 +16,7 @@ h2 {
   color: #222;
 }
 
-h3,
-label {
+h3 {
   font-family: $sans;
   font-weight: bold;
   color: #222;
@@ -39,7 +38,24 @@ small {
     }
 }
 
+.logo {
+    width: 3em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+
+    transition: all .25s;
+
+    &:hover {
+        -webkit-filter: grayscale(0);
+        filter: grayscale(0);
+    }
+}
+
 nav {
+    //TO FIX: remove this in favor of z100
     z-index: 100;
     font-family: $code;
     li a {
@@ -165,6 +181,21 @@ article > h1{
   }
 }
 
+.checkbox-pill input[type=checkbox] { display: none;}
+.checkbox-pill input[type=checkbox] + label:before { background-color: rgba(0,0,0,0.25); border-radius: 2px;}
+.checkbox-pill input[type=checkbox]:not(:checked) + label:before { content: '';}
+.checkbox-pill input[type=checkbox]:checked + label.quiet { background-color: rgba(0,0,0,.5);}
+.checkbox-pill input[type=checkbox]:checked + label.loud { background-color: #bd93e5;}
+.dark.checkbox-pill input[type=checkbox]:checked + label.quiet,
+.dark .checkbox-pill input[type=checkbox]:checked + label.quiet { background-color: rgba(255,255,255,0.25);}
+
+//for the public checkbox
+label.btn.icon.check {
+  border-radius: 0;
+  border-left: 1px solid white;
+  cursor: pointer;
+}
+
 .btn {
     display: inline;
     padding: .5em;
@@ -198,20 +229,20 @@ article > h1{
 
 [data-saved="false"].btn.btn-main {
   transition: all 1s;
-  background-color: #F2AA4B;
+  background-color: $salmon;
   -webkit-animation: pulse 15s 1s infinite;
   animation: pulse 15s 1s infinite;
 }
 
 @-webkit-keyframes pulse {
   0% {
-      background-color: #F2AA4B;
+      background-color: $salmon;
   }
   50% {
-      background-color: #E84019;
+      background-color: $deepRed;
   }
   100% {
-      background-color: #F2AA4B;
+      background-color: $salmon;
   }
 }
 
