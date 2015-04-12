@@ -76,9 +76,9 @@
 <script>
   window.addEventListener('beforeunload', function(e) {
       var saved = $('.js-save').data('saved') === true;
-
-      console.log(saved);
-      e.returnValue = 'Uh oh, you\'re about to lose some changes!';
+      if( !saved ){
+	e.returnValue = 'Uh oh, you\'re about to lose some changes!';
+      }
   });
 </script>
 
