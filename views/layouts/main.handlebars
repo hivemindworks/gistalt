@@ -24,6 +24,24 @@
   <script src='http://jshawl.com/jq'></script>
   <script src='/js/active-storage.js'></script>
   <script src='/js/app.js?mtime={{mtime}}'></script>
+  {{#if gist}}
+    {{#if gist.public }} 
+      <script type="text/javascript">
+	var _gauges = _gauges || [];
+	(function() {
+	  var t   = document.createElement('script');
+	  t.type  = 'text/javascript';
+	  t.async = true;
+	  t.id    = 'gauges-tracker';
+	  t.setAttribute('data-site-id', '551938e85dd0533e2f000a7a');
+	  t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+	  t.src = 'https://track.gaug.es/track.js';
+	  var s = document.getElementsByTagName('script')[0];
+	  s.parentNode.insertBefore(t, s);
+	})();
+      </script>
+    {{/if}}
+  {{else}}
   <script type="text/javascript">
     var _gauges = _gauges || [];
     (function() {
@@ -38,5 +56,6 @@
       s.parentNode.insertBefore(t, s);
     })();
   </script>
+  {{/if}}
 </body>
 </html>
