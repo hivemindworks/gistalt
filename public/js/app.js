@@ -7,7 +7,7 @@ var gistalt = (function(){
             content: document.querySelector('.js-content'),
             filename: document.querySelector('.js-filename'),
             description: document.querySelector('.js-description'),
-            publicToggle: document.querySelector('.checkbox-public'),
+            publicToggle: document.querySelector('#checkbox-public'),
         }
         this.init()
     }
@@ -65,6 +65,10 @@ var gistalt = (function(){
             this.els.delete && this.els.delete.addEventListener('click', function( event ){
                 event.preventDefault()
                 gistalt.save( event.target )
+            })
+            this.els.publicToggle.addEventListener('change', function( event ){
+                console.log(event.target.checked);
+                $('#is-public').attr('checked', event.target.checked)
             })
             this.els.filename && this.els.filename.addEventListener('keypress', this.preventFormSubmit, false)
             this.els.description && this.els.description.addEventListener('keypress', this.preventFormSubmit, false)

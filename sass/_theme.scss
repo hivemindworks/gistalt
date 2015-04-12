@@ -86,9 +86,6 @@ input {
     outline: none; //test
     }
 }
-input[type="checkbox"]{
-    display:inline-block;
-}
 
 footer {
     color: #ccc;
@@ -305,3 +302,5 @@ label.btn.icon.check {
   font-size: .8em;
   color: $lightGray;
 }
+
+.hide { display: none; }
