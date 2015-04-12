@@ -1,3 +1,6 @@
+<script src="lib/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/sweet-alert.css">
+
 {{#unless owner}}
   {{#if session.currentUser }}
     <form method="post" action="/fork">
@@ -71,10 +74,11 @@
 </form>
 
 <script>
+  window.addEventListener('beforeunload', function(e) {
+      var saved = $('.js-save').data('saved');
 
-  window.onbeforeunload = function(e) {
-    return 'fart fart fart';
-  }
-
+      console.log(saved);
+      e.returnValue = 'Uh oh, you\'re about to lose some changes!';
+  });
 </script>
 
