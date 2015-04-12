@@ -22,7 +22,7 @@
       <div class='col8'>
 	<a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a>
 	{{#unless this.public}}
-	  <span class='public-private'>(private)</span>
+	  <span class='public-private'><span class="icon lock"></span></span>
 	{{/unless}}
       </div>
     {{else}}
@@ -31,7 +31,7 @@
 	  <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
 	{{/each}}
 	{{#unless this.public}}
-	<span class='public-private'>(private)</span>
+	  <span class='public-private'><span class="icon lock"></span></span>
 	{{/unless}}
       </div>
     {{/if}}

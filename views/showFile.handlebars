@@ -56,12 +56,14 @@
     <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
   {{#if owner}}
-    <div class='js-by'>
+    <div class='js-by meta'>
     <small class="">
       {{#if gist.public}}
 	by {{gist.owner.login}} | Public | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
       {{else}}
-	by {{gist.owner.login}} | Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+	by {{gist.owner.login}} | 
+	<span class='public-private'><span class="icon lock"></span></span>
+	Private | Forks: {{gist.forks.length}} | Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
       {{/if}}
     </small>
     </div>

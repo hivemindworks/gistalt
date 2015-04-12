@@ -1,4 +1,4 @@
-::selection {
+:bigi:selection {
   background-color: #efefef;
   color: #000;
 }
@@ -293,6 +293,15 @@ label.btn.icon.check {
 .private-public{
   font-size: .8em;
   color: $lightGray;
+  .icon:before{
+    vertical-align:middle;
+    color: $salmon;
+  }
+}
+
+.meta .public-private,
+.meta .private-public{
+  font-size:1.25em;
 }
 
 .hide { display: none; }
