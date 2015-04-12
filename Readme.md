@@ -1,7 +1,7 @@
 ## Local Setup
 First, clone the repo
 
-    $ git clone https://github.com/jshawl/gistalt
+    $ git clone https://github.com/gistalt/gistalt
     $ cd gistalt
 
 You'll then need to register a new oAuth application: https://github.com/settings/applications/new
