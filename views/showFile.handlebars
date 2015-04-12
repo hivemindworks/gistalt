@@ -72,13 +72,3 @@
 <form method="post" action="/delete" class='js-do-delete'>
   <input type="hidden" value="{{gist.id}}" name="id">
 </form>
-
-<script>
-  window.addEventListener('beforeunload', function(e) {
-      var saved = $('.js-save').data('saved') === true;
-      if( !saved ){
-	e.returnValue = 'Uh oh, you\'re about to lose some changes!';
-      }
-  });
-</script>
-

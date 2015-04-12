@@ -51,6 +51,12 @@ var gistalt = (function(){
         if( event.target.value == undefined )
 	  gistalt.els.codemirror && gistalt.els.codemirror.focus()
       }, false)
+      window.addEventListener('beforeunload', function(e) {
+	  var saved = gistalt.els.save.getAttribute('data-saved') == "true"
+	  if( !saved ){
+	    e.returnValue = 'Uh oh, you\'re about to lose some changes!'
+	  }
+      })
       this.els.save && this.els.save.addEventListener('click', function( event ){
 	event.preventDefault()
 	gistalt.save( event.target )
