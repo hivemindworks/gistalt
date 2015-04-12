@@ -93,7 +93,13 @@ var gistalt = (function(){
       gistalt.gist.description = gistalt.els.description.value
       gistalt.gist.filename = gistalt.els.filename.value
       gistalt.gist.save()
-      if ( $submittee.attr('action') == "/create" || $submittee.attr('action') == "/delete" ){
+
+      if ( $submittee.attr('action') == "/create" ){
+        if ( gistalt.els.codemirror.getValue() != "" ){
+	  $submittee.submit()   
+	}
+      }
+      if( $submittee.attr('action') == "/delete" ){
 	$submittee.submit()   
       } else {
 	$.ajax({
