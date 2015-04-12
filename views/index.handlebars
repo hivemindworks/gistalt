@@ -20,22 +20,25 @@
 {{#each gists}}
   <li>
     {{#if this.description}}
-    <div class='col8'>
-      <a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a><br>
-    </div>
-    <div class='col4'>
-        <small class='fr'>on {{ this.time }}</small>
-    </div>
+      <div class='col8'>
+	<a href='/{{ this.id }}/{{this.filename}}' class=''>{{ this.description }}</a>
+	{{#unless this.public}}
+	  <span class='public-private'>(private)</span>
+	{{/unless}}
+      </div>
     {{else}}
-    <div class='col8'>
-      {{#each this.files}}
-        <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
-      {{/each}}
-    </div>
+      <div class='col8'>
+	{{#each this.files}}
+	  <a href="{{../this.id}}/{{@key}}">{{@key}}</a>	
+	{{/each}}
+	{{#unless this.public}}
+	<span class='public-private'>(private)</span>
+	{{/unless}}
+      </div>
+    {{/if}}
     <div class='col4'>
         <small class='fr'>on {{ this.time }}</small>
     </div>
-    {{/if}}
   </li>
 {{/each}}
 </ul>
