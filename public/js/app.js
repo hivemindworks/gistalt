@@ -49,7 +49,7 @@ var gistalt = (function(){
                 this.classList.add('is-saving')
             })
             document.body.addEventListener('click', function( event ){
-                if( event.target.value == undefined && event.target.href == undefined )
+                if( event.target.value == undefined && event.target.href == undefined && !event.target.classList.contains('logo') )
                     gistalt.els.codemirror && gistalt.els.codemirror.focus()
             }, false)
             window.addEventListener('beforeunload', function(e) {
