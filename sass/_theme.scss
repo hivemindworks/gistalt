@@ -38,7 +38,24 @@ small {
     }
 }
 
+.logo {
+    width: 3em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+
+    transition: all .25s;
+
+    &:hover {
+        -webkit-filter: grayscale(0);
+        filter: grayscale(0);
+    }
+}
+
 nav {
+    //TO FIX: remove this in favor of z100
     z-index: 100;
     font-family: $code;
     li a {
