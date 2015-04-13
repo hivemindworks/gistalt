@@ -1,16 +1,7 @@
 <script src="lib/sweet-alert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/sweet-alert.css">
 
-{{#unless owner}}
-  {{#if session.currentUser }}
-    <form method="post" action="/fork">
-      <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
-      <input type="hidden" value="{{filename}}" name="filename">
-      <button type="submit">Fork</button>
-    </form>
-  {{/if}}
-{{/unless}}
-
+{{#if owner}}
 <form action="/update" method="post" class='js-submit'>
   <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
   <div class='row3 clearfix'>
@@ -18,9 +9,8 @@
     <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
     <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
-  {{#if owner}}
-    <div class='js-by meta'>
-	by {{gist.owner.login}} &nbsp;| 
+  <div class='meta'>
+    by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
     <small class="">
       {{#if gist.public}}
 	 Public 
@@ -29,8 +19,7 @@
       {{/if}}
       &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
     </small>
-    </div>
-  {{/if}}
+  </div>
   <br><br>
   {{#if renderMarkdown}}
     <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
@@ -38,11 +27,46 @@
     <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
   {{/if}}
 </form>
+{{else}}
+    <form method="post" class='js-do-fork' action="/fork">
+      {{#if gist.description}}
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+      {{else}}
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
+      {{/if}}
+      <div class='row3 clearfix'>
+	<input type="hidden" value="{{filename}}" name="oldFilename">
+	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
+      </div>
+      <div class='meta'>
+	by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
+	<small class="">
+	  {{#if gist.public}}
+	     Public 
+	  {{else}}
+	    <span class='public-private'><span class="icon lock"></span></span>Private
+	  {{/if}}
+	  &nbsp;| <span class='icon duplicate'></span>Forks: <span class='js-forks'>{{gist.forks.length}}</span> &nbsp;| <span class='icon history'></span>Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
+	</small>
+      </div>
+      {{#if renderMarkdown}}
+	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+      {{else}}
+	<textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+      {{/if}}
+    </form>
+{{/if}}
+
 {{#if session.accessToken}}
   <nav class='pin-bottom margin-auto col7 ta-center'>
     <div class='pill bottom1 fr'>
        <a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-delete'>Delete</a><!--
+       {{#if owner}}
        --><a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='small-50 btn btn-main js-save js-show-progress'>Save</a>
+       {{else}}
+       --><a href='#' type='submit' data-saved="true" data-submit="form.js-do-fork" class='small-50 btn btn-main js-fork js-show-progress'>Fork and Save</a>
+       {{/if}}
     </div>
     <div class='pill bottom1 fl'>
        <a class='btn' href='/'>Your gists</a><!--
@@ -64,15 +88,17 @@
   <script type='text/javascript'>
   window.onload = function(){
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
+      console.log( res )
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
       $('.js-by').html( "by "+ res.owner.login )
+      $('.js-forks').html( res.forks.length )
+      $('.js-revisions').html( res.history.length )
       gistalt.els.description.value = res.description
       var toRender = document.querySelector('.js-render-markdown')
       toRender.innerHTML = marked( content ) 
     })
   }
-
   </script>
 {{/if}}
 
