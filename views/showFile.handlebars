@@ -9,8 +9,8 @@
     <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
     <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
-  <div class='js-by meta'>
-    by {{gist.owner.login}} &nbsp;| 
+  <div class='meta'>
+    by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
     <small class="">
       {{#if gist.public}}
 	 Public 
@@ -29,21 +29,25 @@
 </form>
 {{else}}
     <form method="post" class='js-do-fork' action="/fork">
-      <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+      {{#if gist.description}}
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+      {{else}}
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
+      {{/if}}
       <div class='row3 clearfix'>
 	<input type="hidden" value="{{filename}}" name="oldFilename">
 	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
 	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
       </div>
-      <div class='js-by meta'>
-	by {{gist.owner.login}} &nbsp;| 
+      <div class='meta'>
+	by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
 	<small class="">
 	  {{#if gist.public}}
 	     Public 
 	  {{else}}
 	    <span class='public-private'><span class="icon lock"></span></span>Private
 	  {{/if}}
-	  &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
+	  &nbsp;| <span class='icon duplicate'></span>Forks: <span class='js-forks'>{{gist.forks.length}}</span> &nbsp;| <span class='icon history'></span>Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
 	</small>
       </div>
       {{#if renderMarkdown}}
@@ -84,9 +88,12 @@
   <script type='text/javascript'>
   window.onload = function(){
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
+      console.log( res )
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
       $('.js-by').html( "by "+ res.owner.login )
+      $('.js-forks').html( res.forks.length )
+      $('.js-revisions').html( res.history.length )
       gistalt.els.description.value = res.description
       var toRender = document.querySelector('.js-render-markdown')
       toRender.innerHTML = marked( content ) 
