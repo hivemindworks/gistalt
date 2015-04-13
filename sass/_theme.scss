@@ -194,6 +194,7 @@ label.btn.icon.check {
   cursor: pointer;
 }
 
+
 .btn {
     display: inline;
     padding: .5em;
@@ -261,8 +262,10 @@ label.btn.icon.check {
   clear:both;
 }
 
-.CodeMirror{
-  min-height: 500px;
+@media all and (min-width:40em){
+  .CodeMirror{
+    min-height: 500px;
+  }
 }
 
 .CodeMirror .CodeMirror-cursors div.CodeMirror-cursor{
@@ -295,6 +298,12 @@ label.btn.icon.check {
   color: $lightGray;
   .icon:before{
     vertical-align:middle;
+  }
+}
+
+@media all and (max-width:40em){
+  .meta{
+    font-size:.85em;
   }
 }
 

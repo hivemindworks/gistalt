@@ -204,3 +204,10 @@ input[name="filename"]{
 .gists{
   clear:both;
 }
+
+@media all and(max-width:40em){
+  .small-50{
+    display:inline-block;
+    width:50%;
+  }
+}
