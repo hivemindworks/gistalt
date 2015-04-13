@@ -32,7 +32,11 @@
     </div>
   {{/if}}
   <br><br>
-  <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+  {{#if renderMarkdown}}
+    <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+  {{else}}
+    <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+  {{/if}}
 </form>
 {{#if session.accessToken}}
   <nav class='pin-bottom margin-auto col7 ta-center'>
@@ -56,15 +60,16 @@
       <a class='btn-main btn' href='/login'>Log In with GitHub</a>
     </div>
   </nav>
+  <script src='/js/marked.js'></script>
   <script type='text/javascript'>
   window.onload = function(){
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
-      gistalt.els.codemirror.getDoc().setValue(content);
       $('.js-by').html( "by "+ res.owner.login )
       gistalt.els.description.value = res.description
-      gistalt.els.codemirror.setCursor({line: res.description.length})
+      var toRender = document.querySelector('.js-render-markdown')
+      toRender.innerHTML = marked( content ) 
     })
   }
 

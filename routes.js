@@ -91,6 +91,7 @@ module.exports = {
     } else {
       res.render('showFile', {
         owner: false,
+	renderMarkdown: true,
 	gist: { id: req.params.id },
 	filename: req.params.filename
       })
