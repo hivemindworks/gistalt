@@ -1,16 +1,7 @@
 <script src="lib/sweet-alert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/sweet-alert.css">
 
-{{#unless owner}}
-  {{#if session.currentUser }}
-    <form method="post" action="/fork">
-      <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
-      <input type="hidden" value="{{filename}}" name="filename">
-      <button type="submit">Fork</button>
-    </form>
-  {{/if}}
-{{/unless}}
-
+{{#if owner}}
 <form action="/update" method="post" class='js-submit'>
   <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
   <div class='row3 clearfix'>
@@ -18,9 +9,8 @@
     <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
     <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
-  {{#if owner}}
-    <div class='js-by meta'>
-	by {{gist.owner.login}} &nbsp;| 
+  <div class='js-by meta'>
+    by {{gist.owner.login}} &nbsp;| 
     <small class="">
       {{#if gist.public}}
 	 Public 
@@ -29,8 +19,7 @@
       {{/if}}
       &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
     </small>
-    </div>
-  {{/if}}
+  </div>
   <br><br>
   {{#if renderMarkdown}}
     <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
@@ -38,11 +27,44 @@
     <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
   {{/if}}
 </form>
+{{else}}
+    <form method="post" class='js-do-fork' action="/fork">
+      <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+      <div class='row3 clearfix'>
+	<input type="hidden" value="{{filename}}" name="oldFilename">
+	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
+      </div>
+      <div class='js-by meta'>
+	by {{gist.owner.login}} &nbsp;| 
+	<small class="">
+	  {{#if gist.public}}
+	     Public 
+	  {{else}}
+	    <span class='public-private'><span class="icon lock"></span></span>Private
+	  {{/if}}
+	  &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
+	</small>
+      </div>
+      <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
+      <input type="hidden" value="{{filename}}" name="filename">
+      {{#if renderMarkdown}}
+	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+      {{else}}
+	<textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+      {{/if}}
+    </form>
+{{/if}}
+
 {{#if session.accessToken}}
   <nav class='pin-bottom margin-auto col7 ta-center'>
     <div class='pill bottom1 fr'>
        <a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-delete'>Delete</a><!--
+       {{#if owner}}
        --><a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='small-50 btn btn-main js-save js-show-progress'>Save</a>
+       {{else}}
+       --><a href='#' type='submit' data-saved="true" data-submit="form.js-do-fork" class='small-50 btn btn-main js-fork js-show-progress'>Fork and Save</a>
+       {{/if}}
     </div>
     <div class='pill bottom1 fl'>
        <a class='btn' href='/'>Your gists</a><!--
@@ -72,7 +94,6 @@
       toRender.innerHTML = marked( content ) 
     })
   }
-
   </script>
 {{/if}}
 
