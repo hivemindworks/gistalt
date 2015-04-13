@@ -46,8 +46,6 @@
 	  &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
 	</small>
       </div>
-      <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
-      <input type="hidden" value="{{filename}}" name="filename">
       {{#if renderMarkdown}}
 	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
       {{else}}

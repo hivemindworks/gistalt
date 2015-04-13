@@ -3,6 +3,7 @@ var gistalt = (function(){
         this.els = {
             id: document.querySelector('.js-id'),
             save: document.querySelector('.js-save'),
+            fork: document.querySelector('.js-fork'),
             delete: document.querySelector('.js-delete'),
             content: document.querySelector('.js-content'),
             filename: document.querySelector('.js-filename'),
@@ -68,6 +69,10 @@ var gistalt = (function(){
                 event.preventDefault()
                 gistalt.save( event.target )
             })
+            this.els.fork && this.els.fork.addEventListener('click', function( event ){
+                event.preventDefault()
+                gistalt.save( event.target )
+            })
             this.els.delete && this.els.delete.addEventListener('click', function( event ){
                 event.preventDefault()
                 gistalt.save( event.target )
@@ -118,6 +123,10 @@ var gistalt = (function(){
                 if ( gistalt.els.codemirror.getValue() != "" ){
                     $submittee.submit()   
                 }
+            }
+            if ( $submittee.attr('action') == "/fork" ){
+	      console.log('fork was clicked')
+	      $submittee.submit()   
             }
             if( $submittee.attr('action') == "/delete" ){
                 $submittee.submit()   
