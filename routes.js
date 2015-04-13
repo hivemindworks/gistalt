@@ -73,11 +73,6 @@ module.exports = {
     req.session.destroy()
     res.redirect( redirect ) 
   },
-  show: function( req, res ){
-    github( req.session.accessToken ).gist( req.params.id, function( body ){
-      res.render('show', {gist: body} ) 
-    })
-  },
   showFile: function( req, res ){
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){

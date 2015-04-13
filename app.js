@@ -40,7 +40,6 @@ app.get('/new', routes.newGist)
 app.post('/create', routes.create)
 app.post('/fork/:format?', routes.fork)
 app.post('/delete', routes.deleteGist )
-app.get('/:id', routes.show)
 app.get('/:id/:filename', routes.showFile)
 
 module.exports = app;
