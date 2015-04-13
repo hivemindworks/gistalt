@@ -69,8 +69,9 @@ module.exports = {
     res.render('about')	 
   },
   logout: function( req, res ){
+    var redirect = req.get('Referrer')
     req.session.destroy()
-    res.redirect('/')
+    res.redirect( redirect ) 
   },
   show: function( req, res ){
     github( req.session.accessToken ).gist( req.params.id, function( body ){
