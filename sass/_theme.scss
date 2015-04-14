@@ -307,6 +307,10 @@ label.btn.icon.check {
   }
 }
 
+.js-public-private .lock.icon:before{
+  color: $lightGray;
+}
+
 .lock.icon:before{
   color: $salmon;
 }
