@@ -78,7 +78,7 @@
         </div>
       </nav>
   {{/unless}}
-  <input class='col6 margin1r js-description' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
+  <input class='col7 margin1r js-description' type='text' name='description' value='Gistalt is a better way to write gists' placeholder="Enter Description...">
 {{/if}}
 
 <div class='row3 clearfix'>
@@ -88,6 +88,13 @@
   <input type="hidden" class='js-id' value="{{gist.id}}" name="id">
 </div>
   <br><br>
-  <textarea id='content' class='file col8 js-content' name="content" style='display:none'>{{content}}</textarea>
+  <textarea id='content' class='file col8 js-content' name="content" style='display:none'>
+Gistalt is a minimal interface for writing, forking, and sharing gists from gist.github.com. By default, **everything is editable and forkable**. Go ahead, try it out!
+
+Gistalt is Markdown by default, and works as a live preview. For more information, check out [the Github Flavored Markdown Documentation](https://help.github.com/articles/github-flavored-markdown/).
+
+We're adding new features every day: Check out [our progress](https://github.com/gistalt/gistalt/issues) to see what we're working on or to submit a feature request.
+
+  </textarea>
 </form>
 {{/if}}
