@@ -65,9 +65,6 @@ module.exports = {
       })
     })
   },
-  about: function( req, res ){
-    res.render('about')	 
-  },
   logout: function( req, res ){
     var redirect = req.get('Referrer')
     req.session.destroy()
