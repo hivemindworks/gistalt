@@ -93,6 +93,27 @@ module.exports = {
       })
     }
   },
+  preview: function( req, res ){
+    if( req.session.accessToken ){
+      github( req.session.accessToken ).gist( req.params.id, function( gist ){
+	  var owner = gist.owner.login == req.session.currentUser.login
+	  res.render('showFile', { 
+	    content: gist.files[req.params.filename].content,
+	    owner: owner,
+	    renderMarkdown: true,
+	    gist: gist,
+	    filename: req.params.filename
+	  }) 
+      })
+    } else {
+      res.render('showFile', {
+        owner: false,
+	renderMarkdown: true,
+	gist: { id: req.params.id },
+	filename: req.params.filename
+      })
+    }
+  },
   fork: function( req, res ){
     github( req.session.accessToken ).fork( req, function( gist ){
       res.redirect('/' + gist.id + '/' + req.body.filename )

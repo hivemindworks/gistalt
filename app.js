@@ -41,5 +41,6 @@ app.post('/create', routes.create)
 app.post('/fork/:format?', routes.fork)
 app.post('/delete', routes.deleteGist )
 app.get('/:id/:filename', routes.showFile)
+app.get('/:id/:filename/preview', routes.preview)
 
 module.exports = app;

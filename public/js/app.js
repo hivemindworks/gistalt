@@ -9,6 +9,7 @@ var gistalt = (function(){
             filename: document.querySelector('.js-filename'),
             description: document.querySelector('.js-description'),
             publicToggle: document.querySelector('#checkbox-public'),
+            renderee: document.querySelector('.js-render-markdown')
         }
         this.init()
     }
@@ -42,6 +43,8 @@ var gistalt = (function(){
                     this.gist.save()
                 }
             }
+            if( this.els.renderee )
+	      this.els.renderee.innerHTML = marked( this.els.renderee.innerHTML )
             this.bindUI()	  
         },
         bindUI: function(){
@@ -54,7 +57,11 @@ var gistalt = (function(){
                     gistalt.els.codemirror && gistalt.els.codemirror.focus()
             }, false)
             window.addEventListener('beforeunload', function(e) {
-		var saved = gistalt.els.save && gistalt.els.save.getAttribute('data-saved') == "true" || gistalt.els.save.classList.contains('js-skip-alert')
+	        try{
+		  var saved = gistalt.els.save && gistalt.els.save.getAttribute('data-saved') == "true" || gistalt.els.save.classList.contains('js-skip-alert')
+		} catch (e) {
+		  var saved = true
+		}
                 if( !saved )
 		  e.returnValue = 'Uh oh, you\'re about to lose some changes!'
             })
@@ -98,7 +105,7 @@ var gistalt = (function(){
                 clearTimeout(typingTimer)
                 typingTimer = setTimeout(doneTyping, doneTypingInterval)
             }
-            this.els.codemirror.on("change", isTyping)
+            this.els.codemirror && this.els.codemirror.on("change", isTyping)
             this.els.description.addEventListener("keypress", isTyping)
             this.els.filename.addEventListener("keypress", isTyping)
         },

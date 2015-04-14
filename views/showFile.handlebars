@@ -65,6 +65,11 @@
   <nav class='pin-bottom margin-auto col7 ta-center'>
     <div class='pill bottom1 fr'>
        <a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-delete'>Delete</a><!--
+      {{#if renderMarkdown}}
+	--><a class='btn' href='/{{gist.id}}/{{filename}}'>Edit</a><!--
+      {{else}}
+	--><a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
+      {{/if}}
        {{#if owner}}
        --><a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='small-50 btn btn-main js-save js-show-progress'>Save</a>
        {{else}}
@@ -87,7 +92,6 @@
       <a class='btn-main btn js-show-progress' href='/login'>Log In with GitHub</a>
     </div>
   </nav>
-  <script src='/js/marked.js'></script>
   <script type='text/javascript'>
   window.onload = function(){
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
@@ -108,3 +112,4 @@
 <form method="post" action="/delete" class='js-do-delete'>
   <input type="hidden" value="{{gist.id}}" name="id">
 </form>
+<script src='/js/marked.js'></script>
