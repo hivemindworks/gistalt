@@ -92,7 +92,7 @@ var gistalt = (function(){
             this.els.codemirror && this.els.codemirror.on('change', function(){
                 gistalt.isSaved.call( self )
             })
-            if( this.els.save )
+            if( this.els.save && !this.els.save.classList.contains('js-create') )
                 this.autoSave()
         },
         autoSave: function(){
