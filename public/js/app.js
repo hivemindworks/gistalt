@@ -123,12 +123,9 @@ var gistalt = (function(){
                 if ( gistalt.els.codemirror.getValue() != "" ){
                     $submittee.submit()   
                 }
-            }
-            if ( $submittee.attr('action') == "/fork" ){
-	      console.log('fork was clicked')
+            } else if ( $submittee.attr('action') == "/fork" ){
 	      $submittee.submit()   
-            }
-            if( $submittee.attr('action') == "/delete" ){
+            } else if( $submittee.attr('action') == "/delete" ){
                 $submittee.submit()   
             } else {
                 $.ajax({
