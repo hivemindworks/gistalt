@@ -21,7 +21,6 @@
       &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
     </small>
   </div>
-  <br><br>
   {{#if renderMarkdown}}
     <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
   {{else}}
@@ -64,17 +63,16 @@
 {{#if session.accessToken}}
   <nav class='pin-bottom margin-auto col7 ta-center'>
     <div class='pill bottom1 fr'>
-       <a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-delete'>Delete</a><!--
+     {{#unless owner}}
+	 <a href='#' type='submit' data-saved="true" data-submit="form.js-do-fork" class='small-50 btn btn-main js-fork js-show-progress'>Fork and Save</a>
+     {{/unless}}
       {{#if renderMarkdown}}
-	--><a class='btn' href='/{{gist.id}}/{{filename}}'>Edit</a><!--
+	<a class='btn' href='/{{gist.id}}/{{filename}}'>Edit</a>
       {{else}}
-	--><a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
-      {{/if}}
-       {{#if owner}}
+	<a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
+       --><a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-delete'>Delete</a><!--
        --><a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='small-50 btn btn-main js-save js-show-progress'>Save</a>
-       {{else}}
-       --><a href='#' type='submit' data-saved="true" data-submit="form.js-do-fork" class='small-50 btn btn-main js-fork js-show-progress'>Fork and Save</a>
-       {{/if}}
+      {{/if}}
     </div>
     <div class='pill bottom1 fl'>
        <a class='btn' href='/'>Your gists</a><!--

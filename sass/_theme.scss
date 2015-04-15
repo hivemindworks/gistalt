@@ -317,7 +317,38 @@ label.btn.icon.check {
 
 .hide { display: none; }
 
-.rendered-markdown ul{
-  padding-left:1em;
-  list-style:disc;
+.rendered-markdown{
+  ul { 
+     list-style-type: disc; 
+     list-style-position: inside; 
+  }
+
+  ol { 
+     list-style-type: decimal; 
+     list-style-position: inside; 
+  }
+
+  ul ul, ol ul { 
+     list-style-type: circle; 
+     list-style-position: inside; 
+     margin-left: 15px; 
+  }
+  ul ul ul{ 
+    list-style-type: disc;
+  }
+
+  ol ol, ul ol { 
+     list-style-type: lower-latin; 
+     list-style-position: inside; 
+     margin-left: 15px; 
+  }
+}
+
+code{
+  background: $lighterGray;
+  padding:.125em .5em;
+  color: inherit;
+  font-family:Inconsolata, monospace;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
 }
