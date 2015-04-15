@@ -116,7 +116,9 @@ var gistalt = (function(){
             }
         },
         isSaved: function(){
-            $(this.els.save).attr('data-saved', this.els.codemirror.getValue() == this.gist.content && this.els.description == this.els.description && this.els.filename == this.gist.filename )
+	    var isSaved = this.els.codemirror.getValue() == this.gist.content && this.els.description == this.els.description && this.els.filename == this.gist.filename 
+            $(this.els.save).attr('data-saved', isSaved )
+	    gistalt.els.save.innerHTML = isSaved ? "Saved" : "Save"
         },
         save: function( callee ){
 	    callee.classList.add('is-saving')
@@ -141,6 +143,7 @@ var gistalt = (function(){
                     data: $submittee.serialize(),
                     success: function( response ){
                         $('.js-updated-at').html( response.updated_at )
+		        gistalt.els.save.innerHTML = "Saved"
                         if( response.history )
                             $('.js-revisions').html( response.history.length )
                         $(callee).attr('data-saved', true)
