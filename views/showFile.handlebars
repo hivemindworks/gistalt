@@ -95,7 +95,7 @@
     $.getJSON('https://api.github.com/gists/{{gist.id}}', function( res ){
       var content = res.files["{{filename}}"].content
       $('textarea').html( content )
-      $('.js-by').html( "by "+ res.owner.login )
+      $('.js-by').html( res.owner.login )
       $('.js-forks').html( res.forks.length )
       $('.js-revisions').html( res.history.length )
       $('.js-public-private').html( res.public ? "Public" : "Private" )
