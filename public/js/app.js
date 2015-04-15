@@ -67,6 +67,7 @@ var gistalt = (function(){
             })
 	    $(window).keydown(function (e){
 	      if (e.metaKey && e.keyCode == 83) {
+		gistalt.els.save.classList.add('is-saving')
 		gistalt.save( gistalt.els.save )
 		e.preventDefault()
 		return false
@@ -121,7 +122,6 @@ var gistalt = (function(){
 	    gistalt.els.save.innerHTML = isSaved ? "Saved" : "Save"
         },
         save: function( callee ){
-	    callee.classList.add('is-saving')
             var $submittee = $($(callee).data('submit'))
             gistalt.els.codemirror.save() // update textarea
             gistalt.gist.description = gistalt.els.description.value
