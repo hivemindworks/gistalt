@@ -1,0 +1,9 @@
+Uh oh, we don’t have that page on file.
+
+{{#unless session.currentUser}}
+    <nav class='pin-bottom margin-auto col7'>
+      <div class='pill bottom1 fr'>
+	<a class='btn-main btn js-show-progress' href='/login'>Log In with GitHub</a>
+      </div>
+    </nav>
+{{/unless}}
