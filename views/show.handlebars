@@ -21,8 +21,11 @@
   </div>
   {{#if renderMarkdown}}
     <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
-  {{else}}
+  {{/if}}
+  {{#if owner}}
     <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+  {{else}}
+    <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
   {{/if}}
 </form>
 {{else}}
@@ -52,8 +55,11 @@
       </div>
       {{#if renderMarkdown}}
 	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
-      {{else}}
+      {{/if}}
+      {{#if owner}}
 	<textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+      {{else}}
+	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
       {{/if}}
     </form>
 {{/if}}

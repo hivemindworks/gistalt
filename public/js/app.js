@@ -123,11 +123,6 @@ var gistalt = (function(){
         },
         save: function( callee ){
             var $submittee = $($(callee).data('submit'))
-            gistalt.els.codemirror.save() // update textarea
-            gistalt.gist.description = gistalt.els.description.value
-            gistalt.gist.filename = gistalt.els.filename.value
-            gistalt.gist.save()
-
             if ( $submittee.attr('action') == "/create" ){
                 if ( gistalt.els.codemirror.getValue() != "" ){
                     $submittee.submit()   
@@ -137,6 +132,10 @@ var gistalt = (function(){
             } else if( $submittee.attr('action') == "/delete" ){
                 $submittee.submit()   
             } else {
+		gistalt.els.codemirror.save() // update textarea
+		gistalt.gist.description = gistalt.els.description.value
+		gistalt.gist.filename = gistalt.els.filename.value
+		gistalt.gist.save()
                 $.ajax({
                     url: $submittee.attr('action') + '/json',
                     method: $submittee.attr('method'),
