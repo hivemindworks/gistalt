@@ -43,9 +43,6 @@
 	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
       {{/if}}
       <div class='row3 clearfix'>
-	<input type="hidden" value="{{filename}}" name="oldFilename">
-	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
-	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
       </div>
       <div class='meta col12 bottom2'>
       <small>by </small>
@@ -62,6 +59,9 @@
       &nbsp; | <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
     </small>
   </div>
+	<input type="hidden" value="{{filename}}" name="oldFilename">
+	<input class='js-filename filename col12 margin1r' type="text" value="{{filename}}" name="filename">
+	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
       {{#if renderMarkdown}}
 	<div class='file js-render-markdown rendered-markdown'>{{content}}</div>
       {{/if}}
