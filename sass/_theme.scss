@@ -338,11 +338,11 @@ label.btn.icon.check {
   }
 }
 
-.js-public-private .lock.icon:before{
+.lock.icon:before{
   color: $lightGray;
 }
 
-.lock.icon:before{
+.gists .lock.icon:before{
   color: $salmon;
 }
 
