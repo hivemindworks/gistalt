@@ -39,7 +39,7 @@ app.get('/new', routes.newGist)
 app.post('/create', routes.create)
 app.post('/fork/:format?', routes.fork)
 app.post('/delete', routes.deleteGist )
-app.get('/:id/:filename', routes.showFile)
+app.get('/:id/:filename', routes.show )
 app.get('/:id/:filename/preview', routes.preview)
 app.get('*', function(req, res){
     res.status(404).render('404');

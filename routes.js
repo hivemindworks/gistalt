@@ -70,11 +70,11 @@ module.exports = {
     req.session.destroy()
     res.redirect( redirect ) 
   },
-  showFile: function( req, res ){
+  show: function( req, res ){
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
 	  var owner = gist.owner.login == req.session.currentUser.login
-	  res.render('showFile', { 
+	  res.render('show', { 
 	    content: gist.files[req.params.filename].content,
 	    owner: owner,
 	    gist: gist,
@@ -82,7 +82,7 @@ module.exports = {
 	  }) 
       })
     } else {
-      res.render('showFile', {
+      res.render('show', {
         owner: false,
 	renderMarkdown: true,
 	gist: { id: req.params.id },
@@ -94,7 +94,7 @@ module.exports = {
     if( req.session.accessToken ){
       github( req.session.accessToken ).gist( req.params.id, function( gist ){
 	  var owner = gist.owner.login == req.session.currentUser.login
-	  res.render('showFile', { 
+	  res.render('show', { 
 	    content: gist.files[req.params.filename].content,
 	    owner: owner,
 	    renderMarkdown: true,
@@ -103,7 +103,7 @@ module.exports = {
 	  }) 
       })
     } else {
-      res.render('showFile', {
+      res.render('show', {
         owner: false,
 	renderMarkdown: true,
 	gist: { id: req.params.id },
