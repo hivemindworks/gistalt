@@ -22,7 +22,7 @@ body {
 p, .CodeMirror  {
   font-size: 1em;       /* 16 */
   line-height: 1.5em;   /* 24 */
-  margin-bottom: 12em;
+  margin-bottom: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -84,4 +84,9 @@ tr th {
 a {
   color: $linkColor;
   text-decoration: none;
+}
+
+img {
+    width: 100%;
+    margin: 3em 0em;
 }

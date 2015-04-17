@@ -38,27 +38,27 @@
 {{else}}
     <form method="post" class='js-do-fork' action="/fork">
       {{#if gist.description}}
-	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
+	<input class='col12 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
       {{else}}
-	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
+	<input class='col12 js-description' type='text' name='description' value='{{gist.description}}'>
       {{/if}}
+<div class='meta col12 bottom2'>
+    <small class='js-by'>by {{gist.owner.login}} &nbsp; | </small>
+    <small class="js-public-private">
+      {{#if gist.public}}
+         &nbsp; Public 
+      {{else}}
+        <span class='public-private'><span class="icon lock"></span></span>Private
+      {{/if}}
+    </small>
+    <small>
+      &nbsp; | <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
+    </small>
+  </div>
       <div class='row3 clearfix'>
 	<input type="hidden" value="{{filename}}" name="oldFilename">
 	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
 	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
-      </div>
-      <div class='meta'>
-	by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
-	<small class="js-public-private">
-	  {{#if gist.public}}
-	     Public 
-	  {{else}}
-	    <span class='public-private'><span class="icon lock"></span></span>Private
-	  {{/if}}
-	</small>
-	<small>
-	  &nbsp;| <span class='icon duplicate'></span>Forks: <span class='js-forks'>{{gist.forks.length}}</span> &nbsp;| <span class='icon history'></span>Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
-	</small>
       </div>
       {{#if renderMarkdown}}
 	<div class='file js-render-markdown rendered-markdown'>{{content}}</div>
