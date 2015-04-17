@@ -1,23 +1,29 @@
 {{#if owner}}
 <form action="/update" method="post" class='js-submit'>
-  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
-  <div class='row3 clearfix'>
-    <input type="hidden" value="{{filename}}" name="oldFilename">
-    <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
-    <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
-  </div>
-  <div class='meta'>
-    by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
-    <small class="js-public-private">
+<div class='of-auto bottom2'>
+  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
+  <div class='meta col6'>
+    <small class='fr'>
+      &nbsp; | <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
+    </small>
+    <small class="js-public-private fr">
       {{#if gist.public}}
-	 Public 
+         &nbsp; Public 
       {{else}}
-	<span class='public-private'><span class="icon lock"></span></span>Private
+        <span class='public-private'><span class="icon lock"></span></span>Private
       {{/if}}
     </small>
-    <small>
-      &nbsp;| <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
-    </small>
+    <!-- 
+        If you're writing, you know you're the author.
+        we should only show this on the preview page    
+        <small class='js-by fr'>by {{gist.owner.login}} &nbsp; | </small>
+    -->
+  </div>
+</div>
+  <div class='bottom1 of-auto'>
+    <input type="hidden" value="{{filename}}" name="oldFilename">
+    <input class='js-filename filename col12 margin1r' type="text" value="{{filename}}" name="filename">
+    <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
   {{#if renderMarkdown}}
     <div class='file js-render-markdown rendered-markdown'>{{content}}</div>
@@ -32,7 +38,7 @@
 {{else}}
     <form method="post" class='js-do-fork' action="/fork">
       {{#if gist.description}}
-	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
       {{else}}
 	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
       {{/if}}
@@ -41,19 +47,21 @@
 	<input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
 	<input type="hidden" class="js-id" value="{{gist.id}}" name="id">
       </div>
-      <div class='meta'>
-	by <span class='js-by'>{{gist.owner.login}}</span> &nbsp;| 
-	<small class="js-public-private">
-	  {{#if gist.public}}
-	     Public 
-	  {{else}}
-	    <span class='public-private'><span class="icon lock"></span></span>Private
-	  {{/if}}
-	</small>
-	<small>
-	  &nbsp;| <span class='icon duplicate'></span>Forks: <span class='js-forks'>{{gist.forks.length}}</span> &nbsp;| <span class='icon history'></span>Revisions: <span class='js-revisions'>{{gist.history.length}}</span>
-	</small>
-      </div>
+      <div class='meta col12 bottom2'>
+      <small>by </small>
+    <small class='js-by'>{{gist.owner.login}} &nbsp; | </small>
+      <small> | </small>
+    <small class="">
+      {{#if gist.public}}
+         &nbsp; Public 
+      {{else}}
+        <span class='public-private'><span class="icon lock"></span></span>Private
+      {{/if}}
+    </small>
+    <small>
+      &nbsp; | <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
+    </small>
+  </div>
       {{#if renderMarkdown}}
 	<div class='file js-render-markdown rendered-markdown'>{{content}}</div>
       {{/if}}
