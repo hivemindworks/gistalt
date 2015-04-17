@@ -215,6 +215,7 @@ input[name="filename"]{
   }
 }
 
-.rendered-markdown{
+.rendered-markdown,
+.CodeMirror{
   @extend .top2;
 }
