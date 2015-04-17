@@ -145,9 +145,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
     font-weight: normal;
 }
 
-body{
-  padding:1em 0 6em 0;
-}
+.of-auto { overflow: auto; }
 
 @media all and (max-width:40em){
   body{
@@ -197,13 +195,6 @@ body{
   }
 }
 
-input[name="description"],
-input[name="filename"]{
-  &, &.col7 {
-    width:100%;
-  }
-}
-
 .gists{
   clear:both;
 }
@@ -223,6 +214,15 @@ input[name="filename"]{
   .pill.bottom1:not(.fr){
     float:left;
   }
+
+input[name="description"],
+input[name="filename"]{
+  &, &.col7 {
+    width:100%;
+  }
+}
+
+
 }
 
 @media all and(max-width:55em){

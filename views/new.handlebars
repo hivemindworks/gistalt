@@ -1,13 +1,15 @@
 <form method="post" action="/create" class='js-do-save'>
+<div class='bottom1 of-auto'>
   <input type="hidden" class='js-id' value="">
   <input type="hidden" class='js-delete' value="">
-  <input class='col8 description js-description' type="text" value="{{description}}" name="description" placeholder="Enter description...">
-  <div class='col4'>
-  <small class=''>by {{owner.login}}</small>
+  <input class='col6 description js-description' type="text" value="{{description}}" name="description" placeholder="What are you writing about?">
+  <div class='col6'>
+  <small class='fr'>by {{owner.login}}</small>
   </div>
-  <div class="bottom2 row6">
-  <input class='filename col8 js-filename' type="text" name="filename" value="{{time}}.md"><br>
-  </div>
+</div>
+<div class="bottom2 of-auto">
+  <input class='filename col12 js-filename' type="text" name="filename" value="{{time}}.md"><br>
+</div>
   <textarea autofocus class='js-content' id="content" name="content">{{content}}</textarea>
   <br>
   <button class='js-hide' type="submit">Create Gist</button>

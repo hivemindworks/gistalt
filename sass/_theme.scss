@@ -23,7 +23,7 @@ h3 {
 }
 
 small {
-    color: $lightGray;
+    color: $lightierGray;
     font: $code;
 }
 
@@ -77,13 +77,17 @@ input {
     box-sizing:border-box;
     border-bottom:2px solid transparent;
     font-size: .875em;
+    color: $lightierGray;
+    transition: all .25s;
 
     &:hover {
     border-bottom: 2px solid $lighterGray;
+    color: $lightGray;
     }
     &:focus {
     border-bottom: 2px solid $linkColor;
     outline: none; //test
+    color: $gray;
     }
 }
 
@@ -101,9 +105,31 @@ footer {
     }
 }
 
+.description, .js-description {
+    font-size: 1.25em;
+    font-weight: bold;
+
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: $lightierGray;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color: $lightierGray;
+       opacity:  1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $lightierGray;
+      opacity:  1;
+    }
+    &::-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $lightierGray;
+    }
+}
+
+
+
 .filename {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .prev{
