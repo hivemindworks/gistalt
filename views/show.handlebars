@@ -20,12 +20,12 @@
     </small>
   </div>
   {{#if renderMarkdown}}
-    <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+    <div class='file js-render-markdown rendered-markdown'>{{content}}</div>
   {{else}}
     {{#if owner}}
-      <textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+      <textarea id='content' class='file js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
     {{else}}
-      <div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+      <div class='file js-render-markdown rendered-markdown'>{{content}}</div>
     {{/if}}
   {{/if}}
 </form>
@@ -55,12 +55,12 @@
 	</small>
       </div>
       {{#if renderMarkdown}}
-	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+	<div class='file js-render-markdown rendered-markdown'>{{content}}</div>
       {{/if}}
       {{#if owner}}
-	<textarea id='content' class='file col8 js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
+	<textarea id='content' class='file js-content' filename="{{filename}}" name="content" style='display:none'>{{content}}</textarea>
       {{else}}
-	<div class='file col8 js-render-markdown rendered-markdown'>{{content}}</div>
+	<div class='file js-render-markdown rendered-markdown'>{{content}}</div>
       {{/if}}
     </form>
 {{/if}}
