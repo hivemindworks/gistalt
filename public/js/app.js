@@ -124,9 +124,7 @@ var gistalt = (function(){
         save: function( callee ){
             var $submittee = $($(callee).data('submit'))
             if ( $submittee.attr('action') == "/create" ){
-                if ( gistalt.els.codemirror.getValue() != "" ){
-                    $submittee.submit()   
-                }
+	      $submittee.submit()   
             } else if ( $submittee.attr('action') == "/fork" ){
 	      $submittee.submit()   
             } else if( $submittee.attr('action') == "/delete" ){

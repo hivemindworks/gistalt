@@ -82,7 +82,8 @@ module.exports = function( accessToken ){
 	"public": req.body.isPublic == "on" ? true : false,
         description: req.body.description || "A gistalt piece"
       }
-      data.files[ req.body.filename ] = { content: req.body.content }
+      var content = req.body.content == "" ? "# " + req.body.filename : req.body.content
+      data.files[ req.body.filename ] = { content: content }
       request({
 	uri: uri,
 	method: 'POST',
