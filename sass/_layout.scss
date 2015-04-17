@@ -211,7 +211,27 @@ input[name="filename"]{
 @media all and(max-width:40em){
   .btn.small-50{
     display:inline-block;
+    box-sizing:border-box;
     width:50%;
+  }
+  .small-100{
+    width:100%;
+  }
+}
+
+@media all and(max-width:70em){
+  .pill.bottom1:not(.fr){
+    float:left;
+  }
+}
+
+@media all and(max-width:55em){
+  .pill.bottom1{
+    float:left;
+    clear:both;
+  }
+  .small-hide{
+    display:none !important;
   }
 }
 

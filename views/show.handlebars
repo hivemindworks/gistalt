@@ -69,15 +69,7 @@
 <nav class='pin-bottom margin-auto col7'>
   {{#if session.accessToken}}
   <div class='ta-center'>
-    <div class='pill bottom1 fl'>
-        <a class='btn' href='https://github.com/gistalt/gistalt/issues/new'>Submit feedback</a><!--
-       --><a class='btn js-gist-html-url' href='{{gist.html_url}}'>View on GitHub</a><!--
-	{{#unless renderMarkdown}}
-	  --><a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
-	{{/unless}}
-	-->
-    </div>
-    <div class='pill bottom1 fr'>
+    <div class='pill bottom1 fr small-100'>
     {{#if renderMarkdown}}
       <a class='btn' href='/{{gist.id}}/{{filename}}'>Edit</a>
     {{else}}
@@ -89,9 +81,17 @@
       {{/if}}
     {{/if}}
     </div>
+    <div class='pill bottom1 fl'>
+        <a class='btn' href='https://github.com/gistalt/gistalt/issues/new'>Submit feedback</a><!--
+     --><a class='btn' href='/logout'>Logout</a><!--
+       --><a class='btn js-gist-html-url small-hide' href='{{gist.html_url}}'>View on GitHub</a><!--
+	{{#unless renderMarkdown}}
+	  --><a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
+	{{/unless}}
+	-->
+    </div>
     <div class='pill bottom1'>
-      <a class='btn' href='/logout'>Logout</a><!--
-      --><a class='btn' href='/'>Your gists</a><!--
+      <a class='btn' href='/'>Your gists</a><!--
       --><a class='btn' href='/new'>New gist</a>
     </div>
   </div>
