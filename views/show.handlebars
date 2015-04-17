@@ -1,7 +1,7 @@
 {{#if owner}}
 <form action="/update" method="post" class='js-submit'>
-<div class='of-auto bottom1'>
-  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+<div class='of-auto bottom2'>
+  <input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
   <div class='meta col6'>
     <small class='fr'>
       &nbsp; | <span class='icon duplicate'></span>Forks: {{gist.forks.length}} &nbsp;| <span class='icon history'></span>Revisions: {{gist.history.length}}
@@ -20,9 +20,9 @@
     -->
   </div>
 </div>
-  <div class='row3 clearfix'>
+  <div class='bottom1 of-auto'>
     <input type="hidden" value="{{filename}}" name="oldFilename">
-    <input class='js-filename filename col7 margin1r' type="text" value="{{filename}}" name="filename">
+    <input class='js-filename filename col12 margin1r' type="text" value="{{filename}}" name="filename">
     <input type="hidden" class="js-id" value="{{gist.id}}" name="id">
   </div>
   {{#if renderMarkdown}}
@@ -38,7 +38,7 @@
 {{else}}
     <form method="post" class='js-do-fork' action="/fork">
       {{#if gist.description}}
-	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="Enter Description...">
+	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}' placeholder="What are you writing about?">
       {{else}}
 	<input class='col6 js-description' type='text' name='description' value='{{gist.description}}'>
       {{/if}}
