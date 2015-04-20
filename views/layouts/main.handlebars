@@ -8,7 +8,19 @@
     <meta name="viewport" content="width=device-width">
   </head>
 <body class=''>
-  <a href='/'><img src='/img/logo-small.png' class='z100 logo pin-bottomleft' alt='gistalt logo' /></a>
+  <a href='/' class='logo-link'><img src='/img/logo-small.png' class='z100 logo pin-bottomleft' alt='gistalt logo' /></a>
+  {{#if session.accessToken}}
+    <nav class='pin-bottom margin-auto col7'>
+      <div class='pill bottom1 fl'>
+	  <a class='btn' href='https://github.com/jshawl/gistalt/issues/new'>Submit feedback</a><!--
+	  --><a class='btn' href='/logout'>Logout</a>
+      </div>
+      <div class='pill bottom1 fr'>
+	 <a class='btn' href='/'>Your gists</a><!--
+	  --><a class='btn' href='/new'>New gist</a>
+      </div>
+    </nav>
+  {{/if}}
   <div class='clearfix'>
     <div class='gradient'></div>
     <div class='col7 float-none top2 margin-auto' role="main">

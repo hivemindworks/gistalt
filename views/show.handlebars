@@ -1,3 +1,4 @@
+<div class='cb'>
 {{#if owner}}
 <form action="/update" method="post" class='js-submit'>
 <div class='of-auto bottom2'>
@@ -74,7 +75,7 @@
 {{/if}}
 
 
-<nav class='pin-bottom margin-auto col7'>
+<nav class='pin-bottom margin-auto col7 small-100'>
   {{#if session.accessToken}}
   <div class='ta-center'>
     <div class='pill bottom1 fr small-100'>
@@ -82,25 +83,19 @@
       <a class='btn' href='/{{gist.id}}/{{filename}}'>Edit</a>
     {{else}}
       {{#if owner}}
-	<a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='small-50 btn btn-main js-save js-show-progress'>Save</a><!--
-     --><a href='#' type='submit' data-submit="form.js-do-delete" class='small-50 btn btn-main btn-delete js-show-progress js-delete'>Delete</a>
+	<a href='#' type='submit' data-saved="true" data-submit="form.js-submit" class='btn btn-main js-save js-show-progress'>Save</a><!--
+     --><a href='#' type='submit' data-submit="form.js-do-delete" class='btn btn-main btn-delete js-show-progress js-delete'>Delete</a>
       {{else}}
 	 <a href='#' type='submit' data-saved="true" data-submit="form.js-do-fork" class='small-50 btn btn-main js-fork js-show-progress'>Fork</a>
       {{/if}}
     {{/if}}
     </div>
     <div class='pill bottom1 fl'>
-        <a class='btn' href='https://github.com/gistalt/gistalt/issues/new'>Submit feedback</a><!--
-     --><a class='btn' href='/logout'>Logout</a><!--
-       --><a class='btn js-gist-html-url small-hide' href='{{gist.html_url}}'>View on GitHub</a><!--
+       <a class='btn js-gist-html-url' href='{{gist.html_url}}'>View on GitHub</a><!--
 	{{#unless renderMarkdown}}
 	  --><a class='btn' href='/{{gist.id}}/{{filename}}/preview'>Preview</a><!--
 	{{/unless}}
 	-->
-    </div>
-    <div class='pill bottom1'>
-      <a class='btn' href='/'>Your gists</a><!--
-      --><a class='btn' href='/new'>New gist</a>
     </div>
   </div>
   {{else}}
@@ -129,3 +124,4 @@
   <input type="hidden" value="{{gist.id}}" name="id">
 </form>
 <script src='/js/marked.js'></script>
+</div>
