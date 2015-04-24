@@ -246,7 +246,6 @@ label.btn.icon.check {
         background-color:#51BCFF;
     }
     &.btn-delete{
-      background-color: $salmon;
     }
     &.btn-delete:hover{
       background-color: lighten($salmon, 5%);
