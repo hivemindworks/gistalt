@@ -214,10 +214,13 @@ article > h1{
   content: "\e614";
 }
 
+.btn.js-create {
+  border-radius: 3px 0px 0px 3px;
+}
+
 //for the public checkbox
 label.btn.icon.check {
-  border-radius: 0;
-  border-left: 1px solid white;
+  border-radius:0 3px 3px 0;
   cursor: pointer;
 }
 
